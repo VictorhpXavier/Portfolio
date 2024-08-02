@@ -4,7 +4,9 @@ import styles from '../styles/Home.module.css'; // Import the CSS module
 
 function Blog() {
     return (
-      alert('ao')
+      <div>
+        <h1>test</h1>
+      </div>
       );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation  } from 'react-router-dom';
 import Home from './components/Home'; // gets the html structure and sends it to here
-import About from './components/About';
+import Projects from './components/projects'
 import Blog from './components/Blog';
 import './App.css';
 
@@ -22,8 +22,8 @@ function Header() {
             <li className={pathname === '/' || pathname === '/home' ? 'Home active' : 'Home'}>
               <Link to="/">Home</Link>
             </li>
-            <li className={pathname === '/about' ? 'active' : ''}>
-              <Link to="/about">Projects</Link>
+            <li className={pathname === '/Projects' ? 'active' : ''}>
+              <Link to="/Projects">Projects</Link>
             </li>
             <li className={pathname === '/blog' ? 'active' : ''}>
               <Link to="/blog">Blog</Link>
@@ -46,7 +46,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/Projects" element={<Projects />} />
       <Route path="/blog" element={<Blog />} />
     </Routes>
   </Router>
