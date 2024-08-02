@@ -1,34 +1,41 @@
 // src/components/Home.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from '../styles/Home.module.css'; // Import the CSS module
 
 function Home() {
-    const title = document.querySelector('.Title');
-const aboutBox = document.querySelector('.AboutBox');
-const aboutBoxSkills = document.querySelector('.AboutBoxMyskills');
+    const aboutBoxesRef = useRef([]);
 
-// Function to handle scroll event
-function handleScroll() {
-  // Get the current scroll position
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.visible);
+                    } else {
+                        entry.target.classList.remove(styles.visible);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
 
-  // Check if the elements are in the viewport and apply the visible class
-  if (scrollTop > title.offsetTop - window.innerHeight) {
-    title.classList.add('visible');
-  }
-  if (scrollTop > aboutBox.offsetTop - window.innerHeight) {
-    aboutBox.classList.add('visible');
-  }
-  if (scrollTop > aboutBoxSkills.offsetTop - window.innerHeight) {
-    aboutBoxSkills.classList.add('visible');
-  }
-}
+        aboutBoxesRef.current.forEach((box) => {
+            if (box) {
+                observer.observe(box);
+            }
+        });
 
-// Add event listener for scroll event
-window.addEventListener('scroll', handleScroll);
-    
-    
-    return (
+        return () => {
+            if (aboutBoxesRef.current) {
+                aboutBoxesRef.current.forEach((box) => {
+                    observer.unobserve(box);
+                });
+            }
+        };
+    }, []);
+
+
+  return (
         <div>
             <div className={styles.parentContainer}>
                 <div className={styles.Text}>
@@ -66,10 +73,10 @@ window.addEventListener('scroll', handleScroll);
                 <p>Observation: Not me</p>
             </div>
             <div className={styles.AboutContainer}>
-                <div className={styles.Title}>
+                <div className={styles.Title} ref={(el) => (aboutBoxesRef.current[0] = el)}>
                     <h1>About Me</h1>
                 </div>
-                <div className={styles.AboutBox}>
+                <div className={styles.AboutBox} ref={(el) => (aboutBoxesRef.current[1] = el)}>
                     <h1>History of My life</h1>
                     <p>
                         I’m a high school student passionate about technology,
@@ -82,7 +89,7 @@ window.addEventListener('scroll', handleScroll);
                     </p>
                     <span>Wrote on 1 august 2024</span>
                 </div>
-                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills}>
+                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills} ref={(el) => (aboutBoxesRef.current[2] = el)}>
                     <h1>My Skills</h1>
                     
                     <p>
@@ -100,7 +107,7 @@ window.addEventListener('scroll', handleScroll);
                         <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>
                     </p>
                 </div>
-                <div className={styles.AboutBox} id={styles.AboutBoxidGoals}>
+                <div className={styles.AboutBox} id={styles.AboutBoxidGoals} ref={(el) => (aboutBoxesRef.current[3] = el)}>
                     <h1>My goals</h1>
                     <p>
                         I aim to further my education in computer science and

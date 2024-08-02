@@ -207,11 +207,11 @@
 .Title,
 .AboutBox,
 .AboutBoxMyskills {
-  margin-top: 20%;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .AboutContainer .Title.visible {
   transition-delay: 0s;
 }
@@ -222,6 +222,13 @@
 
 .AboutContainer .AboutBoxMyskills.visible {
   transition-delay: 0.4s; 
+}
+.AboutBoxMyskills, #AboutBoxidGoals {
+  margin-top: 17%;
+}
+#AboutBoxidGoals.visible {
+  transition-delay: 0.6s; 
+
 }
 .visible {
   opacity: 1;
