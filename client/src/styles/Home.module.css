@@ -1,0 +1,228 @@
+/* src/components/YourComponent.module.css */
+.parentContainer {
+  display: flex;
+  justify-content: space-between; /* Space out text and image */
+  align-items: center; /* Align items vertically centered */
+  padding: 20px; /* Add padding around the container */
+  box-sizing: border-box; /* Ensure padding is included in element's total width and height */
+}
+
+.Text {
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 80px;
+  margin-top: 100px;
+  max-width: 50%; /* Optional: Adjust max-width to control text area width */
+}
+.Text h1 {
+  margin-left: 50px;
+
+}
+.Text p {
+  margin-left: 70px;
+
+}
+.Text .Buttons {
+  margin-left: 60px;
+}
+.Saudation {
+  font-size: 24px;
+  color: #FFFFFF;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 20px; /* Add space below Saudation */
+}
+
+.Saudation span {
+  color: #007AFF;
+}
+
+.Buttons {
+  margin-top: 20px; /* Space between text and buttons */
+}
+
+.Text button {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFFFFF;
+  border-radius: 15px;
+  height: 40px;
+  width: 143px;
+  border: none;
+  margin: 10px; /* Adjust margin for spacing */
+  margin-right: 20px;
+}
+
+.ProjectsButton {
+  font-size: 16px;
+  background-color: #007AFF; 
+}
+
+.ProjectsButton:hover {
+  cursor: pointer;
+  background-color: #0071eb;
+}
+
+.ContactButton {
+  font-size: 16px;
+  background-color: #128fdc; 
+}
+
+.ContactButton:hover {
+  cursor: pointer;
+  background-color: #0b7abe; 
+}
+
+.Image {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  margin-top: -390px;
+  margin-right: 90px;
+}
+
+.Image img {
+  border-radius: 8%; /* Border radius for rounded corners */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.Image p {
+  color: #666666;
+  margin-top: 10px; /* Space between image and caption */
+}
+.AboutContainer {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.AboutContainer .Title {
+  color: #007AFF;
+  font-size: 35px;
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 30px; /* Add space between Title and AboutBox */
+}
+
+.AboutContainer .AboutBox {
+  width: 60%;
+  height: 299px;
+  background-color: transparent; /* Or specify a color if needed */
+  border: 2px solid #464646;
+  border-radius: 26px;
+  padding: 20px; /* Add padding for better content spacing */
+}
+
+.AboutBox h1 {
+  font-size: 35px;
+  color: #128fdc;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 10px; /* Space below the h1 */
+}
+
+.AboutBox p {
+  font-size: 29px;
+  color: #FFFFFF;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 10px; /* Space below the paragraph */
+}
+
+.AboutBox span {
+  color: #666666;
+  display: block; /* Ensure it occupies full width */
+  text-align: end;
+  margin-top: 22px; /* Space above the span */
+}
+
+.AboutBoxMyskills h1 {
+  font-size: 35px;
+  color: #128fdc;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-wrap:nowrap;
+  margin-top: 0;
+  margin-bottom: 10px; 
+}
+
+.AboutBoxMyskills {
+  width: 60%;
+  padding: 20px; /* Add padding for better content spacing */
+  height: 299px;
+  background-color: transparent;
+  border: 2px solid #464646;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: row; /* Arrange children in a row */
+  justify-content: space-between; 
+}
+.AboutBoxMyskills strong {
+  text-wrap:  nowrap;
+}
+.AboutBoxMyskills p {
+  margin-left: 0 !important;
+  margin-top: 80px !important;
+  font-size: 29px;
+  color: #FFFFFF;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0; /* Remove margin for consistent spacing */
+}
+
+.AboutBoxMyskills p:last-child {
+  margin-right: 0px; /* Remove right margin from the last paragraph */
+}
+
+.ControlSlides button{
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 80px;
+  height: 30px;
+  border: none;
+  margin-right: 10px;
+  background-color: #666666;
+  color: #FFFFFF;
+}
+.ControlSlides button:hover {
+  background-color: #464646;
+  cursor: pointer;
+}
+
+
+.Title,
+.AboutBox,
+.AboutBoxMyskills {
+  margin-top: 20%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.AboutContainer .Title.visible {
+  transition-delay: 0s;
+}
+
+.AboutContainer .AboutBox.visible {
+  transition-delay: 0.2s;
+}
+
+.AboutContainer .AboutBoxMyskills.visible {
+  transition-delay: 0.4s; 
+}
+.visible {
+  opacity: 1;
+}

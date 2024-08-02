@@ -1,0 +1,29 @@
+return (
+     <div>
+        <div className={styles.parentContainer}>
+
+        <div className={styles.Saudation}>
+            <h1>Hello, I'm <span>Victor</span></h1>
+        </div>
+
+        <div className={styles.Text}>
+            <p>I'm currently a high school student from Portugal with <br></br>a passion for technology.<br></br>Welcome to my Portfolio where i showcase my projects <br></br> and share insights into how i build and create various <br></br>applications.</p>
+
+            <a href="/Projects">
+              <button className={styles.ProjectsButton}>Projects</button>
+            </a>
+            <a href="#Contact">
+              <button className={styles.ContactButton}>Contact</button>
+            </a>
+        </div>
+        <div className="parent-container">
+          <div className={styles.Image}>
+            <img src={`${process.env.PUBLIC_URL}/images/pfp.jpg`} alt="Idk" />
+            <p>Observation: Not me</p>
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+  );
