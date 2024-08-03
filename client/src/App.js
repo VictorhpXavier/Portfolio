@@ -9,6 +9,27 @@ function Header() {
   const location = useLocation();
   const pathname = location.pathname;
 
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const targetId = this.getAttribute('href').substring(1);
+        if (targetId === "") {
+            window.scrollTo({
+                top: 10,
+                behavior: 'smooth'
+            });
+        } else {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scroll({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+  });
   return (
     <div className="header">
       <div className="container">
@@ -40,6 +61,27 @@ function Header() {
 }
 
 function App() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const targetId = this.getAttribute('href').substring(1);
+        if (targetId === "") {
+            window.scrollTo({
+                top: 10,
+                behavior: 'smooth'
+            });
+        } else {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scroll({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+  });
   return (
     <Router>
     <Header />

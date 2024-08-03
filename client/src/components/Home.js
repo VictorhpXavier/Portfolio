@@ -1,11 +1,53 @@
 // src/components/Home.js
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Home.module.css'; // Import the CSS module
+import axios from 'axios';
 
 function Home() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const data = {
+        name,
+        email,
+        message
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:3001/contact', {  // Ensure this URL is correct
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            if (result.success) {
+                // Clear the form by resetting state variables
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                alert('Failed to send message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
+        
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -34,11 +76,12 @@ function Home() {
                 }
             });
         };
+        
     }, []);
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
+    
             const targetId = this.getAttribute('href').substring(1);
             if (targetId === "") {
                 window.scrollTo({
@@ -56,7 +99,7 @@ function Home() {
             }
         });
     });
-
+    
   return (
         <div>
             <section id='home'>
@@ -180,18 +223,38 @@ function Home() {
                 </div>
                 <div className={styles.SendMessage}>
                     <h1>Send Message</h1>
-                    <form action="/">
-                        <label htmlFor="name">Write your name </label>
-                        <input type="text" id="name" name="name" placeholder='Your name' required/>
-                        
-                        <label htmlFor="email">Email address </label>
-                        <input type="email" id="email" name="email" placeholder='Your email address'required />
-                        
-                        <label htmlFor="message">Write Your Message</label>
-                        <textarea id="message" name="message" placeholder='Write your message'required></textarea>
-                        
-                        <button type="submit">Send Message</button>
-                    </form>
+                    <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Write your name </label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder='Your name' 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required />
+                
+                <label htmlFor="email">Email address </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder='Your email address' 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                required />
+                
+                <label htmlFor="message">Write Your Message</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder='Write your message'
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required ></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
                 </div>
             </div>
         </div>
