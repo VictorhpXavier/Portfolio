@@ -92,10 +92,12 @@ body {
 
 .Search {
   display: flex;
-  margin-top: 10px;
   gap: 15px;
   color: #fff;
 
+}
+.Search img {
+  margin-top: 17px;
 }
 .Search a {cursor: pointer;}
 .Search input {
@@ -125,4 +127,113 @@ input[type=text]:focus {
 .Search input::-ms-input-placeholder { /* Edge 12 -18 */
   text-align: center;
   color: #fff;
+}
+.containerMenu {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  right: 35px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+@media (max-width: 767px) {
+  /* Header */
+  .MainRoutes {
+    display: none;
+  }
+  .Search { 
+    display: none;
+  } 
+
+  .containerMenu {
+    display: inline-block;
+  }
+  
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MainRoutes ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MainRoutes ul li {
+    margin-bottom: 5px;
+  }
+
+  .Search {
+    margin-top: 10px;
+  }
+
+}
+
+/* Add this media query for screens smaller than 480px */
+/* Phone */
+@media (max-width: 479px) {
+ 
+  .containerMenu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 35px;
+  }
+  /* Header */
+  .MainRoutes {
+    display: none;
+  }
+  .Search { 
+    display: none;
+  } 
+
+  .containerMenu {
+    display: inline-block;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MainRoutes ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MainRoutes ul li {
+    margin-bottom: 5px;
+  }
+
+  .Search {
+    margin-top: 10px;
+    display: none;
+  }
+
+  .header {
+    right: 0;
+    left: 0;
+    width: 80%;
+    position: absolute;
+    height: 60px;
+  }
+
 }

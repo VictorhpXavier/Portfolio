@@ -1,9 +1,31 @@
 // src/components/Home.js
 import React, { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Home.module.css'; // Import the CSS module
-import axios from 'axios';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const targetId = this.getAttribute('href').substring(1);
+        if (targetId === "") {
+            window.scrollTo({
+                top: 10,
+                behavior: 'smooth'
+            });
+        } else {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scroll({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+  });
 function Home() {
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -78,28 +100,30 @@ function Home() {
         };
         
     }, []);
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    const slides = [
+        {
+          title: 'Web Development',
+          content: ['Html', 'Css', 'JavaScript', 'React']
+        },
+        {
+          title: 'Server Development',
+          content: ['NodeJs', 'Express', 'Python', 'SQL']
+        },
+        {
+          title: 'Other Technologies',
+          content: ['Git', 'GitHub', 'REST APIs']
+        }
+      ];
     
-            const targetId = this.getAttribute('href').substring(1);
-            if (targetId === "") {
-                window.scrollTo({
-                    top: 10,
-                    behavior: 'smooth'
-                });
-            } else {
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scroll({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
+      const [currentSlide, setCurrentSlide] = useState(0);
     
+      const handlePrevClick = () => {
+        setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+      };
+    
+      const handleNextClick = () => {
+        setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+      };
   return (
         <div>
             <section id='home'>
@@ -157,23 +181,61 @@ function Home() {
                     </p>
                     <span>Wrote on 1 august 2024</span>
                 </div>
+                
                 <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills} ref={(el) => (aboutBoxesRef.current[2] = el)}>
+                   
                     <h1>My Skills</h1>
+                    <div className={styles.Arrows}>
+                        <button className={styles.leftArrow}>
+                            <FontAwesomeIcon icon={faArrowLeft} style={{ color: '#ffffff' }} />
+                        </button>
+                         <button className={styles.rightArrow}>
+                           <FontAwesomeIcon icon={faArrowRight} style={{ color: '#ffffff'}} />
+                         </button>
+                    </div>
+                    <div className={styles.WebDev}>
+                        <p>
+                            <strong>Web Development</strong>
+                            <br></br>Html<br></br>Css<br></br>JavaScript<br></br>{' '}
+                            React{' '}
+                        </p>
+                    </div>
+                    <div className={styles.ServerDev}>
+                        <p>
+                            <strong>Server Development</strong>
+                            <br></br>NodeJs<br></br>Express<br></br>Python<br></br>
+                            Sql{' '}
+                        </p>
+                    </div>
+                    <div className={styles.Tech}>
+                        <p>
+                            <strong>Other Technologies</strong>
+                            <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>
+                        </p>
+                    </div>
                     
+                </div>
+                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkillsMin} ref={(el) => (aboutBoxesRef.current[1] = el)}>
+                    <h1>My Skills</h1>
+                    <div className={styles.Arrows}>
+                    <button className={styles.leftArrow} onClick={handlePrevClick}>
+                        <FontAwesomeIcon icon={faArrowLeft} style={{ color: '#ffffff' }} />
+                    </button>
+                    <button className={styles.rightArrow} onClick={handleNextClick}>
+                        <FontAwesomeIcon icon={faArrowRight} style={{ color: '#ffffff' }} />
+                    </button>
+                    </div>
+                    <div className={styles.Slide}>
                     <p>
-                        <strong>Web Development</strong>
-                        <br></br>Html<br></br>Css<br></br>JavaScript<br></br>{' '}
-                        React{' '}
+                        <strong>{slides[currentSlide].title}</strong>
+                        {slides[currentSlide].content.map((item, index) => (
+                        <span key={index}>
+                            <br />
+                            {item}
+                        </span>
+                        ))}
                     </p>
-                    <p>
-                        <strong>Server Development</strong>
-                        <br></br>NodeJs<br></br>Express<br></br>Python<br></br>
-                        Sql{' '}
-                    </p>
-                    <p>
-                        <strong>Other Technologies</strong>
-                        <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>
-                    </p>
+                    </div>
                 </div>
                 <div className={styles.AboutBox} id={styles.AboutBoxidGoals} ref={(el) => (aboutBoxesRef.current[3] = el)}>
                     <h1>My goals</h1>
@@ -205,8 +267,6 @@ function Home() {
                             <h3>Github</h3>
                             <span>VictorhpXavier</span>
                         </div>
-
-                            
                         </a>
                     </div>
                     <div className={styles.LeetCodeButton}>

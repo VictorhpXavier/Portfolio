@@ -1,4 +1,24 @@
 /* src/components/YourComponent.module.css */
+body {
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  width: 14px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  
+  background: #2c2c2c; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #424242; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #2c2c2c; /* Padding around thumb */
+}
+
+
 .parentContainer {
   display: flex;
   justify-content: space-between; /* Space out text and image */
@@ -190,21 +210,6 @@ strong {
   margin-right: 0px; /* Remove right margin from the last paragraph */
 }
 
-.ControlSlides button{
-  margin-top: 60px;
-  margin-bottom: 60px;
-  width: 80px;
-  height: 30px;
-  border: none;
-  margin-right: 10px;
-  background-color: #666666;
-  color: #FFFFFF;
-}
-.ControlSlides button:hover {
-  background-color: #464646;
-  cursor: pointer;
-}
-
 
 .Title,
 .AboutBox,
@@ -223,14 +228,17 @@ strong {
 }
 
 .AboutContainer .AboutBoxMyskills.visible {
-  transition-delay: 0.4s; 
+  transition-delay: 0.3s; 
 }
 .AboutBoxMyskills, #AboutBoxidGoals {
   margin-top: 17%;
 }
 #AboutBoxidGoals.visible {
-  transition-delay: 0.4s; 
+  transition-delay: 0.3s; 
 
+}
+.Arrows {
+  display: none;
 }
 .visible {
   opacity: 1;
@@ -420,4 +428,252 @@ footer .footercontent span {
 .linkscolumn a:hover {
   color: #007aff;
   font-weight: bold;
+}
+#AboutBoxSkillsMin {
+  display: none;
+}
+/* Phone */
+@media (max-width: 479px) {
+  .Text {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 0px;
+    margin-top: 160px;
+    max-width: 100%;
+
+  }
+  .Text h1 {
+    display: inline;
+    margin-left: 0px;
+  
+  }
+  .Text p {
+    text-wrap: wrap;
+    margin-left: 0px;
+  
+  }
+  .Text .Buttons {
+    margin-left: 0px;
+  }
+  .Saudation {
+    font-size: 24px;
+    color: #FFFFFF;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 20px; /* Add space below Saudation */
+  }
+  
+  .Saudation span {
+    color: #007AFF;
+  }
+  
+  .Buttons {
+    margin-top: 20px; /* Space between text and buttons */
+  }
+  
+  .Text button {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFFFFF;
+    border-radius: 15px;
+    height: 40px;
+    width: 143px;
+    border: none;
+    margin: 10px; /* Adjust margin for spacing */
+    margin-right: 20px;
+  }
+  .Arrows {
+    display: flex;
+    background-color: none;
+  }
+  .leftArrow {
+    position: absolute;
+    top: 140px;
+    left: 20px;
+  }
+  .rightArrow {
+    position: absolute;
+    top: 140px;
+    right: 20px;
+  }
+
+  .WebDev strong {
+    font-size: 23px;
+  }
+  .WebDev p {
+    font-size: 23px !important;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+  }
+  .WebDev {
+    display: none;
+  }
+  
+  .ServerDev p {
+    font-size: 23px !important;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+  }
+  .ServerDev {
+    display: flex;
+  }
+  .Tech p {
+    font-size: 23px !important;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+  }
+  .Tech {
+    display: none;
+  }
+  #AboutBoxSkills {
+    display: none;
+  }
+  #AboutBoxSkillsMin {
+
+    display: block;
+  }
+  .Slide {
+    margin-top: -30px !important;
+    left: 0;
+    right: 0;
+  }
+  .Slide p {
+    font-size: 23px !important;
+
+  }
+  .ProjectsButton {
+    font-size: 16px;
+    background-color: #007AFF; 
+  }
+  
+  .ProjectsButton:hover {
+    cursor: pointer;
+    background-color: #0071eb;
+  }
+  
+  .ContactButton {
+    font-size: 16px;
+    background-color: #128fdc; 
+  }
+  
+  .ContactButton:hover {
+    cursor: pointer;
+    background-color: #0b7abe; 
+  }
+  
+  .Image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 64px;
+    height: 64px; 
+  }
+  
+  .Image img {
+    display: none;
+    border-radius: 99%; /* Border radius for rounded corners */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .Image p {
+    display: none;
+    color: #666666;
+    margin-top: 10px; /* Space between image and caption */
+  }
+
+  .AboutContainer {
+    margin-top: 130%;
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+
+  
+  .AboutContainer .AboutBox {
+    width: 85%;
+    height: 399px;
+    background-color: transparent; /* Or specify a color if needed */
+    border: 2px solid #464646;
+    border-radius: 26px;
+    padding: 20px; /* Add padding for better content spacing */
+  }
+  
+  .AboutBox h1 {
+    font-size: 35px;
+    color: #128fdc;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px; /* Space below the h1 */
+  }
+  
+  .AboutBox p {
+    font-size: 19px;
+    color: #FFFFFF;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px; /* Space below the paragraph */
+  }
+  
+  .AboutBox span {
+    color: #666666;
+    display: block; /* Ensure it occupies full width */
+    text-align: end;
+    margin-top: 22px; /* Space above the span */
+  }
+  
+  .AboutBoxMyskills h1 {
+    font-size: 35px;
+    color: #128fdc;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-wrap:nowrap;
+    margin-top: 0;
+  }
+  
+  .AboutBoxMyskills {
+    width: 85%;
+    padding: 20px; /* Add padding for better content spacing */
+    height: 299px;
+    background-color: transparent;
+    border: 2px solid #464646;
+    border-radius: 26px;
+    display: flex;
+    flex-direction: column; /* Arrange children in a row */
+    justify-content: space-between; 
+  }
+  .AboutBoxMyskills strong {
+    text-wrap:  nowrap;
+  }
+  .AboutBoxMyskills p {
+    text-align: center;
+    margin-left: 0 !important;
+    font-size: 19px;
+    color: #FFFFFF;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+  .AboutBoxMyskills p:last-child {
+    margin-right: 0px; /* Remove right margin from the last paragraph */
+  }
 }
