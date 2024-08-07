@@ -1,3 +1,10 @@
+/*Itim  google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Itim&display=swap');
+/* Inter google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* ABeeZee google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /* src/components/YourComponent.module.css */
 body {
   scroll-behavior: smooth;
@@ -209,7 +216,39 @@ strong {
 .AboutBoxMyskills p:last-child {
   margin-right: 0px; /* Remove right margin from the last paragraph */
 }
+.Text, .Saudation, .Buttons, .Image {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
+.ContactTitle, .ContactBox, .LeftSide, .SendMessage {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.ContactContainer .ContactTitle {
+  transition-delay: 0.2s;
+}
+.ContactContainer .ContactBox {
+  transition-delay: 0.2s;
+}
+.ContactContainer .LeftSide {
+  transition-delay: 0.2s;
+}
+.ContactContainer .SendMessage {
+  transition-delay: 0.2s;
+}
+.AboutContainer .Text.visible {
+  transition-delay: 0.2s;
+}
+.AboutContainer .Saudation.visible {
+  transition-delay: 0.2s;
+}
+.AboutContainer .Buttons.visible {
+  transition-delay: 0.2s;
+}
+.AboutContainer .Image.visible {
+  transition-delay: 0.2s;
+}
 
 .Title,
 .AboutBox,
@@ -432,6 +471,9 @@ footer .footercontent span {
 #AboutBoxSkillsMin {
   display: none;
 }
+.ContactContainerMin {
+  display: none;
+}
 /* Phone */
 @media (max-width: 479px) {
   .Text {
@@ -553,6 +595,7 @@ footer .footercontent span {
     font-size: 23px !important;
 
   }
+
   .ProjectsButton {
     font-size: 16px;
     background-color: #007AFF; 
@@ -671,9 +714,122 @@ footer .footercontent span {
     font-weight: 400;
     font-style: normal;
   }
-  
+  .AboutContainer #AboutBoxidGoals {
+      height: 330px;
+  }
 
   .AboutBoxMyskills p:last-child {
     margin-right: 0px; /* Remove right margin from the last paragraph */
+  }
+  /* Contact */
+  .ContactContainer {
+    display: none !important;
+  }
+  .ContactContainerMin {
+    display: block;
+  }
+  .ContactContainerMin {
+    margin-top: 18%;
+    color: #fff;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .ContactTitle  {
+    font-size: 35px;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #007AFF;
+  }
+  
+  .ContactBox {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid #464646;
+    border-radius: 10px;
+  }
+
+  .LeftSide, .SendMessage {
+    width: 100%;
+  }
+
+
+  .GitHubButton, .LeetCodeButton {
+    justify-content: center;
+    width: 90%;
+    height: 100px;
+    border-radius: 26px;
+    border: 1px solid #464646;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  footer {
+    margin-top: 10%;
+    padding: 20px 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox layout for the footer */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  
+  .footercontent {
+    width: 100%; /* Ensure the content takes full width */
+    display: flex;
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  footer .footercontent h1 {
+    color: #007AFF;
+  }
+  footer .footercontent span {
+    color: #128fdc;
+  }
+  
+  .footerlogo {
+    margin-bottom: 20px; /* Space between logo and links */
+  }
+  
+  .footerlogo h1 {
+    font-size: 18px;
+    color: #3164f4;
+  }
+  
+  .footerlogo p {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .footerlinks {
+    display: flex;
+    justify-content: center; /* Center the columns horizontally */
+    gap: 10px; /* Adjust the gap as needed */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    width: 100%; /* Ensure the links take full width for centering */
+  }
+  
+  .linkscolumn {
+    margin-top: 10px  ;
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .linkscolumn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
   }
 }

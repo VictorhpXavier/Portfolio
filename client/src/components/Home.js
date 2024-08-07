@@ -25,7 +25,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 function Home() {
-
+    //Handle send message
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -64,7 +64,7 @@ function Home() {
             console.error('Error:', error);
         }
     };
-
+    //Handle animation
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
@@ -100,6 +100,7 @@ function Home() {
         };
         
     }, []);
+    //Handle Slideshow
     const slides = [
         {
           title: 'Web Development',
@@ -111,7 +112,7 @@ function Home() {
         },
         {
           title: 'Other Technologies',
-          content: ['Git', 'GitHub', 'REST APIs']
+          content: ['Git', 'GitHub', 'REST APIs', 'Docker', 'Linux']
         }
       ];
     
@@ -128,8 +129,8 @@ function Home() {
         <div>
             <section id='home'>
             <div className={styles.parentContainer}>
-                <div className={styles.Text}>
-                    <div className={styles.Saudation}>
+                <div className={styles.Text} ref={(el) => (aboutBoxesRef.current[0] = el)}>
+                    <div className={styles.Saudation} ref={(el) => (aboutBoxesRef.current[1] = el)}>
                         <h1>
                             Hello, I'm <span>Victor</span>
                         </h1>
@@ -141,7 +142,7 @@ function Home() {
                             create various <br></br>applications.
                         </p>
                     </div>
-                    <div className={styles.Buttons}>
+                    <div className={styles.Buttons} ref={(el) => (aboutBoxesRef.current[2] = el)}>
                         <a href="/Projects">
                             <button className={styles.ProjectsButton}>
                                 Projects
@@ -155,7 +156,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className={styles.Image}>
+            <div className={styles.Image} ref={(el) => (aboutBoxesRef.current[3] = el)}>
                 <img
                     src={`${process.env.PUBLIC_URL}/images/pfp.jpg`}
                     alt="Profile"
@@ -165,10 +166,10 @@ function Home() {
             </section>
             <section id="About">
             <div className={styles.AboutContainer}>
-                <div className={styles.Title} ref={(el) => (aboutBoxesRef.current[0] = el)}>
+                <div className={styles.Title} ref={(el) => (aboutBoxesRef.current[4] = el)}>
                     <h1>About Me</h1>
                 </div>
-                <div className={styles.AboutBox} ref={(el) => (aboutBoxesRef.current[1] = el)}>
+                <div className={styles.AboutBox} ref={(el) => (aboutBoxesRef.current[5] = el)}>
                     <h1>History of My life</h1>
                     <p>
                         I’m a high school student passionate about technology,
@@ -182,7 +183,7 @@ function Home() {
                     <span>Wrote on 1 august 2024</span>
                 </div>
                 
-                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills} ref={(el) => (aboutBoxesRef.current[2] = el)}>
+                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills} ref={(el) => (aboutBoxesRef.current[6] = el)}>
                    
                     <h1>My Skills</h1>
                     <div className={styles.Arrows}>
@@ -210,12 +211,12 @@ function Home() {
                     <div className={styles.Tech}>
                         <p>
                             <strong>Other Technologies</strong>
-                            <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>
+                            <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>Docker<br></br>Linux
                         </p>
                     </div>
                     
                 </div>
-                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkillsMin} ref={(el) => (aboutBoxesRef.current[1] = el)}>
+                <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkillsMin} ref={(el) => (aboutBoxesRef.current[7] = el)}>
                     <h1>My Skills</h1>
                     <div className={styles.Arrows}>
                     <button className={styles.leftArrow} onClick={handlePrevClick}>
@@ -237,7 +238,7 @@ function Home() {
                     </p>
                     </div>
                 </div>
-                <div className={styles.AboutBox} id={styles.AboutBoxidGoals} ref={(el) => (aboutBoxesRef.current[3] = el)}>
+                <div className={styles.AboutBox} id={styles.AboutBoxidGoals} ref={(el) => (aboutBoxesRef.current[8] = el)}>
                     <h1>My goals</h1>
                     <p>
                         I aim to further my education in computer science and
@@ -251,37 +252,35 @@ function Home() {
             </div>
             </section>
             <section id='Contact'>
-        <div className={styles.ContactContainer}>
-            <div className={styles.ContactTitle}>
-                <h1>Contact Me</h1>
-            </div>
-            <div className={styles.ContactBox}>
-                <div className={styles.LeftSide}>
-                    <h1>Social Links</h1>
-                    <h2>My email:</h2>
-                    <p>victorhpxavier.09@gmail.com</p>
-                    <div className={styles.GitHubButton}>
-                        <a href="https://github.com/VictorhpXavier" target="_blank" rel="noopener noreferrer">
-                            <img src={`${process.env.PUBLIC_URL}/images/githubLogo.png`} alt="Profile"/>
-                        <div className={styles.SocialLinkText}>
-                            <h3>Github</h3>
-                            <span>VictorhpXavier</span>
-                        </div>
-                        </a>
-                    </div>
-                    <div className={styles.LeetCodeButton}>
-                        <a href="https://leetcode.com/u/VictorhpXavier/" target="_blank" rel="noopener noreferrer">
-                        <img src={`${process.env.PUBLIC_URL}/images/leetCodeLogo.png`} alt="Profile"/>
-                        <div className={styles.SocialLinkText}>
-                            <h3>LeetCode</h3>
-                            <span>VictorhpXavier</span>
-                        </div>
-
-                            
-                        </a>
-                    </div>
+            <div className={styles.ContactContainer} ref={(el) => (aboutBoxesRef.current[9] = el)}>
+                <div className={styles.ContactTitle} ref={(el) => (aboutBoxesRef.current[10] = el)}>
+                    <h1>Contact Me</h1>
                 </div>
-                <div className={styles.SendMessage}>
+                <div className={styles.ContactBox} ref={(el) => (aboutBoxesRef.current[11] = el)}>
+                    <div className={styles.LeftSide} ref={(el) => (aboutBoxesRef.current[12] = el)}>
+                        <h1>Social Links</h1>
+                        <h2>My email:</h2>
+                        <p>victorhpxavier.09@gmail.com</p>
+                        <div className={styles.GitHubButton}>
+                            <a href="https://github.com/VictorhpXavier" target="_blank" rel="noopener noreferrer">
+                                <img src={`${process.env.PUBLIC_URL}/images/githubLogo.png`} alt="Profile"/>
+                            <div className={styles.SocialLinkText}>
+                                <h3>Github</h3>
+                                <span>VictorhpXavier</span>
+                            </div>
+                            </a>
+                        </div>
+                        <div className={styles.LeetCodeButton}>
+                            <a href="https://leetcode.com/u/VictorhpXavier/" target="_blank" rel="noopener noreferrer">
+                            <img src={`${process.env.PUBLIC_URL}/images/leetCodeLogo.png`} alt="Profile"/>
+                            <div className={styles.SocialLinkText}>
+                                <h3>LeetCode</h3>
+                                <span>VictorhpXavier</span>
+                            </div>
+                            </a>
+                        </div>
+                </div>
+                <div className={styles.SendMessage} ref={(el) => (aboutBoxesRef.current[13] = el)}>
                     <h1>Send Message</h1>
                     <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Write your name </label>
@@ -317,6 +316,74 @@ function Home() {
             </form>
                 </div>
             </div>
+        </div>
+            </section>
+            <section id='ContactMin'>
+            <div className={styles.ContactContainerMin} ref={(el) => (aboutBoxesRef.current[14] = el)}>
+                <div className={styles.ContactTitle} ref={(el) => (aboutBoxesRef.current[15] = el)}>
+                    <h1>Contact Me</h1>
+                </div>
+                <div className={styles.ContactBox} ref={(el) => (aboutBoxesRef.current[16] = el)}>
+                    <div className={styles.LeftSide} ref={(el) => (aboutBoxesRef.current[17] = el)}>
+                        <h1>Social Links</h1>
+                        <h2>My email:</h2>
+                        <p>victorhpxavier.09@gmail.com</p>
+                        <div className={styles.GitHubButton}>
+                            <a href="https://github.com/VictorhpXavier" target="_blank" rel="noopener noreferrer">
+                                <img src={`${process.env.PUBLIC_URL}/images/githubLogo.png`} alt="Profile"/>
+                            <div className={styles.SocialLinkText}>
+                                <h3>Github</h3>
+                                <span>VictorhpXavier</span>
+                            </div>
+                            </a>
+                        </div>
+                        <div className={styles.LeetCodeButton}>
+                            <a href="https://leetcode.com/u/VictorhpXavier/" target="_blank" rel="noopener noreferrer">
+                            <img src={`${process.env.PUBLIC_URL}/images/leetCodeLogo.png`} alt="Profile"/>
+                            <div className={styles.SocialLinkText}>
+                                <h3>LeetCode</h3>
+                                <span>VictorhpXavier</span>
+                            </div>
+                            </a>
+                        </div>
+                <div className={styles.SendMessage} ref={(el) => (aboutBoxesRef.current[18] = el)}>
+                    <h1>Send Message</h1>
+                    <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Write your name </label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder='Your name' 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required />
+                
+                <label htmlFor="email">Email address </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder='Your email address' 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                required />
+                
+                <label htmlFor="message">Write Your Message</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder='Write your message'
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required ></textarea>
+                
+                <button type="submit" >Send Message</button>
+            </form>
+                </div>
+            </div>
+            </div>
+
         </div>
             </section>
             <footer>
