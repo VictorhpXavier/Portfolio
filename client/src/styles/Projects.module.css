@@ -1,0 +1,36 @@
+#ProjectsContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-left: 100px;
+
+}
+
+.VHXProjects, .VHXProjects2, .VHXProjects3 {
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 12px;
+    margin-top: 10%;
+    width: 360px;
+    height: 360px;
+    background-color: red;
+}
+.VHXProjects {
+
+    background-image: url('asd.png');
+}
+.VHXProjects p {
+    margin-left: 260px;
+    color: #efefef;
+    margin-top: 370px;
+}
+.VHXProjects2 p {
+    margin-left: 286px;
+    color: #efefef;
+    margin-top: 370px;
+}
+.VHXProjects3 p {
+    margin-left: 220px;
+    color: #efefef;
+    margin-top: 370px;
+}
