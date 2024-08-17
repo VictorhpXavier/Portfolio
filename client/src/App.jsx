@@ -110,6 +110,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/home" element={<Projects />} />
+
       <Route path="/Projects" element={<Projects />} />
       <Route path="/blog" element={<Blog />} />
     </Routes>

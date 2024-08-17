@@ -22,18 +22,7 @@
     margin-bottom: 30px; /* Space between Title and first AboutBox */
   }
   
-.AboutContainer .AboutBox {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    margin-top: 50px;
-    width: 70%;
-    height: 339px;
-    background-color: transparent;
-    border: 2px solid #464646;
-    border-radius: 26px;
-    padding: 20px;
-}
+
 .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4) {
     margin-top: 400px;
 }
@@ -72,15 +61,93 @@
     transition: opacity 0.4s ease-in; 
     opacity: 1;
 }
-.AboutContainer .ProjectContainer > .AboutBox:hover {
-    cursor: pointer;
+
+.AboutContainer .AboutBox {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    margin-top: 50px;
+    width: 70%;
+    height: 339px;
+    background-color: transparent;
+    border: 2px solid #464646;
+    border-radius: 26px;
+    padding: 20px;
+}
+.ProjectContainer .AboutBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 339px;
+    z-index: 1; /* This places it on top of the content */
+}
+
+.ProjectContainer .AboutBox * {
+    position: relative;
+    z-index: -1; /* Ensure the text is in front of the background */
+}
+.AboutContainer  .AboutBox:hover::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 26px;
+    transform: translateY(-7px);
+    transition: transform 0.3s ease-out; 
+    background-color: rgba(71, 71, 71, 0.699); /* Black background with opacity */
+    transform: scaleX(1); /* On hover, the background scales to cover the whole box */
+
+}
+.AboutContainer  .AboutBox:hover  {
+    transform: translateY(-7px);
+    transition: transform 0.3s ease-out; 
+    background-color: rgba(71, 71, 71, 0.699);
+}
+.AboutContainer .AboutBox:hover .Buttons {
+    display: block;
+    transition: transform 0.3s ease-out; 
+
+}
+.AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4):hover {
     transform: translateY(-7px);
     transition: transform 0.3s ease-out; 
 }
-.AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4):hover {
+.AboutContainer .ProjectContainer .Buttons {
+    display: none;
+    z-index: 999;
+    position: relative;
+    top: -50px;
+    right: 20px;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if height is defined */
+}
+
+.AboutContainer .ProjectContainer .Buttons .Visit button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(90%); /* Adjust this value based on button width */
+    width: 110px;
+    font-size: 18px;
+    height: 41px;
+    background-color: #147ff1;
+}
+
+
+.AboutContainer .ProjectContainer .Buttons .Visit:hover {
     cursor: pointer;
-    transform: translateY(-7px);
-    transition: transform 0.3s ease-out; 
+}
+.AboutContainer .ProjectContainer .Buttons .LearnMore button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(200%); /* Adjust this value based on button width */
+    width: 120px;
+    font-size: 18px;
+    height: 40px;
+    background-color: #fff;
+    color: black;
+}
+.AboutContainer .ProjectContainer .Buttons .LearnMore:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 900px) {
