@@ -54,19 +54,19 @@
 }
 .AboutContainer .AboutBox.visible {
     opacity: 1;
-    transition: opacity 0.2s ease-in;
+    transition: opacity 0.4s ease-in;
 }
 
 .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4).visible {
-    transition: opacity 0.4s ease-in; 
+    transition: opacity 0.6s ease-in; 
     opacity: 1;
 }
 
 .AboutContainer .AboutBox {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    margin-top: 50px;
+    transform: translateY(20px);
+    padding: 20px; /* Add padding to make sure the background color covers some area around the text */
+    transition: transform 0.6s ease-out, background-color 0.6s ease-out; /* Add transition to background color */    margin-top: 50px;
     width: 70%;
     height: 339px;
     background-color: transparent;
@@ -93,19 +93,20 @@
     height: 100%;
     border-radius: 26px;
     transform: translateY(-7px);
-    transition: transform 0.3s ease-out; 
+    transition: transform 0.3s ease-out background-color 0.4s ease-out; 
     background-color: rgba(71, 71, 71, 0.699); /* Black background with opacity */
     transform: scaleX(1); /* On hover, the background scales to cover the whole box */
 
 }
 .AboutContainer  .AboutBox:hover  {
     transform: translateY(-7px);
-    transition: transform 0.3s ease-out; 
+    transition: transform 0.3s ease-out background-color 0.4s ease-out; 
     background-color: rgba(71, 71, 71, 0.699);
 }
+
 .AboutContainer .AboutBox:hover .Buttons {
     display: block;
-    transition: transform 0.3s ease-out; 
+    transition: transform 0.3s ease-out ; 
 
 }
 .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4):hover {
@@ -115,11 +116,11 @@
 .AboutContainer .ProjectContainer .Buttons {
     display: none;
     z-index: 999;
-    position: relative;
-    top: -50px;
-    right: 20px;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically if height is defined */
+    position: absolute;
+    top: 45%;
+    left: 2%;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .AboutContainer .ProjectContainer .Buttons .Visit button {

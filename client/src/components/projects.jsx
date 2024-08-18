@@ -43,11 +43,11 @@ function About() {
                         className={styles.AboutBox}
                         ref={(el) => (aboutBoxesRef.current[0] = el)}
                     >
-                        <h1>AI ChatBot </h1>
+                        <h1>test </h1>
                         <p>
-                            Unlock your expertise with our AI-powered platform
+                           test
                         </p>
-                        <span>Wrote on 1 august 2024</span>
+                        <span>test</span>
                         <div className={styles.Buttons}>
                             <div className={styles.Visit}>
                                 <a href="http://localhost:3002" target='_blank'>
@@ -55,7 +55,7 @@ function About() {
                                 </a>
                             </div>
                             <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
+                                <Link to="/home">
                                     <button className={styles.LearnMore}>Read About</button>
                                 </Link>
                             </div>
