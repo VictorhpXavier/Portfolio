@@ -1,3 +1,4 @@
+
 .AboutContainer {
     display: flex;
     flex-direction: column; /* Arrange children in a column */
@@ -7,7 +8,7 @@
 }
 .AboutContainer .ProjectContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+    grid-template-columns: repeat(3, 1fr); /* 1 column on mobile */
     gap: 40px; /* Horizontal and vertical gap between boxes */
     justify-items: center;
 }
@@ -19,13 +20,12 @@
     font-family: 'Itim', cursive;
     font-weight: 400;
     font-style: normal;
+    margin-top: 120px;
     margin-bottom: 30px; /* Space between Title and first AboutBox */
   }
   
 
-.AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4) {
-    margin-top: 400px;
-}
+
 .AboutContainer .ProjectContainer > .AboutBox:nth-last-child(-n+3) {
     margin-bottom: 100px;
 }
@@ -54,11 +54,11 @@
 }
 .AboutContainer .AboutBox.visible {
     opacity: 1;
-    transition: opacity 0.4s ease-in;
+    transition: opacity 0.4s ease-in, background-color 0.4s ease-out; /* Add transition to background color */
 }
 
 .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4).visible {
-    transition: opacity 0.6s ease-in; 
+    transition: opacity 0.6s ease-in, background-color 0.4s ease-out; /* Add transition to background color */
     opacity: 1;
 }
 
@@ -93,20 +93,19 @@
     height: 100%;
     border-radius: 26px;
     transform: translateY(-7px);
-    transition: transform 0.3s ease-out background-color 0.4s ease-out; 
+    transition: transform 0.3s ease-out; 
     background-color: rgba(71, 71, 71, 0.699); /* Black background with opacity */
     transform: scaleX(1); /* On hover, the background scales to cover the whole box */
 
 }
 .AboutContainer  .AboutBox:hover  {
     transform: translateY(-7px);
-    transition: transform 0.3s ease-out background-color 0.4s ease-out; 
     background-color: rgba(71, 71, 71, 0.699);
-}
+    transition: transform 0.4s ease-out; 
 
+}
 .AboutContainer .AboutBox:hover .Buttons {
     display: block;
-    transition: transform 0.3s ease-out ; 
 
 }
 .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4):hover {
@@ -134,8 +133,9 @@
 }
 
 
-.AboutContainer .ProjectContainer .Buttons .Visit:hover {
+.AboutContainer .ProjectContainer .Buttons .Visit button:hover {
     cursor: pointer;
+    background-color: #128fdc;
 }
 .AboutContainer .ProjectContainer .Buttons .LearnMore button {
     position: absolute;
@@ -147,18 +147,293 @@
     background-color: #fff;
     color: black;
 }
-.AboutContainer .ProjectContainer .Buttons .LearnMore:hover {
+.AboutContainer .ProjectContainer .Buttons .LearnMore button:hover {
     cursor: pointer;
+    background-color: #dfdcdc;
 }
-
+footer {
+    margin-top: 10%;
+    padding: 20px 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox layout for the footer */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  
+  .footercontent {
+    width: 100%; /* Ensure the content takes full width */
+    display: flex;
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  footer .footercontent h1 {
+    color: #007AFF;
+  }
+  footer .footercontent span {
+    color: #128fdc;
+  }
+  
+  .footerlogo {
+    margin-bottom: 20px; /* Space between logo and links */
+  }
+  
+  .footerlogo h1 {
+    font-size: 24px;
+    color: #3164f4;
+  }
+  
+  .footerlogo p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .footerlinks {
+    display: flex;
+    justify-content: center; /* Center the columns horizontally */
+    gap: 30px; /* Adjust the gap as needed */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    width: 100%; /* Ensure the links take full width for centering */
+  }
+  
+  .linkscolumn {
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .linkscolumn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  .linkscolumn a:hover {
+    color: #007aff;
+    font-weight: bold;
+  }
 @media (max-width: 900px) {
     .AboutContainer .ProjectContainer {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
     }
+   
 }
 
 @media (max-width: 600px) {
+
+    .AboutContainer {
+        display: flex;
+        flex-direction: column; /* Arrange children in a column */
+        align-items: center;
+        justify-content: center;
+    
+    }
     .AboutContainer .ProjectContainer {
+        display: grid;
         grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+        gap: 40px; /* Horizontal and vertical gap between boxes */
+        justify-items: center;
+    }
+    
+    
+    .AboutContainer .Title {
+        color: #007aff;
+        font-size: 35px;
+        font-family: 'Itim', cursive;
+        font-weight: 400;
+        font-style: normal;
+        margin-top: 120px;
+        margin-bottom: 30px; /* Space between Title and first AboutBox */
+      }
+      
+    
+   
+    .AboutContainer .ProjectContainer > .AboutBox:nth-last-child(-n+3) {
+        margin-bottom: 100px;
+    }
+    .AboutBox h1 {
+        font-size: 35px;
+        color: #128fdc;
+        font-family: 'ABeeZee', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        margin-bottom: 10px; /* Space below the h1 */
+    }
+    
+    .AboutBox p {
+        font-size: 29px;
+        color: #ffffff;
+        font-family: 'ABeeZee', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        margin-bottom: 10px; /* Space below the paragraph */
+    }
+    
+    .AboutBox span {
+        color: #666666;
+        display: block;
+        text-align: end;
+    }
+    .AboutContainer .AboutBox.visible {
+        opacity: 1;
+        transition: opacity 0.4s ease-in, background-color 0.4s ease-out; /* Add transition to background color */
+    }
+    
+    .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4).visible {
+        transition: opacity 0.6s ease-in, background-color 0.4s ease-out; /* Add transition to background color */
+        opacity: 1;
+    }
+    
+    .AboutContainer .AboutBox {
+        opacity: 0;
+        transform: translateY(20px);
+        padding: 20px; /* Add padding to make sure the background color covers some area around the text */
+        transition: transform 0.6s ease-out, background-color 0.6s ease-out; /* Add transition to background color */    margin-top: 50px;
+        width: 70%;
+        height: 339px;
+        background-color: transparent;
+        border: 2px solid #464646;
+        border-radius: 26px;
+        padding: 20px;
+    }
+    .ProjectContainer .AboutBox::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 339px;
+        z-index: 1; /* This places it on top of the content */
+    }
+    
+    .ProjectContainer .AboutBox * {
+        position: relative;
+        z-index: -1; /* Ensure the text is in front of the background */
+    }
+    .AboutContainer  .AboutBox:hover::before {
+        width: 100%;
+        height: 100%;
+        border-radius: 26px;
+        transform: translateY(-7px);
+        transition: transform 0.3s ease-out; 
+        background-color: rgba(71, 71, 71, 0.699); /* Black background with opacity */
+        transform: scaleX(1); /* On hover, the background scales to cover the whole box */
+    
+    }
+    .AboutContainer  .AboutBox:hover  {
+        transform: translateY(-7px);
+        background-color: rgba(71, 71, 71, 0.699);
+        transition: transform 0.4s ease-out; 
+    
+    }
+    .AboutContainer .AboutBox:hover .Buttons {
+        display: block;
+    
+    }
+    .AboutContainer .ProjectContainer > .AboutBox:nth-child(n+4):hover {
+        transform: translateY(-7px);
+        transition: transform 0.3s ease-out; 
+    }
+    .AboutContainer .ProjectContainer .Buttons {
+        animation: enablePointerEvents 0.5s forwards;
+        display: none;
+        z-index: 999;
+        position: absolute;
+        top: 45% !important;
+        left: -23% !important;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .AboutContainer .ProjectContainer .Buttons .Visit button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(90%); /* Adjust this value based on button width */
+        width: 110px;
+        font-size: 18px;
+        height: 41px;
+        background-color: #147ff1;
+    }
+    
+    
+    .AboutContainer .ProjectContainer .Buttons .Visit button:hover {
+        cursor: pointer;
+        background-color: #128fdc;
+    }
+    .AboutContainer .ProjectContainer .Buttons .LearnMore button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(200%); /* Adjust this value based on button width */
+        width: 120px;
+        font-size: 18px;
+        height: 40px;
+        background-color: #fff;
+        color: black;
+    }
+    .AboutContainer .ProjectContainer .Buttons .LearnMore button:hover {
+        cursor: pointer;
+        background-color: #dfdcdc;
+    }
+
+    footer {
+        margin-top: 10%;
+        padding: 20px 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex; /* Use flexbox layout for the footer */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+      }
+      
+      .footercontent {
+        width: 100%; /* Ensure the content takes full width */
+        display: flex;
+        align-items: flex-start; /* Align items to the start (left) */
+      }
+      footer .footercontent h1 {
+        color: #007AFF;
+      }
+      footer .footercontent span {
+        color: #128fdc;
+      }
+      
+      .footerlogo {
+        margin-bottom: 20px; /* Space between logo and links */
+      }
+      
+      .footerlogo h1 {
+        font-size: 18px;
+        color: #3164f4;
+      }
+      
+      .footerlogo p {
+        font-size: 12px;
+        color: #666;
+      }
+      
+      .footerlinks {
+        display: flex;
+        justify-content: center; /* Center the columns horizontally */
+        gap: 10px; /* Adjust the gap as needed */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        width: 100%; /* Ensure the links take full width for centering */
+      }
+      
+      .linkscolumn {
+        margin-top: 10px  ;
+        transform: translateY(50%);
+        display: flex;
+        flex-direction: row;
+      }
+      
+      .linkscolumn a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+      }
+}
+@keyframes enablePointerEvents {
+    0% {
+        pointer-events: none;
+    }
+    100% {
+        pointer-events: auto;
     }
 }

@@ -4,6 +4,7 @@ import styles from '../styles/Projects.module.css';
 function About() {
     const aboutBoxesRef = useRef([]);
 
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -43,19 +44,21 @@ function About() {
                         className={styles.AboutBox}
                         ref={(el) => (aboutBoxesRef.current[0] = el)}
                     >
-                        <h1>test </h1>
+                        <h1>AI ChatBot </h1>
                         <p>
-                           test
+                        Unlock your expertise with our AI-powered platform
+
                         </p>
-                        <span>test</span>
+                        <span>Wrote on 1 august 2024</span>
+                        
                         <div className={styles.Buttons}>
                             <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='_blank'>
+                                <a href="http://localhost:3002" target='blank'>
                                     <button className={styles.VisitButton}>Visit Now</button>
                                 </a>
                             </div>
                             <div className={styles.LearnMore}>
-                                <Link to="/home">
+                                <Link to="/blog/VHX-ChatBotAi">
                                     <button className={styles.LearnMore}>Read About</button>
                                 </Link>
                             </div>
@@ -70,12 +73,12 @@ function About() {
                         <span>Wrote on 1 august 2024</span>
                         <div className={styles.Buttons}>
                             <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='_blank'>
+                                <a href="http://localhost:3002" target='blank'>
                                     <button className={styles.VisitButton}>Visit Now</button>
                                 </a>
                             </div>
                             <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
+                                <Link to="/blog/VHX-SentimentAnalysis">
                                     <button className={styles.LearnMore}>Read About</button>
                                 </Link>
                             </div>
@@ -93,12 +96,12 @@ function About() {
                         <span>Wrote on 1 august 2024</span>
                         <div className={styles.Buttons}>
                             <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='_blank'>
+                                <a href="http://localhost:3002" target='blank'>
                                     <button className={styles.VisitButton}>Visit Now</button>
                                 </a>
                             </div>
                             <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
+                                <Link to="/blog/VHX-PortFolio">
                                     <button className={styles.LearnMore}>Read About</button>
                                 </Link>
                             </div>
@@ -113,6 +116,18 @@ function About() {
                             Unlock your expertise with our AI-powered platform
                         </p>
                         <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <div
                         className={styles.AboutBox}
@@ -121,6 +136,18 @@ function About() {
                         <h1>Sentiment Analysis </h1>
                         <p>Get sentiment feedback from a phrase</p>
                         <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <div
                         className={styles.AboutBox}
@@ -132,6 +159,18 @@ function About() {
                             development projects and interactive designs.
                         </p>
                         <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <div
                         className={styles.AboutBox}
@@ -193,6 +232,31 @@ function About() {
                     </div>
                 </div>
             </div>
+            <footer>
+                <div className={styles.footercontent}>
+                    <div className={styles.footerlogo}>
+                        <h1><strong>V<span>H</span>X</strong></h1>
+                        <p>2024 &copy; VHX All rights reserved.</p>
+                    </div>
+                    <div className={styles.footerlinks}>
+                        <div className={styles.linkscolumn}>
+                            <a href="/">Home</a>
+                            <Link to="/home#About">About</Link>
+                            <Link to="/home#Contact">Contact</Link>
+
+
+                        </div>
+                        <div className={styles.linkscolumn}>
+                            <a href="/blog">Blog</a>
+                            <a href="/Projects">Projects</a>
+                        </div>
+                        <div className={styles.linkscolumn}>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms Of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }

@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'; // Import the CSS module
 function Blog() {
     return (
       <div>
-        <h1>test</h1>
+        <h1></h1>
       </div>
       );
 }
