@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Projects.module.css';
 function About() {
     const aboutBoxesRef = useRef([]);
-
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -33,13 +32,34 @@ function About() {
             });
         };
     }, []);
+        //Settings menu
+        const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+        const toggleMenu = () => {
+            setIsMenuOpen(!isMenuOpen);
+        };
  return (
         <div>
             <div className={styles.AboutContainer}>
                 <div className={styles.Title}>
                     <h1>My Projects</h1>
                 </div>
+                <div className={styles.Settings}>
+                            <h2>Search Settings </h2>
+                            <div className={styles.HamburgerMenu} onClick={toggleMenu}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                    
+                    {isMenuOpen && (
+                        <div className={styles.Menu}>
+                        <h2>Search Settings</h2>
+                    </div>
+                    )}
+                </div>
                 <div className={styles.ProjectContainer}>
+                    
                     <div
                         className={styles.AboutBox}
                         ref={(el) => (aboutBoxesRef.current[0] = el)}
