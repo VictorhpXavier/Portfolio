@@ -403,10 +403,7 @@ function Home() {
                             <a href="/blog">Blog</a>
                             <a href="/Projects">Projects</a>
                         </div>
-                        <div className={styles.linkscolumn}>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms Of Service</a>
-                        </div>
+
                     </div>
                 </div>
             </footer>

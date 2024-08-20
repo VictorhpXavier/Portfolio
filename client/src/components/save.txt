@@ -1,0 +1,356 @@
+ <div className={styles.AboutContainer}>
+                <div className={styles.Title}>
+                    <h1>My Projects</h1>
+                </div>
+                <div className={styles.Settings}>
+                            <h2>Search Settings </h2>
+                            <div className={styles.HamburgerMenu} onClick={toggleMenu}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                    
+                    {isMenuOpen && (
+                        <div className={styles.Menu}>
+                        <h2>Search Settings</h2>
+                    </div>
+                    )}
+                </div>
+                <div className={styles.ProjectContainer}>
+                    
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[0] = el)}
+                    >
+                        <h1>AI ChatBot </h1>
+                        <p>
+                        Unlock your expertise with our AI-powered platform
+
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                        
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[1] = el)}
+                    >
+                        <h1>Sentiment Analysis </h1>
+                        <p>Get sentiment feedback from a phrase</p>
+                        <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-SentimentAnalysis">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[2] = el)}
+                    >
+                        <h1>Portfolio </h1>
+                        <p>
+                            Explore my work, showcasing a range of web
+                            development projects and interactive designs.
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-PortFolio">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[3] = el)}
+                    >
+                        <h1>AI ChatBot </h1>
+                        <p>
+                            Unlock your expertise with our AI-powered platform
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[4] = el)}
+                    >
+                        <h1>Sentiment Analysis </h1>
+                        <p>Get sentiment feedback from a phrase</p>
+                        <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[5] = el)}
+                    >
+                        <h1>Portfolio </h1>
+                        <p>
+                            Explore my work, showcasing a range of web
+                            development projects and interactive designs.
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                        <div className={styles.Buttons}>
+                            <div className={styles.Visit}>
+                                <a href="http://localhost:3002" target='blank'>
+                                    <button className={styles.VisitButton}>Visit Now</button>
+                                </a>
+                            </div>
+                            <div className={styles.LearnMore}>
+                                <Link to="/blog/VHX-ChatBotAi">
+                                    <button className={styles.LearnMore}>Read About</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[6] = el)}
+                    >
+                        <h1>AI ChatBot </h1>
+                        <p>
+                            Unlock your expertise with our AI-powered platform
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[7] = el)}
+                    >
+                        <h1>Sentiment Analysis </h1>
+                        <p>Get sentiment feedback from a phrase</p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[8] = el)}
+                    >
+                        <h1>Portfolio </h1>
+                        <p>
+                            Explore my work, showcasing a range of web
+                            development projects and interactive designs.
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[9] = el)}
+                    >
+                        <h1>AI ChatBot </h1>
+                        <p>
+                            Unlock your expertise with our AI-powered platform
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[10] = el)}
+                    >
+                        <h1>Sentiment Analysis </h1>
+                        <p>Get sentiment feedback from a phrase</p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                    <div
+                        className={styles.AboutBox}
+                        ref={(el) => (aboutBoxesRef.current[11] = el)}
+                    >
+                        <h1>Portfolio </h1>
+                        <p>
+                            Explore my work, showcasing a range of web
+                            development projects and interactive designs.
+                        </p>
+                        <span>Wrote on 1 august 2024</span>
+                    </div>
+                </div>
+            </div>
+
+
+            .AboutContainer {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center;
+    justify-content: center;
+}
+.AboutContainer .Title {
+    color: #007aff;
+    font-size: 35px;
+    font-family: 'Itim', cursive;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 30px; /* Space between Title and first AboutBox */
+}
+  
+.AboutBox h1 {
+    font-size: 35px;
+    color: #128fdc;
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px; /* Space below the h1 */
+}
+
+.AboutBox p {
+    font-size: 29px;
+    color: #ffffff;
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px; /* Space below the paragraph */
+}
+
+.AboutBox span {
+    color: #666666;
+    display: block;
+    text-align: end;
+}
+.AboutContainer .AboutBox {
+    transform: translateX(-9%);
+    padding: 20px; /* Add padding to make sure the background color covers some area around the text */
+    transition: transform 0.6s ease-out, background-color 0.6s ease-out; /* Add transition to background color */    margin-top: 50px;
+    width: 120%;
+    background-color: transparent;
+    border: 2px solid #464646;
+    border-radius: 26px;
+    padding: 20px;
+}
+.AboutContainer .ProjectContainer .Buttons {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    top: 45% !important;
+    left: -23% !important;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.AboutContainer .ProjectContainer .Buttons .Visit button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(90%); /* Adjust this value based on button width */
+    width: 110px;
+    font-size: 18px;
+    height: 41px;
+    background-color: #147ff1;
+}
+
+
+.AboutContainer .ProjectContainer .Buttons .Visit button:hover {
+    cursor: pointer;
+    background-color: #128fdc;
+}
+.AboutContainer .ProjectContainer .Buttons .LearnMore button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(200%); /* Adjust this value based on button width */
+    width: 120px;
+    font-size: 18px;
+    height: 40px;
+    background-color: #fff;
+    color: black;
+}
+.AboutContainer .ProjectContainer .Buttons .LearnMore button:hover {
+    cursor: pointer;
+    background-color: #dfdcdc;
+}
+
+
+.Settings {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: -70%;
+    margin-top: -30px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid #007aff;
+    padding: 10px;
+}
+.Settings h2 {
+    gap: 20px;
+    color: #666;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.HamburgerMenu {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.HamburgerMenu span {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.Menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 240px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.Menu h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 18px;
+}

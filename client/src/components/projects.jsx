@@ -40,218 +40,208 @@ function About() {
         };
  return (
         <div>
-            <div className={styles.AboutContainer}>
-                <div className={styles.Title}>
-                    <h1>My Projects</h1>
-                </div>
-                <div className={styles.Settings}>
-                            <h2>Search Settings </h2>
-                            <div className={styles.HamburgerMenu} onClick={toggleMenu}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                    
-                    {isMenuOpen && (
-                        <div className={styles.Menu}>
-                        <h2>Search Settings</h2>
-                    </div>
-                    )}
-                </div>
-                <div className={styles.ProjectContainer}>
-                    
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[0] = el)}
-                    >
-                        <h1>AI ChatBot </h1>
-                        <p>
-                        Unlock your expertise with our AI-powered platform
+           <div className={styles.Projects}>
+                <h1>VHX Projects</h1>
+                <table className={styles.ProjectTable}>
+                   <thead>
+                       <tr>
+                           <th>Year</th>
+                           <th>Project</th>
 
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                        
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[1] = el)}
-                    >
-                        <h1>Sentiment Analysis </h1>
-                        <p>Get sentiment feedback from a phrase</p>
-                        <span>Wrote on 1 august 2024</span>
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-SentimentAnalysis">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[2] = el)}
-                    >
-                        <h1>Portfolio </h1>
-                        <p>
-                            Explore my work, showcasing a range of web
-                            development projects and interactive designs.
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-PortFolio">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[3] = el)}
-                    >
-                        <h1>AI ChatBot </h1>
-                        <p>
-                            Unlock your expertise with our AI-powered platform
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[4] = el)}
-                    >
-                        <h1>Sentiment Analysis </h1>
-                        <p>Get sentiment feedback from a phrase</p>
-                        <span>Wrote on 1 august 2024</span>
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[5] = el)}
-                    >
-                        <h1>Portfolio </h1>
-                        <p>
-                            Explore my work, showcasing a range of web
-                            development projects and interactive designs.
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                        <div className={styles.Buttons}>
-                            <div className={styles.Visit}>
-                                <a href="http://localhost:3002" target='blank'>
-                                    <button className={styles.VisitButton}>Visit Now</button>
-                                </a>
-                            </div>
-                            <div className={styles.LearnMore}>
-                                <Link to="/blog/VHX-ChatBotAi">
-                                    <button className={styles.LearnMore}>Read About</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[6] = el)}
-                    >
-                        <h1>AI ChatBot </h1>
-                        <p>
-                            Unlock your expertise with our AI-powered platform
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[7] = el)}
-                    >
-                        <h1>Sentiment Analysis </h1>
-                        <p>Get sentiment feedback from a phrase</p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[8] = el)}
-                    >
-                        <h1>Portfolio </h1>
-                        <p>
-                            Explore my work, showcasing a range of web
-                            development projects and interactive designs.
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[9] = el)}
-                    >
-                        <h1>AI ChatBot </h1>
-                        <p>
-                            Unlock your expertise with our AI-powered platform
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[10] = el)}
-                    >
-                        <h1>Sentiment Analysis </h1>
-                        <p>Get sentiment feedback from a phrase</p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                    <div
-                        className={styles.AboutBox}
-                        ref={(el) => (aboutBoxesRef.current[11] = el)}
-                    >
-                        <h1>Portfolio </h1>
-                        <p>
-                            Explore my work, showcasing a range of web
-                            development projects and interactive designs.
-                        </p>
-                        <span>Wrote on 1 august 2024</span>
-                    </div>
-                </div>
-            </div>
+                           <th>Built with</th>
+                           <th>Link</th>
+                           <th>Read More</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                           <td>
+                                <span className={styles.badge}>HTML</span>
+                                <span className={styles.badge}>CSS</span>
+                                <span className={styles.badge}>JavaScript</span>
+                                <span className={styles.badge}>Node.js</span>
+                                <span className={styles.badge}>Python</span>
+                                <span className={styles.badge}>MySQL</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td>
+                                <span className={styles.badge}>HTML</span>
+                                <span className={styles.badge}>CSS</span>
+                                <span className={styles.badge}>Flask</span>
+                                <span className={styles.badge}>Python</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td>
+                                <span className={styles.badge}>Python</span>
+                                <span className={styles.badge}>PyQt5</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                      
+                   </tbody>
+               </table>
+           </div>
+           <div className={styles.ProjectsPhone}>
+                <h1>VHX Projects</h1>
+                <table className={styles.ProjectTable}>
+                   <thead>
+                       <tr>
+                           <th>Project</th>
+                           <th>Link</th>
+                           <th>Read More</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                         
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                         
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                         
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                         
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                         
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
             <footer>
                 <div className={styles.footercontent}>
                     <div className={styles.footerlogo}>
@@ -270,10 +260,7 @@ function About() {
                             <a href="/blog">Blog</a>
                             <a href="/Projects">Projects</a>
                         </div>
-                        <div className={styles.linkscolumn}>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms Of Service</a>
-                        </div>
+
                     </div>
                 </div>
             </footer>

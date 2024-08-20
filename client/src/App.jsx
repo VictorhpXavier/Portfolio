@@ -7,6 +7,7 @@ import './App.css';
 
 
 function Header() {
+
   const location = useLocation();
   const pathname = location.pathname;
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -30,6 +31,7 @@ function Header() {
         }
     });
   });
+
    // Get screen size
    const [width, setWidth] = useState(window.innerWidth);
 
@@ -65,8 +67,8 @@ function Header() {
          searchRef.current.style.display = 'none';
        }
      }
-     
   }
+
   return (
     <div className="header" ref={headerRef}>
       <div className="container">
@@ -81,7 +83,7 @@ function Header() {
           <div className="bar3"></div>
         </div>
         <div className="MainRoutes" ref={mainRoutesRef}>
-          <ul>
+          <ul onClick={enableMenu}>
             <li className={pathname === '/' || pathname === '/home' ? 'Home active' : 'Home'}>
               <Link to="/home">Home</Link>
             </li>
