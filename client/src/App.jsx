@@ -68,7 +68,16 @@ function Header() {
        }
      }
   }
-
+  function CloseMenu() {
+    if(width < 479) {
+      containerMenuRef.current.classList.remove('change');
+      mainRoutesRef.current.style.display = 'none';
+      searchRef.current.style.display = 'none';
+      headerRef.current.style.height = '60px'; 
+    }
+    
+  }
+  
   return (
     <div className="header" ref={headerRef}>
       <div className="container">
@@ -82,8 +91,8 @@ function Header() {
           <div className="bar2"></div>
           <div className="bar3"></div>
         </div>
-        <div className="MainRoutes" ref={mainRoutesRef}>
-          <ul onClick={enableMenu}>
+        <div className="MainRoutes" ref={mainRoutesRef} onClick={CloseMenu}>
+          <ul >
             <li className={pathname === '/' || pathname === '/home' ? 'Home active' : 'Home'}>
               <Link to="/home">Home</Link>
             </li>

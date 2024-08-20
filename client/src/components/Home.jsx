@@ -64,12 +64,11 @@ function Home() {
             console.error('Error:', error);
         }
     };
+
     //Handle animation
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
-        
-
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -83,7 +82,6 @@ function Home() {
             { threshold: 0.5 }
         );
     
-    
         aboutBoxesRef.current.forEach((box) => {
             if (box) {
                 observer.observe(box);
@@ -91,15 +89,14 @@ function Home() {
         });
     
         return () => {
-    
             aboutBoxesRef.current.forEach((box) => {
                 if (box) {
                     observer.unobserve(box);
                 }
             });
         };
-        
     }, []);
+    
     //Handle Slideshow
     const slides = [
         {
@@ -121,7 +118,6 @@ function Home() {
       const handlePrevClick = () => {
         setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
       };
-    
       const handleNextClick = () => {
         setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
       };
@@ -157,10 +153,7 @@ function Home() {
                 </div>
             </div>
             <div className={styles.Image} ref={(el) => (aboutBoxesRef.current[3] = el)}>
-                <img
-                    src={`${process.env.PUBLIC_URL}/images/pfp.jpg`}
-                    alt="Profile"
-                />
+                <img src={`${process.env.PUBLIC_URL}/images/pfp.jpg`} alt="Profile"/>
                 <p>Observation: Not me</p>
             </div>
             </section>
@@ -184,7 +177,6 @@ function Home() {
                 </div>
                 
                 <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkills} ref={(el) => (aboutBoxesRef.current[6] = el)}>
-                   
                     <h1>My Skills</h1>
                     <div className={styles.Arrows}>
                         <button className={styles.leftArrow}>
@@ -214,7 +206,6 @@ function Home() {
                             <br></br>Git<br></br>GitHub<br></br>REST APIs<br></br>Docker<br></br>Linux
                         </p>
                     </div>
-                    
                 </div>
                 <div className={styles.AboutBoxMyskills} id={styles.AboutBoxSkillsMin} ref={(el) => (aboutBoxesRef.current[7] = el)}>
                     <h1>My Skills</h1>
@@ -302,7 +293,6 @@ function Home() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 required />
-                
                 <label htmlFor="message">Write Your Message</label>
                 <textarea 
                     id="message" 
@@ -311,7 +301,6 @@ function Home() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required ></textarea>
-                
                 <button type="submit">Send Message</button>
             </form>
                 </div>
@@ -358,7 +347,6 @@ function Home() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required />
-                
                 <label htmlFor="email">Email address </label>
                 <input 
                     type="email" 
@@ -368,7 +356,6 @@ function Home() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 required />
-                
                 <label htmlFor="message">Write Your Message</label>
                 <textarea 
                     id="message" 
@@ -377,13 +364,11 @@ function Home() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required ></textarea>
-                
                 <button type="submit" >Send Message</button>
             </form>
                 </div>
             </div>
             </div>
-
         </div>
             </section>
             <footer>
@@ -397,13 +382,11 @@ function Home() {
                             <a href="#">Home</a>
                             <a href="#About">About</a>
                             <a href="#Contact">Contact</a>
-
                         </div>
                         <div className={styles.linkscolumn}>
                             <a href="/blog">Blog</a>
                             <a href="/Projects">Projects</a>
                         </div>
-
                     </div>
                 </div>
             </footer>

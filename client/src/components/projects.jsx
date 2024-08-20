@@ -40,7 +40,7 @@ function About() {
         };
  return (
         <div>
-           <div className={styles.Projects}>
+           <div className={styles.Projects} ref={(el) => (aboutBoxesRef.current[0] = el)}>
                 <h1>VHX Projects</h1>
                 <table className={styles.ProjectTable}>
                    <thead>
@@ -106,7 +106,7 @@ function About() {
                    </tbody>
                </table>
            </div>
-           <div className={styles.ProjectsPhone}>
+           <div className={styles.ProjectsPhone} ref={(el) => (aboutBoxesRef.current[1] = el)}>
                 <h1>VHX Projects</h1>
                 <table className={styles.ProjectTable}>
                    <thead>
