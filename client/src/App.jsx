@@ -1,5 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useLocation  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate  } from 'react-router-dom';
 import Home from './components/Home'; // gets the html structure and sends it to here
 import Projects from './components/projects'
 import Blog from './components/Blog';
@@ -7,30 +7,8 @@ import './App.css';
 
 
 function Header() {
-
   const location = useLocation();
   const pathname = location.pathname;
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-  
-        const targetId = this.getAttribute('href').substring(1);
-        if (targetId === "") {
-            window.scrollTo({
-                top: 10,
-                behavior: 'smooth'
-            });
-        } else {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                window.scroll({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-  });
 
    // Get screen size
    const [width, setWidth] = useState(window.innerWidth);
@@ -119,35 +97,13 @@ function App() {
     <Router>
     <Header />
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/home" element={<Projects />} />
-
       <Route path="/Projects" element={<Projects />} />
       <Route path="/blog" element={<Blog />} />
     </Routes>
   </Router>
   );
 }
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-      e.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1);
-      if (targetId === "") {
-          window.scrollTo({
-              top: 10,
-              behavior: 'smooth'
-          });
-      } else {
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-              window.scroll({
-                  top: targetElement.offsetTop,
-                  behavior: 'smooth'
-              });
-          }
-      }
-  });
-});
 export default App;

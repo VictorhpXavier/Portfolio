@@ -3,28 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Home.module.css'; // Import the CSS module
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-  
-        const targetId = this.getAttribute('href').substring(1);
-        if (targetId === "") {
-            window.scrollTo({
-                top: 10,
-                behavior: 'smooth'
-            });
-        } else {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                window.scroll({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-  });
+
 function Home() {
+    
     //Handle send message
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -37,9 +18,8 @@ function Home() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
-            const response = await fetch('http://localhost:3001/contact', {  // Ensure this URL is correct
+            const response = await fetch('http://192.168.0.100:3001/contact', {  // Ensure this URL is correct
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,18 +37,41 @@ function Home() {
                 setName('');
                 setEmail('');
                 setMessage('');
-            } else {
-                alert('Failed to send message');
             }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-
-    //Handle animation
+   
+    //Handle animations
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
+        //Handle Scroll Animation when clicking "link"
+        const handleAnchorClick = (event) => {
+            event.preventDefault();
+      
+        const targetId = event.currentTarget.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+    
+        if (targetElement) {
+            window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth',
+            });
+        } else if (targetId === "") {
+            window.scrollTo({
+            top: 10,
+            behavior: 'smooth',
+            });
+        }
+        };
+    
+        const anchors = document.querySelectorAll('a[href^="#"]');
+        anchors.forEach(anchor => {
+            anchor.addEventListener('click', handleAnchorClick);
+        });
+        //Handle Animation when loading the page
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -93,6 +96,9 @@ function Home() {
                 if (box) {
                     observer.unobserve(box);
                 }
+            });
+            anchors.forEach(anchor => {
+                anchor.removeEventListener('click', handleAnchorClick);
             });
         };
     }, []);
@@ -121,6 +127,7 @@ function Home() {
       const handleNextClick = () => {
         setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
       };
+      
   return (
         <div>
             <section id='home'>
@@ -347,6 +354,7 @@ function Home() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required />
+                
                 <label htmlFor="email">Email address </label>
                 <input 
                     type="email" 
@@ -364,13 +372,14 @@ function Home() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required ></textarea>
-                <button type="submit" >Send Message</button>
+                <button type="submit">Send Message</button>
             </form>
                 </div>
             </div>
             </div>
         </div>
             </section>
+            
             <footer>
                 <div className={styles.footercontent}>
                     <div className={styles.footerlogo}>
