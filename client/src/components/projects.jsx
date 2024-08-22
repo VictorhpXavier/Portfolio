@@ -47,13 +47,60 @@ function About() {
                        <tr>
                            <th>Year</th>
                            <th>Project</th>
-
                            <th>Built with</th>
                            <th>Link</th>
                            <th>Read More</th>
                        </tr>
                    </thead>
                    <tbody>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> AI chatbot</td>
+                           <td>
+                                <span className={styles.badge}>HTML</span>
+                                <span className={styles.badge}>CSS</span>
+                                <span className={styles.badge}>JavaScript</span>
+                                <span className={styles.badge}>Node.js</span>
+                                <span className={styles.badge}>Python</span>
+                                <span className={styles.badge}>MySQL</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> Sentiment Analysis</td>
+                           <td>
+                                <span className={styles.badge}>HTML</span>
+                                <span className={styles.badge}>CSS</span>
+                                <span className={styles.badge}>Flask</span>
+                                <span className={styles.badge}>Python</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td>2024</td>
+                           <td><strong>VHX</strong> Automate Life</td>
+                           <td>
+                                <span className={styles.badge}>Python</span>
+                                <span className={styles.badge}>PyQt5</span>
+                           </td>
+                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                            <td>
+                                <div className={styles.ReadMore}>
+                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                </div>
+                            </td>
+                       </tr>
                        <tr>
                            <td>2024</td>
                            <td><strong>VHX</strong> AI chatbot</td>

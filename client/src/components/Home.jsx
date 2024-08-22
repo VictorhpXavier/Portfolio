@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
-    
     //Handle send message
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

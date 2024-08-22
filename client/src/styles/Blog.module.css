@@ -1,0 +1,218 @@
+/*Itim  google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Itim&display=swap');
+.title h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: #007aff;
+    font-family: 'Itim', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.BlogContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.BlogContainer .Title {
+    color: #007aff;
+    font-size: 45px;
+    font-family: 'Itim', cursive;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.BlogContainer .ProjectsContainer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 80px; /* Gap between grid items */
+    justify-items: center; /* Center items horizontally in their grid cells */
+    width: 90%;
+}
+
+
+.ProjectsContainer > div {
+    
+    width: 500px;
+    height: 350px;
+    border-radius: 12px;
+    background-color: #292828; 
+    border: 1px solid #666; 
+
+}
+.BlogContainer .ProjectsContainer .Header {
+    border-radius: 12px;
+    width: 500px;
+    height: 240px;
+}
+.Header img {
+    z-index: 9999999999999999999999999999;
+    border-radius: 12px;
+    width: 500px;
+    height: 240px;
+
+}
+.BlogContainer .ProjectsContainer h1 {
+    color: #fff;
+    font-weight: 400;
+    margin-left: 10px;
+    text-wrap: wrap;
+    font-size: 28px;
+}
+.BlogContainer .ProjectsContainer span {
+    color: #666;
+    font-weight: 400;
+    margin-left: 10px;
+    text-wrap: wrap;
+    font-size: 18px;
+}
+.BlogContainer .ProjectsContainer > div :hover {
+    text-decoration: none;
+}
+.ProjectsContainer > div:hover {
+    cursor: pointer;
+    height: 350px;
+    box-shadow: 0 0 10px #007aff;
+
+}
+
+footer {
+    display: block !important;
+    margin-top: 10%;
+    padding: 20px 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox layout for the footer */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+}
+
+.footercontent {
+    width: 100%; /* Ensure the content takes full width */
+    display: flex;
+    align-items: flex-start; /* Align items to the start (left) */
+}
+footer .footercontent h1 {
+    color: #007aff;
+}
+footer .footercontent span {
+    color: #128fdc;
+}
+
+.footerlogo {
+    margin-bottom: 20px; /* Space between logo and links */
+}
+
+.footerlogo h1 {
+    font-size: 24px;
+    color: #3164f4;
+}
+
+.footerlogo p {
+    font-size: 14px;
+    color: #666;
+}
+
+.footerlinks {
+    display: flex;
+    justify-content: center; /* Center the columns horizontally */
+    gap: 30px; /* Adjust the gap as needed */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    width: 100%; /* Ensure the links take full width for centering */
+}
+
+.linkscolumn {
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkscolumn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.linkscolumn a:hover {
+    color: #007aff;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .BlogContainer .ProjectsContainer {
+        margin-top: 20%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* Three equal-width columns */
+        gap: 40px; /* Gap between grid items */
+        justify-items: center; /* Center items horizontally in their grid cells */
+        width: 100%; /* Ensure it uses the full width of the container */
+    }
+    
+    .ProjectsContainer > div {
+        margin-top: 30px;
+        width: 400px;
+        height: 340px;
+        border-radius: 12px;
+        background-color: lightblue; /* Set a distinct color for visibility */
+        border: 1px solid #ccc; /* Optional: add border for visibility */
+        /* margin or padding can be added here if needed */
+    }
+    footer {
+        margin-top: 10%;
+        padding: 20px 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex; /* Use flexbox layout for the footer */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+    }
+
+    .footercontent {
+        width: 100%; /* Ensure the content takes full width */
+        display: flex;
+        align-items: flex-start; /* Align items to the start (left) */
+    }
+    footer .footercontent h1 {
+        color: #007aff;
+    }
+    footer .footercontent span {
+        color: #128fdc;
+    }
+
+    .footerlogo {
+        margin-bottom: 20px; /* Space between logo and links */
+    }
+
+    .footerlogo h1 {
+        font-size: 18px;
+        color: #3164f4;
+    }
+
+    .footerlogo p {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .footerlinks {
+        display: flex;
+        justify-content: center; /* Center the columns horizontally */
+        gap: 10px; /* Adjust the gap as needed */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        width: 100%; /* Ensure the links take full width for centering */
+    }
+
+    .linkscolumn {
+        margin-top: 10px;
+        transform: translateY(50%);
+        display: flex;
+        flex-direction: row;
+    }
+
+    .linkscolumn a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+    }
+}
