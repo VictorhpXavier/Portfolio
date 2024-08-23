@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate  } 
 import Home from './components/Home'; // gets the html structure and sends it to here
 import Projects from './components/projects'
 import Blog from './components/Blog';
+import BlogPost from './components/BlogPost'; 
 import './App.css';
 
 
@@ -77,7 +78,7 @@ function Header() {
             <li className={pathname === '/Projects' ? 'active' : ''}>
               <Link to="/Projects">Projects</Link>
             </li>
-            <li className={pathname === '/blog' ? 'active' : ''}>
+            <li className={pathname === '/blog' || pathname.startsWith('/blog') ? 'active' : ''}>
               <Link to="/blog">Blog</Link>
             </li>
           </ul>
@@ -102,6 +103,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/Projects" element={<Projects />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
     </Routes>
   </Router>
   );

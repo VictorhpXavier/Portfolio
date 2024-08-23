@@ -29,16 +29,16 @@
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
-    gap: 80px; /* Gap between grid items */
+    gap: 30px; /* Gap between grid items */
+    padding-bottom: 10px;
     justify-items: center; /* Center items horizontally in their grid cells */
     width: 90%;
 }
 
 
 .ProjectsContainer > div {
-    
-    width: 500px;
-    height: 350px;
+    width: 550px;
+    height: 360px;
     border-radius: 12px;
     background-color: #292828; 
     border: 1px solid #666; 
@@ -46,14 +46,14 @@
 }
 .BlogContainer .ProjectsContainer .Header {
     border-radius: 12px;
-    width: 500px;
-    height: 240px;
+    width: 550px;
+    height: 250px;
 }
 .Header img {
     z-index: 9999999999999999999999999999;
     border-radius: 12px;
-    width: 500px;
-    height: 240px;
+    width: 550px;
+    height: 250px;
 
 }
 .BlogContainer .ProjectsContainer h1 {
@@ -75,14 +75,13 @@
 }
 .ProjectsContainer > div:hover {
     cursor: pointer;
-    height: 350px;
     box-shadow: 0 0 10px #007aff;
 
 }
 
 footer {
-    display: block !important;
-    margin-top: 10%;
+    display: flex !important;
+    margin-top: 8% !important;
     padding: 20px 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex; /* Use flexbox layout for the footer */
@@ -142,24 +141,87 @@ footer .footercontent span {
 }
 
 @media (max-width: 600px) {
+    .title h1 {
+        font-size: 45px;
+        margin-top: 140px;
+        margin-bottom: 20px;
+        color: #007aff;
+        font-family: 'Itim', cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .BlogContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .BlogContainer .Title {
+        color: #007aff;
+        font-size: 45px;
+        font-family: 'Itim', cursive;
+        font-weight: 400;
+        font-style: normal;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+    
     .BlogContainer .ProjectsContainer {
-        margin-top: 20%;
+        margin-top: 50px;
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* Three equal-width columns */
         gap: 40px; /* Gap between grid items */
+        padding-bottom: 10px;
         justify-items: center; /* Center items horizontally in their grid cells */
-        width: 100%; /* Ensure it uses the full width of the container */
+        width: 90%;
     }
     
     .ProjectsContainer > div {
-        margin-top: 30px;
-        width: 400px;
-        height: 340px;
+        width: 350px;
+        height: 300px;
         border-radius: 12px;
-        background-color: lightblue; /* Set a distinct color for visibility */
-        border: 1px solid #ccc; /* Optional: add border for visibility */
-        /* margin or padding can be added here if needed */
+        background-color: #292828; 
+        border: 1px solid #666; 
+    
     }
+    .BlogContainer .ProjectsContainer .Header {
+        border-radius: 12px;
+        width: 350px;
+        height: 190px;
+    }
+    .Header img {
+        z-index: 9999999999999999999999999999;
+        border-radius: 12px;
+        width: 350px;
+        height: 190px;
+    
+    }
+    .BlogContainer .ProjectsContainer h1 {
+        color: #fff;
+        margin-top: 10px;
+        margin-right: 10px;
+        font-weight: 400;
+        margin-left: 10px;
+        text-wrap: wrap;
+        font-size: 21px;
+    }
+    .BlogContainer .ProjectsContainer span {
+        color: #666;
+        font-weight: 400;
+        margin-left: 10px;
+        text-wrap: wrap;
+        font-size: 18px;
+    }
+    .BlogContainer .ProjectsContainer > div :hover {
+        text-decoration: none;
+    }
+    .ProjectsContainer > div:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px #007aff;
+    
+    }
+    
     footer {
         margin-top: 10%;
         padding: 20px 50px;
