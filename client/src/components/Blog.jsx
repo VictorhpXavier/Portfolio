@@ -4,6 +4,128 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Blog.module.css'; // Import the CSS module
 
 function Blog() {
+    const myProjects = [
+        {
+            link: 'AiChatBot',
+            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
+            image: 'tile.jpg',
+            date: '17 August 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `My First Machine Learning Project`,
+            image: 'Sentiment.jpg',
+            date: 'July 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `How Was this Site Made?`,
+            image: 'pfp.jpg',
+            date: '23 august 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `Automate opening Process`,
+            image: 'AutomateLife.png',
+            date: '19 august 2024',
+        },
+        {
+            link: 'AiChatBot',
+            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
+            image: 'tile.jpg',
+            date: '17 August 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `My First Machine Learning Project`,
+            image: 'Sentiment.jpg',
+            date: 'July 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `How Was this Site Made?`,
+            image: 'pfp.jpg',
+            date: '23 august 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `Automate opening Process`,
+            image: 'AutomateLife.png',
+            date: '19 august 2024',
+        },
+        {
+            link: 'AiChatBot',
+            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
+            image: 'tile.jpg',
+            date: '17 August 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `My First Machine Learning Project`,
+            image: 'Sentiment.jpg',
+            date: 'July 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `How Was this Site Made?`,
+            image: 'pfp.jpg',
+            date: '23 august 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `Automate opening Process`,
+            image: 'AutomateLife.png',
+            date: '19 august 2024',
+        },
+        {
+            link: 'AiChatBot',
+            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
+            image: 'tile.jpg',
+            date: '17 August 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `My First Machine Learning Project`,
+            image: 'Sentiment.jpg',
+            date: 'July 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `How Was this Site Made?`,
+            image: 'pfp.jpg',
+            date: '23 august 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `Automate opening Process`,
+            image: 'AutomateLife.png',
+            date: '19 august 2024',
+        },
+        {
+            link: 'AiChatBot',
+            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
+            image: 'tile.jpg',
+            date: '17 August 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `My First Machine Learning Project`,
+            image: 'Sentiment.jpg',
+            date: 'July 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `How Was this Site Made?`,
+            image: 'pfp.jpg',
+            date: '23 august 2024',
+        },
+        {
+            link: 'sentimentAnalysis',
+            title: `Automate opening Process`,
+            image: 'AutomateLife.png',
+            date: '19 august 2024',
+        },
+    ];
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
@@ -36,62 +158,27 @@ function Blog() {
     }, []);
     return (
         <div>
-            <div
-                className={styles.BlogContainer}
-                ref={(el) => (aboutBoxesRef.current[0] = el)}
-            >
+            <div className={styles.BlogContainer}>
                 <div className={styles.title}>
                     <h1>VHX Blog</h1>
                 </div>
                 <div className={styles.ProjectsContainer}>
-                    <div className={styles.AiChatBot}>
-                        <Link to="/blog/VHX-AiChatBot">
-                            <div className={styles.Header}>
-                                <img
-                                    src={`${process.env.PUBLIC_URL}/BlogImages/tile.jpg`}
-                                    alt="Profile"
-                                />
-                            </div>
-                            <h1>
-                                How Was <strong>VHX</strong> Ai ChatBot Made?
-                            </h1>
-                            <span>Created at 17 august 2024</span>
-                        </Link>
-                    </div>
-                    <div className={styles.SentimentAnalysis}>
-                        <Link to="/blog/sentimentAnalysis">
-                            <div className={styles.Header}>
-                                <img
-                                    src={`${process.env.PUBLIC_URL}/BlogImages/Sentiment.jpg`}
-                                    alt="Profile"
-                                />
-                            </div>{' '}
-                            <h1>My First Machine Learning Project</h1>
-                            <span>Last upadate 20 July 2024</span>
-                        </Link>
-                    </div>
-                    <div className={styles.AiChatBot}>
+            {myProjects.map((project, index) => (
+                <div key={index} className={styles.ProjectItem} ref={(el) => (aboutBoxesRef.current[index] = el)}>
+                    <Link to={`/blog/${project.link}`}>
                         <div className={styles.Header}>
                             <img
-                                src={`${process.env.PUBLIC_URL}/images/pfp.jpg`}
-                                alt="Profile"
+                                src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                alt={project.title}
                             />
-                        </div>{' '}
-                        <h1>How Was This Site Made?</h1>
-                        <span>Last upadate 23 august 2024</span>
-                    </div>
-                    <div className={styles.AutomateLife}>
-                        <div className={styles.Header}>
-                            <img
-                                src={`${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`}
-                                alt="Profile"
-                            />
-                        </div>{' '}
-                        <h1>Automate Opening Process</h1>
-                        <span>Last upadate 19 august 2024</span>
-                    </div>
+                        </div>
+                        <h1 dangerouslySetInnerHTML={{ __html: project.title }} />
+                        <span>Created on {project.date}</span>
+                    </Link>
                 </div>
-            </div>
+            ))}
+        </div>
+    </div>
             <footer>
                 <div className={styles.footercontent}>
                     <div className={styles.footerlogo}>

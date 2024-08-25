@@ -15,6 +15,15 @@
     justify-content: center;
 }
 
+
+.ProjectItem {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.visible {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
 .BlogContainer .Title {
     color: #007aff;
     font-size: 45px;
@@ -38,7 +47,7 @@
 
 .ProjectsContainer > div {
     width: 550px;
-    height: 360px;
+    height: 370px;
     border-radius: 12px;
     background-color: #292828; 
     border: 1px solid #666; 
@@ -47,13 +56,13 @@
 .BlogContainer .ProjectsContainer .Header {
     border-radius: 12px;
     width: 550px;
-    height: 250px;
+    height: 260px;
 }
 .Header img {
     z-index: 9999999999999999999999999999;
     border-radius: 12px;
     width: 550px;
-    height: 250px;
+    height: 260px;
 
 }
 .BlogContainer .ProjectsContainer h1 {
@@ -276,5 +285,9 @@ footer .footercontent span {
         text-decoration: none;
         color: #fff;
         font-size: 12px;
+    }
+    .ProjectItem {
+        opacity: 1;
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
 }
