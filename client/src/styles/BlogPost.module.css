@@ -1,3 +1,85 @@
 /* BlogPost.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Itim&display=swap');
+/* ABeeZee google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+body {
+    overflow-x: hidden;
+}
 
-  
+.Columns {
+    flex-direction: row;
+    display: flex;
+    margin-top: 50px;
+}
+
+.Blogcontainer  {
+  display: flex;
+  margin-left: 80px;
+  margin-right: auto;
+  width: 60%;
+  background-color: #4d4d4d;
+  padding: 10px 20px;
+  border-radius: 36px;
+}
+.readMore {    
+    display: flex;
+    margin-right: 80px;
+    margin-left: auto;
+    height: 885px;
+    width: 23%;
+    background-color: #4d4d4d;
+    padding: 10px 20px;
+    border-radius: 36px;
+}
+.readMoreProjects  {
+    flex-direction: column;
+    margin-top: 10px;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+.ProjectImage img {
+    border-radius: 22px;
+    height: 241.5px;
+    border: 1px solid red;
+}
+strong {
+    color: #007aff;
+    font-weight: bolder;
+}
+span {
+    color: white;
+}
+p span {
+    font-weight: bold;
+
+}
+
+.BlogInfo .title {
+    justify-content: center;
+    font-size: 48px;
+    margin-top: 10px;
+    color: #128fdc;
+    font-family: 'Itim', cursive;
+    font-weight: 500;
+    font-style: normal;
+}
+.BlogInfo .What h2 {
+    color: #c9c5c5;
+    font-size: 36px;
+    
+}
+.BlogInfo img {
+    width: 1148px;
+    height: 600px;
+    max-height: 30%;
+    border-radius: 22px;
+}
+
+.BlogInfo p {
+    font-size: 21px;
+    color: white;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

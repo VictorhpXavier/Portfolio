@@ -304,8 +304,8 @@ function About() {
 
                         </div>
                         <div className={styles.linkscolumn}>
-                            <a href="/blog">Blog</a>
-                            <a href="/Projects">Projects</a>
+                            <Link to={'/Projects'}><a>Projects</a></Link>
+                            <Link to={'/blog'}><a>Blog</a></Link>
                         </div>
 
                     </div>

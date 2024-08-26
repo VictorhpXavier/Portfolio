@@ -196,8 +196,8 @@ function Blog() {
                             <Link to="/home#Contact">Contact</Link>
                         </div>
                         <div className={styles.linkscolumn}>
-                            <Link to="/blog">Blog</Link>
-                            <Link to="/Projects">Projects</Link>
+                            <Link to={'/Projects'}><a>Projects</a></Link>
+                            <Link to={'/blog'}><a>Blog</a></Link>
                         </div>
                     </div>
                 </div>

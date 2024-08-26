@@ -1,5 +1,6 @@
 // src/components/Home.js
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/Home.module.css'; // Import the CSS module
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -392,8 +393,8 @@ function Home() {
                             <a href="#Contact">Contact</a>
                         </div>
                         <div className={styles.linkscolumn}>
-                            <a href="/blog">Blog</a>
-                            <a href="/Projects">Projects</a>
+                            <Link to={'/Projects'}><a>Projects</a></Link>
+                            <Link to={'/blog'}><a>Blog</a></Link>
                         </div>
                     </div>
                 </div>
