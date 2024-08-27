@@ -29,29 +29,34 @@ const blogPosts = {
  
 };
 
-//Get Path
-const CurrentPath = window.location.pathname;
-const Pathparts = CurrentPath.split('/'); 
-const lastSegment = Pathparts.pop(); 
-
-//add to readmore post that user isnt reading right now
-
-const BlogKeys = Object.keys(blogPosts);
-const ReadMoreArr = [];
-for (let i = 0; i < 4; i++) {
-  if (BlogKeys[i] !== lastSegment) {
-    ReadMoreArr.push(BlogKeys[i]);
+let ReadMoreBlogs = {};
+let ReadMoreArr = [];
+function updateReadMore() {
+  ReadMoreArr = []
+  ReadMoreBlogs = {}
+  //Get Path
+ const CurrentPath = window.location.pathname;
+ const Pathparts = CurrentPath.split('/'); 
+ const lastSegment = Pathparts.pop(); 
+  
+  //add to readmore post that user isnt reading right now
+  const BlogKeys = Object.keys(blogPosts);
+  for (let i = 0; i < 4; i++) {
+    if (BlogKeys[i] !== lastSegment) {
+      ReadMoreArr.push(BlogKeys[i]);
+    }
+  }
+  //create object with post info
+  for (const key of ReadMoreArr) {
+      const { title, HeaderImage } = blogPosts[key];
+      ReadMoreBlogs[key] = {
+        title,
+        readMoreImage: HeaderImage
+      };
   }
 }
-//create object with post info
-const ReadMoreBlogs = {};
-for (const key of ReadMoreArr) {
-    const { title, HeaderImage } = blogPosts[key];
-    ReadMoreBlogs[key] = {
-      title,
-      readMoreImage: HeaderImage
-    };
-}
+updateReadMore()
+ 
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -80,14 +85,15 @@ export default function BlogPost() {
     </div>
     <div className={styles.readMore}>
       <div className={styles.readMoreProjects}>
-          <Link to = '/home'>
           <div className={styles.ProjectsImage}>
           {Object.keys(readmore).length > 0 ? (
             ReadMoreArr.map(key => (
-              <Link key={key} to={`/blog/${key}`}>
+              <Link onClick={updateReadMore()} key={key} to={`/blog/${key}`}>
                 <div className={styles.ProjectImage}>
                   <img src={readmore[key].readMoreImage} alt={readmore[key].title} />
-                  <span>{readmore[key].title}</span>
+                  <span>
+                    <div className={styles.title} dangerouslySetInnerHTML={{ __html: readmore[key].title }}></div>
+                  </span>
                 </div>
               </Link>
             ))
@@ -95,7 +101,6 @@ export default function BlogPost() {
             <p>No other blog posts available</p>
           )}
           </div>
-          </Link>
 
       </div>
     </div>
