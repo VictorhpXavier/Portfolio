@@ -18,114 +18,20 @@ function Blog() {
             date: 'July 2024',
         },
         {
-            link: 'sentimentAnalysis',
+            link: 'Portfolio',
             title: `How Was this Site Made?`,
             image: 'pfp.jpg',
             date: '23 august 2024',
         },
         {
-            link: 'sentimentAnalysis',
+            link: 'AutomateLife',
             title: `Automate opening Process`,
             image: 'AutomateLife.png',
             date: '19 august 2024',
         },
-        {
-            link: 'AiChatBot',
-            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
-            image: 'tile.jpg',
-            date: '17 August 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `My First Machine Learning Project`,
-            image: 'Sentiment.jpg',
-            date: 'July 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `How Was this Site Made?`,
-            image: 'pfp.jpg',
-            date: '23 august 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `Automate opening Process`,
-            image: 'AutomateLife.png',
-            date: '19 august 2024',
-        },
-        {
-            link: 'AiChatBot',
-            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
-            image: 'tile.jpg',
-            date: '17 August 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `My First Machine Learning Project`,
-            image: 'Sentiment.jpg',
-            date: 'July 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `How Was this Site Made?`,
-            image: 'pfp.jpg',
-            date: '23 august 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `Automate opening Process`,
-            image: 'AutomateLife.png',
-            date: '19 august 2024',
-        },
-        {
-            link: 'AiChatBot',
-            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
-            image: 'tile.jpg',
-            date: '17 August 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `My First Machine Learning Project`,
-            image: 'Sentiment.jpg',
-            date: 'July 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `How Was this Site Made?`,
-            image: 'pfp.jpg',
-            date: '23 august 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `Automate opening Process`,
-            image: 'AutomateLife.png',
-            date: '19 august 2024',
-        },
-        {
-            link: 'AiChatBot',
-            title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
-            image: 'tile.jpg',
-            date: '17 August 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `My First Machine Learning Project`,
-            image: 'Sentiment.jpg',
-            date: 'July 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `How Was this Site Made?`,
-            image: 'pfp.jpg',
-            date: '23 august 2024',
-        },
-        {
-            link: 'sentimentAnalysis',
-            title: `Automate opening Process`,
-            image: 'AutomateLife.png',
-            date: '19 august 2024',
-        },
+       
     ];
+    console.log(myProjects)
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
