@@ -1,6 +1,6 @@
 // BlogPost.jsx
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React , { useState, useRef, useEffect } from 'react';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import styles from '../styles/BlogPost.module.css'
 
 const blogPosts = {
@@ -21,7 +21,7 @@ const blogPosts = {
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/pfp.jpg`,
     content: "<p>This is the content for the Sentiment Analysis project.</p>",
   },
-  AutomateLife: {
+  AutomadateLife: {
     title: "Automate opening Process",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`,
     content: "<p>Content for another blog post.</p>",
@@ -29,36 +29,78 @@ const blogPosts = {
  
 };
 
-let ReadMoreBlogs = {};
-let ReadMoreArr = [];
-function updateReadMore() {
-  ReadMoreArr = []
-  ReadMoreBlogs = {}
-  //Get Path
- const CurrentPath = window.location.pathname;
- const Pathparts = CurrentPath.split('/'); 
- const lastSegment = Pathparts.pop(); 
-  
-  //add to readmore post that user isnt reading right now
-  const BlogKeys = Object.keys(blogPosts);
-  for (let i = 0; i < 4; i++) {
-    if (BlogKeys[i] !== lastSegment) {
-      ReadMoreArr.push(BlogKeys[i]);
+export default function BlogPost() {
+ 
+  //Get height of divs
+  const readMoreRef = useRef(null);
+  const [numImage, setNumImage] = useState(0);  // Use state for numImage
+
+  useEffect(() => {
+    const ColumnsHeight = readMoreRef.current.offsetHeight;
+    setNumImage(Math.floor((ColumnsHeight / 244) - 1));
+    console.log(`ReadMore Div height: ${ColumnsHeight}px`);
+  }, [readMoreRef]);
+
+  const [ReadMoreBlogs, setReadMoreBlogs] = useState({});
+  const [ReadMoreArr, setReadMoreArr] = useState([]);
+
+  const updateReadMore = () => {  
+    const updatedReadMoreArr = [];
+    const updatedReadMoreBlogs = {};
+
+    // Get Path
+    const CurrentPath = window.location.pathname;
+    const Pathparts = CurrentPath.split('/'); 
+    const lastSegment = Pathparts.pop(); 
+
+    const BlogKeys = Object.keys(blogPosts);
+
+    // Add to readmore post that user isnt reading right now
+    // Loop based on numImage
+    if(numImage > 4) {
+      for (let i = 0; i < numImage; i++) {
+        if (BlogKeys[i] !== lastSegment) {
+          updatedReadMoreArr.push(BlogKeys[i]);
+        }
+      }
+    } else {
+      for (let i = 0; i < 4; i++) {
+        if (BlogKeys[i] !== lastSegment) {
+          updatedReadMoreArr.push(BlogKeys[i]);
+        }
+      }
     }
-  }
-  //create object with post info
-  for (const key of ReadMoreArr) {
+    
+    // Create object with post info
+    for (const key of updatedReadMoreArr) {
       const { title, HeaderImage } = blogPosts[key];
-      ReadMoreBlogs[key] = {
+      updatedReadMoreBlogs[key] = {
         title,
         readMoreImage: HeaderImage
       };
-  }
-}
-updateReadMore()
- 
+    }
 
-export default function BlogPost() {
+    // Update state
+    setReadMoreArr(updatedReadMoreArr);
+    setReadMoreBlogs(updatedReadMoreBlogs);
+  };
+
+  useEffect(() => {
+    if (numImage > 0) {
+      updateReadMore();
+    }
+  }, [numImage]);
+  //each image has 244px
+  //Dynamicaly create blogs
+  console.log(`Global numImage: ${numImage}`);
+
+  //Get USer location
+  const location = useLocation();  
+
+  useEffect(() => {
+    updateReadMore();
+  }, [location.pathname]);  
+
   const { slug } = useParams();
   const post = blogPosts[slug];
 
@@ -70,7 +112,7 @@ export default function BlogPost() {
 
   return (
     <div className={styles.Columns}>
-    <div className={styles.Blogcontainer}>
+    <div className={styles.Blogcontainer} ref={readMoreRef}>
       <div className={styles.BlogInfo}>
         <div className={styles.title} dangerouslySetInnerHTML={{ __html: post.title }}></div>
         <div className={styles.What}>
@@ -83,14 +125,15 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
       </div>
     </div>
-    <div className={styles.readMore}>
+    <div className={styles.readMore} ref={readMoreRef}>
       <div className={styles.readMoreProjects}>
           <div className={styles.ProjectsImage}>
+            <h1>Read More</h1>
           {Object.keys(readmore).length > 0 ? (
             ReadMoreArr.map(key => (
-              <Link onClick={updateReadMore()} key={key} to={`/blog/${key}`}>
+              <Link onClick={updateReadMore} key={key} to={`/blog/${key}`}>
                 <div className={styles.ProjectImage}>
-                  <img src={readmore[key].readMoreImage} alt={readmore[key].title} />
+                  <img src={readmore[key].readMoreImage} alt={readmore[key].title}   />
                   <span>
                     <div className={styles.title} dangerouslySetInnerHTML={{ __html: readmore[key].title }}></div>
                   </span>

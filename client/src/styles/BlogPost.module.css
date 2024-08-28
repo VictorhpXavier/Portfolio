@@ -25,7 +25,6 @@ body {
     display: flex;
     margin-right: 80px;
     margin-left: auto;
-    height: 885px;
     width: 23%;
     background-color: #4d4d4d;
     padding: 10px 20px;
@@ -49,6 +48,12 @@ body {
 }
 .ProjectImage {
     margin-bottom: 40px;
+}
+.ProjectsImage h1 {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 strong {
     color: #007aff;
@@ -79,7 +84,6 @@ p span {
 .BlogInfo img {
     width: 1148px;
     height: 600px;
-    max-height: 30%;
     border-radius: 22px;
 }
 

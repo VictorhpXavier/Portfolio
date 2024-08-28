@@ -128,7 +128,7 @@ function Home() {
         setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
       };
       
-  return (
+    return (
         <div>
             <section id='home'>
             <div className={styles.parentContainer}>
