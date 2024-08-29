@@ -17,7 +17,14 @@ function Header() {
    useEffect(() => {
      const handleResize = () => setWidth(window.innerWidth);
      window.addEventListener('resize', handleResize);
-     return () => window.removeEventListener('resize', handleResize);
+     document.addEventListener('click', handleClickOutside);
+       
+     return () => { 
+      window.removeEventListener('resize', handleResize); 
+      document.removeEventListener('click', handleClickOutside);
+     }
+   
+     
    }, []);
  
    const containerMenuRef = useRef(null);
@@ -56,6 +63,20 @@ function Header() {
     }
     
   }
+  const inputRef = useRef(null);
+  const [search, setSearch] = useState('')
+
+  function SearchMenu() {
+    if (inputRef.current) {
+      inputRef.current.classList.add('focused-input');
+      inputRef.current.focus(); // Focus the input field
+    } 
+  }
+  function handleClickOutside(event) {
+    if (inputRef.current && !inputRef.current.contains(event.target)) {
+      inputRef.current.value = ''; // Clear the input value
+    }
+  }
   
   return (
     <div className="header" ref={headerRef}>
@@ -83,8 +104,8 @@ function Header() {
             </li>
           </ul>
         </div>
-        <div className="Search" ref={searchRef}>
-          <input type="text" placeholder="Search Projects" />
+        <div className="Search" ref={searchRef} onClick={SearchMenu}>
+          <input type="text" placeholder="Search Projects" ref={inputRef} onChange={(e) => setSearch(e.target.value)}/>
           <Link to="#"><img src={`${process.env.PUBLIC_URL}/images/search.png`} alt="Search" /></Link>
         </div>
       </div>
