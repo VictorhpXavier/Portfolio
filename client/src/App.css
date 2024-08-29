@@ -15,6 +15,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
 
 .header {
   display: flex;
@@ -154,6 +161,92 @@ input[type=text]:focus {
 
 .change .bar3 {
   transform: translate(0, -11px) rotate(45deg);
+}
+.SearchMenu {
+  display: none;
+  opacity: 0;
+  top: 0px;
+  position: absolute;
+  border-radius: 26px;
+  right: 75px;
+  width: 500px;
+  height: 400px;
+  background-color: #4d4d4d;
+  margin-top: 100px;
+  overflow-y: auto;
+  transition: opacity 0.3s ease-in-out;
+
+}
+.SearchMenu.visible {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 2.3s;
+  opacity: 1;
+  display: block;
+}
+.ShowProjects {
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: auto;
+  width: 90%;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: row;
+  text-wrap: wrap;
+  align-items: center;
+  outline: 2px solid #CCC;
+}
+
+.ShowProjects:last-child {
+  margin-bottom: 20px;
+}
+
+/* Chat History Scrollbar */
+/* For Webkit-based browsers (Chrome, Safari) */
+.SearchMenu::-webkit-scrollbar {
+  width: 14px; /* Width of the scrollbar */
+}
+
+.SearchMenu::-webkit-scrollbar-track {
+  background: #2c2c2c; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.SearchMenu::-webkit-scrollbar-thumb {
+  background-color: #424242; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #2c2c2c; /* Padding around thumb */
+}
+
+/* For Firefox */
+.SearchMenu {
+  scrollbar-color: #5c5b5b #2c2c2c; /* Thumb color, track color */
+}
+
+.ShowProjects img {
+  border-radius: 22px;
+  width: 40%;
+  margin-right: 20px;
+}
+.ShowProjects ul {
+  text-decoration: none;
+  list-style: none;
+
+}
+
+.TextContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ShowProjects h1 {
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+}
+
+.ShowProjects span {
+  color: #adadad;
 }
 @media (max-width: 767px) {
   /* Header */
