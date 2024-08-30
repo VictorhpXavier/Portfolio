@@ -21,7 +21,7 @@ const blogPosts = {
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/pfp.jpg`,
     content: "<p>This is the content for the Sentiment Analysis project.</p>",
   },
-  AutomadateLife: {
+  AutomateLife: {
     title: "Automate opening Process",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`,
     content: "<p>Content for another blog post.</p>",

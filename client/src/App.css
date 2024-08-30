@@ -190,8 +190,6 @@ input[type=text]:focus {
   width: 90%;
   border-radius: 22px;
   display: flex;
-  flex-direction: row;
-  text-wrap: wrap;
   align-items: center;
   outline: 2px solid #CCC;
 }
@@ -224,8 +222,9 @@ input[type=text]:focus {
 
 .ShowProjects img {
   border-radius: 22px;
-  width: 40%;
   margin-right: 20px;
+  width: 100%;
+  max-width: 150px;
 }
 .ShowProjects ul {
   text-decoration: none;
@@ -234,18 +233,19 @@ input[type=text]:focus {
 }
 
 .TextContainer {
-  text-align: center;
   display: flex;
   flex-direction: column;
 }
 
 .ShowProjects h1 {
-  font-size: 28px;
+  margin-right: 10px !important;
+  font-size: 23px;
   color: #fff;
   margin: 0;
 }
 
 .ShowProjects span {
+  margin-top: 10px;
   color: #adadad;
 }
 @media (max-width: 767px) {

@@ -29,9 +29,8 @@ function Blog() {
             image: 'AutomateLife.png',
             date: '19 august 2024',
         },
-       
     ];
-    console.log(myProjects)
+
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
@@ -62,6 +61,7 @@ function Blog() {
             });
         };
     }, []);
+
     return (
         <div>
             <div className={styles.BlogContainer}>
