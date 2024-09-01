@@ -76,7 +76,7 @@ p span {
     font-weight: 500;
     font-style: normal;
 }
-.BlogInfo .What h2 {
+h2 {
     color: #c9c5c5;
     font-size: 36px;
     
@@ -93,4 +93,25 @@ p span {
     font-family: "ABeeZee", sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+.Languages strong {
+    color: #128fdc;
+}
+.Languages ul  {
+    margin-top: 5px;
+    font-size: 18px;
+    color: #fff;
+}
+.Languages li {
+    margin-top: 5px;
+}
+.Improvements strong {
+    color: #128fdc;
+}
+.Improvements ul  {
+    font-size: 18px;
+    color: #fff;
+}
+.Improvements li {
+    margin-top: 5px;
 }
