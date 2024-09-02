@@ -13,7 +13,7 @@ const blogPosts = {
     Reason: "<p>This chatbot was my first full-stack web application project. I embarked on this journey to gain hands-on experience with several important technologies and concepts, including JSON Web Tokens (JWT), APIs, machine learning, authentication systems, and HTTP request handling. The project served as an excellent opportunity to expand my technical skills and apply them in a real-world scenario.</p>",
     Languages: "<h2>How It Was Built</h2> <p>The chatbot was developed using a range of technologies:</p> <ul>   <li><strong>HTML/CSS:</strong> Used for designing the user interface.</li>   <li><strong>JavaScript:</strong> Employed with Node.js and Express for handling backend logic, user authentication, and managing user data.</li>   <li><strong>Python:</strong> Utilized to build the machine learning model that powers the chatbot's responses.</li>   <li><strong>MySQL:</strong> Implemented for storing user data, chat logs, and bot interactions.</li> </ul><p>Node.js and Express played a crucial role in managing user sessions and authentication, while Python was used to develop the machine learning algorithms that enable the chatbot to understand and generate responses. MySQL ensured the efficient storage and retrieval of user data and interactions.</p> </p>",
     Improvements: "<h2>Future Improvements</h2> <p>Looking ahead, there are several areas for potential enhancement:</p> <ul>   <li><strong>Improving AI Capabilities:</strong> Further training the machine learning model to handle more complex queries and provide more accurate responses.</li>   <li><strong>User Interface Enhancements:</strong> Upgrading the user interface to make it more intuitive and engaging.</li>   <li><strong>Additional Features:</strong> Adding functionalities such as multilingual support and integration with other platforms.</li> </ul>",
-    FinalStatment: "<h2>Conclusion</h2> <p>Building the AI chatbot was a rewarding experience that allowed me to apply and expand my knowledge of web development and machine learning.</p>"
+    FinalStatment: "<h2>Conclusion</h2> <p>Building the AI chatbot was a rewarding experience that allowed me to apply and expand my knowledge of web development and machine learning.</p>",
   },
   sentimentAnalysis: {
     title: "My First Machine Learning Project",
@@ -30,7 +30,6 @@ const blogPosts = {
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`,
     content: "<p>Content for another blog post.</p>",
   },
- 
 };
 
 export default function BlogPost() {
@@ -42,7 +41,6 @@ export default function BlogPost() {
   useEffect(() => {
     const ColumnsHeight = readMoreRef.current.offsetHeight;
     setNumImage(Math.floor((ColumnsHeight / 244) - 1));
-    console.log(`ReadMore Div height: ${ColumnsHeight}px`);
   }, [readMoreRef]);
 
   const [ReadMoreBlogs, setReadMoreBlogs] = useState({});
@@ -75,13 +73,17 @@ export default function BlogPost() {
       }
     }
     
-    // Create object with post info
+    // Create object with post info for the read more
     for (const key of updatedReadMoreArr) {
-      const { title, HeaderImage } = blogPosts[key];
-      updatedReadMoreBlogs[key] = {
-        title,
-        readMoreImage: HeaderImage
-      };
+      const blogPost = blogPosts[key]; // Get the blog post object
+    
+      if (blogPost) { 
+        const { title, HeaderImage } = blogPost; 
+        updatedReadMoreBlogs[key] = {
+          title,
+          readMoreImage: HeaderImage
+        };
+      } 
     }
 
     // Update state
@@ -96,7 +98,6 @@ export default function BlogPost() {
   }, [numImage]);
   //each image has 244px
   //Dynamicaly create blogs
-  console.log(`Global numImage: ${numImage}`);
 
   //Get USer location
   const location = useLocation();  
@@ -132,29 +133,31 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.Languages }} className={styles.Languages}></div>
         <div dangerouslySetInnerHTML={{ __html: post.Improvements }} className={styles.Improvements}></div>
         <div dangerouslySetInnerHTML={{ __html: post.FinalStatment }} className={styles.FinalStatment} ></div>
-
       </div>
     </div>
     <div className={styles.readMore} ref={readMoreRef}>
-      <div className={styles.readMoreProjects}>
-          <div className={styles.ProjectsImage}>
-            <h1>Read More</h1>
+    <div className={styles.readMoreProjects}>
+        <div className={styles.ProjectsImage}>
+          <h1>Read More</h1>
           {Object.keys(readmore).length > 0 ? (
-            ReadMoreArr.map(key => (
-              <Link onClick={updateReadMore} key={key} to={`/blog/${key}`}>
-                <div className={styles.ProjectImage}>
-                  <img src={readmore[key].readMoreImage} alt={readmore[key].title}   />
-                  <span>
-                    <div className={styles.title} dangerouslySetInnerHTML={{ __html: readmore[key].title }}></div>
-                  </span>
-                </div>
-              </Link>
-            ))
+            ReadMoreArr.map(key => {
+              if (readmore[key]) { // Check if readmore[key] exists
+                return (
+                  <Link onClick={updateReadMore} key={key} to={`/blog/${key}`}>
+                    <div className={styles.ProjectImage}>
+                      <img src={readmore[key].readMoreImage} alt={readmore[key].title}/>
+                      <span>
+                        <div className={styles.title} dangerouslySetInnerHTML={{ __html: readmore[key].title }}></div>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              } 
+            })
           ) : (
             <p>No other blog posts available</p>
           )}
-          </div>
-
+        </div>
       </div>
     </div>
     </div>
