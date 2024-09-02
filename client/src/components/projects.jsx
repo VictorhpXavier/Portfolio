@@ -170,7 +170,7 @@ function About() {
                            <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
                             <td>
                                 <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                    <Link to={`/blog/AiChatBot`}><a>Read More</a></Link>
                                 </div>
                             </td>
                        </tr>
@@ -179,7 +179,7 @@ function About() {
                            <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
                             <td>
                                 <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                    <Link to={'/blog/sentimentAnalysis'}><a>Read More</a></Link>
                                 </div>
                             </td>
                        </tr>
@@ -188,7 +188,7 @@ function About() {
                            <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
                             <td>
                                 <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                    <Link to={'/blog/Portfolio'}><a>Read More</a></Link>
                                 </div>
                             </td>
                        </tr>
@@ -198,91 +198,7 @@ function About() {
                            <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
                             <td>
                                 <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                         
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                         
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                         
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
+                                    <Link to={'/blog/AutomateLife'}><a>Read More</a></Link>
                                 </div>
                             </td>
                        </tr>

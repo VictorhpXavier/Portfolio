@@ -249,6 +249,9 @@ input[type=text]:focus {
   color: #adadad;
 }
 @media (max-width: 767px) {
+  .Search input {
+    display: none;
+  }
   /* Header */
   .MainRoutes {
     margin-right: 80px;
@@ -285,7 +288,12 @@ input[type=text]:focus {
 /* Add this media query for screens smaller than 480px */
 /* Phone */
 @media (max-width: 479px) {
- 
+  .Search  {
+    display: none !important;
+  }
+  .Search img {
+    display: none;
+  }
   .containerMenu {
     display: none;
     cursor: pointer;
@@ -331,5 +339,5 @@ input[type=text]:focus {
     position: absolute;
     height: 60px;
   }
-
+  
 }

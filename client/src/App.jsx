@@ -35,7 +35,7 @@ function Header() {
             if (mainRoutesRef.current.style.display !== 'block') {
                 mainRoutesRef.current.style.display = 'block';
                 searchRef.current.style.display = 'flex';
-                headerRef.current.style.height = '290px';
+                headerRef.current.style.height = '220px';
             } else {
                 mainRoutesRef.current.style.display = 'none';
                 searchRef.current.style.display = 'none';
@@ -163,12 +163,11 @@ function Header() {
                         ref={inputRef}
                         onChange={handleInputChange}
                         />
-                    <Link to="#" onClick={SearchMenu}>
+                    <Link to="#">
                         <img
                             src={`${process.env.PUBLIC_URL}/images/search.png`}
                             alt="Search"
-                            ref={searchRef} onClick={SearchMenu}
-                                                    />
+                            ref={searchRef} onClick={SearchMenu}/>
                     </Link>
                 </div>
                 <div className="SearchMenu" ref={searchMenuRef}>
