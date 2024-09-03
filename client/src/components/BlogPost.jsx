@@ -14,7 +14,9 @@ const blogPosts = {
     Languages: "<h2>How It Was Built</h2> <p>The chatbot was developed using a range of technologies:</p> <ul>   <li><strong>HTML/CSS:</strong> Used for designing the user interface.</li>   <li><strong>JavaScript:</strong> Employed with Node.js and Express for handling backend logic, user authentication, and managing user data.</li>   <li><strong>Python:</strong> Utilized to build the machine learning model that powers the chatbot's responses.</li>   <li><strong>MySQL:</strong> Implemented for storing user data, chat logs, and bot interactions.</li> </ul><p>Node.js and Express played a crucial role in managing user sessions and authentication, while Python was used to develop the machine learning algorithms that enable the chatbot to understand and generate responses. MySQL ensured the efficient storage and retrieval of user data and interactions.</p> </p>",
     Improvements: "<h2>Future Improvements</h2> <p>Looking ahead, there are several areas for potential enhancement:</p> <ul>   <li><strong>Improving AI Capabilities:</strong> Further training the machine learning model to handle more complex queries and provide more accurate responses.</li>   <li><strong>User Interface Enhancements:</strong> Upgrading the user interface to make it more intuitive and engaging.</li>   <li><strong>Additional Features:</strong> Adding functionalities such as multilingual support and integration with other platforms.</li> </ul>",
     FinalStatment: "<h2>Conclusion</h2> <p>Building the AI chatbot was a rewarding experience that allowed me to apply and expand my knowledge of web development and machine learning.</p>",
-    Visit: "<h2>Test Website</h2>"
+    Visit: "<h2>Try it by yourself</h2> <p>For better experience please consider visiting it.</p>",
+    iframelink: "http://192.168.0.100:3002/",
+    iframetitle: "<h1>You are about to experiment the <strong>V<span>H</span>X</strong> Ai Chatbot</h1>"
   },
   sentimentAnalysis: {
     title: "My First Machine Learning Project",
@@ -57,7 +59,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    window.scrollTo(0, 0)
+    //window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 
@@ -124,6 +126,7 @@ export default function BlogPost() {
   const readmore = ReadMoreBlogs; 
 
   return (
+    <div>
     <div className={styles.Columns}>
     <div className={styles.Blogcontainer} ref={readMoreRef} >
       <div className={styles.BlogInfo}>
@@ -142,6 +145,16 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.Improvements }} className={styles.Improvements}></div>
         <div dangerouslySetInnerHTML={{ __html: post.FinalStatment }} className={styles.FinalStatment} ></div>
         <div dangerouslySetInnerHTML={{ __html: post.Visit }} className={styles.Visit} ></div>
+        <div className={styles.TryProject}>
+          <div className={styles.ShowRules}>
+            <div dangerouslySetInnerHTML={{ __html: post.iframetitle }} className={styles.TryProjectTitle}></div>
+            <div className={styles.Buttons}>
+              <a ><button className={styles.Experiment}>Experiment it now</button></a>
+              <a href={post.iframelink} target='blank'><button className={styles.Visti}>Visit Website</button></a>
+            </div>
+          </div>
+          <iframe src={`${post.iframelink}`} ></iframe>
+        </div>
       </div>
     </div>
     <div className={styles.readMore} ref={readMoreRef}>
@@ -169,6 +182,26 @@ export default function BlogPost() {
         </div>
       </div>
     </div>
+    </div>
+    <footer>
+        <div className={styles.footercontent}>
+            <div className={styles.footerlogo}>
+                <h1><strong>V<span>H</span>X</strong></h1>
+                <p>2024 &copy; VHX All rights reserved.</p>
+            </div>
+            <div className={styles.footerlinks}>
+                <div className={styles.linkscolumn}>
+                    <a href="#">Home</a>
+                    <a href="#About">About</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+                <div className={styles.linkscolumn}>
+                    <Link to={'/Projects'}><a>Projects</a></Link>
+                    <Link to={'/blog'}><a>Blog</a></Link>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
   );
 }
