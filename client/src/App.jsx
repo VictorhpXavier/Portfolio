@@ -105,7 +105,8 @@ function Header() {
         },
     ];
     return (
-        <div className="header" ref={headerRef}>
+        <div>
+        <div className="header " ref={headerRef}>
             <div className="container">
                 <div className="Logo">
                     <Link to="/home">
@@ -187,6 +188,7 @@ function Header() {
                     )) }
                 </div>
             </div>
+        </div>
         </div>
     );
 }

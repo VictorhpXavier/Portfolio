@@ -59,7 +59,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    window.scrollTo(0, 0)
+    //window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 
@@ -117,6 +117,12 @@ export default function BlogPost() {
   const location = useLocation();  
   const IframeShow = useRef(null)
   const TryProject = useRef(null)
+  const HandleScreenSize = useRef(null) 
+  const IncreaseImg = useRef(null)
+  const iframeSize = useRef(null)
+  const body = useRef(null)
+  const Hide = useRef(null)
+  const [hidden, setHidden] = useState(true);
 
   const Experiment = () => {
       TryProject.current.style.display = 'none';
@@ -125,15 +131,28 @@ export default function BlogPost() {
   useEffect(() => {
     TryProject.current.style.display = 'flex';
     IframeShow.current.style.display = 'none'
+    document.body.style.overflow = "auto";
+    iframeSize.current.style.width = '100%'
+    IframeShow.current.style.height = '600px'
+    IframeShow.current.style.marginLeft = '0'
+    IframeShow.current.style.marginTop = '0'
+    HandleScreenSize.current.style.display = 'flex'
+    Hide.current.style.display = 'block'
+    readMoreRef.current.style.display = 'flex'
     updateReadMore();
   }, [location.pathname]);  
   
-  const HandleScreenSize = useRef(null) 
-  const IncreaseImg = useRef(null)
-  const [hidden, setHidden] = useState(true);
+  
 
   const resizeWindow = () => {
-    alert('test')
+    document.body.style.overflow = "hidden";
+    iframeSize.current.style.width = '100vw'
+    IframeShow.current.style.height = '100vh'
+    IframeShow.current.style.marginLeft = '-110px'
+    IframeShow.current.style.marginTop = '-10px'
+    HandleScreenSize.current.style.display = 'none'
+    Hide.current.style.display = 'none'
+    readMoreRef.current.style.display = 'none'
   }
   const { slug } = useParams();
   const post = blogPosts[slug];
@@ -141,10 +160,11 @@ export default function BlogPost() {
   const readmore = ReadMoreBlogs; 
 
   return (
-    <div>
+    <div ref={body}>
     <div className={styles.Columns}>
     <div className={styles.Blogcontainer} ref={readMoreRef} >
       <div className={styles.BlogInfo}>
+        <div className={styles.Tohide} ref={Hide}>
         <div className={styles.title} dangerouslySetInnerHTML={{ __html: post.title }}></div>
         <div className={styles.What}>
             <div className={styles.WhatIs} dangerouslySetInnerHTML={{ __html: post.WhatIs }}></div>
@@ -160,6 +180,7 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.Improvements }} className={styles.Improvements}></div>
         <div dangerouslySetInnerHTML={{ __html: post.FinalStatment }} className={styles.FinalStatment} ></div>
         <div dangerouslySetInnerHTML={{ __html: post.Visit }} className={styles.Visit} ></div>
+        </div> 
         <div className={styles.TryProject} >
           <div className={styles.ShowRules} ref={TryProject}>
             <div dangerouslySetInnerHTML={{ __html: post.iframetitle }} className={styles.TryProjectTitle}></div>
@@ -179,7 +200,7 @@ export default function BlogPost() {
                 {!hidden && <p className={styles.handleScreenSizeText}>Increase Screen Size</p>}
               </div>
             </div>
-            <iframe src={`${post.iframelink}`}></iframe>
+            <iframe src={`${post.iframelink}`} ref={iframeSize} sandbox="allow-scripts allow-same-origin" />
           </div>
         </div>
       </div>
