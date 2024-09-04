@@ -476,6 +476,7 @@ footer .footercontent span {
 }
 /* Phone */
 @media (max-width: 479px) {
+ 
   .Text {
     font-size: 20px;
     color: #FFFFFF;
@@ -724,6 +725,9 @@ footer .footercontent span {
   /* Contact */
   .ContactContainer {
     display: none !important;
+  }
+  .ContactContainer  img {
+    display: none;
   }
   .ContactContainerMin {
     display: block;

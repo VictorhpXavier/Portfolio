@@ -300,7 +300,7 @@ footer .footercontent span {
         margin-right: auto;
         margin-left: auto;
     }
-    img {
+    .headerimage {
         border-radius: 22px;
         width: 100% !important;
         height: 20% !important;

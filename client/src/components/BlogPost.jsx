@@ -16,22 +16,26 @@ const blogPosts = {
     FinalStatment: "<h2>Conclusion</h2> <p>Building the AI chatbot was a rewarding experience that allowed me to apply and expand my knowledge of web development and machine learning.</p>",
     Visit: "<h2>Try it by yourself</h2> <p>For better experience please consider visiting it.</p>",
     iframelink: "http://192.168.0.100:3002/",
-    iframetitle: "<h1>You are about to experiment the <strong>V<span>H</span>X</strong> Ai Chatbot</h1>"
+    iframetitle: "<h1>You are about to experiment the <strong>V<span>H</span>X</strong> Ai Chatbot</h1>",
+    TryProjectdisplay: "flex"
   },
   sentimentAnalysis: {
     title: "My First Machine Learning Project",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/Sentiment.jpg`,
     content: "<p>This is the content for the Sentiment Analysis project.</p>",
+    TryProjectdisplay: "none"
   },
   Portfolio: {
     title: "How Was this Site Made?",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/pfp.jpg`,
     content: "<p>This is the content for the Sentiment Analysis project.</p>",
+    TryProjectdisplay: "none"
   },
   AutomateLife: {
     title: "Automate opening Process",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`,
     content: "<p>Content for another blog post.</p>",
+    TryProjectdisplay: "none"
   },
 };
 
@@ -171,7 +175,7 @@ export default function BlogPost() {
             <div className={styles.Explanation} dangerouslySetInnerHTML={{ __html: post.Paragraph }}></div>
         </div>
         <div className={styles.Header}>
-            <img src={post.HeaderImage} alt="" />
+            <img src={post.HeaderImage} alt="" className={styles.headerimage}/>
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         <div dangerouslySetInnerHTML={{ __html: post.Why }}></div>
@@ -181,7 +185,7 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.FinalStatment }} className={styles.FinalStatment} ></div>
         <div dangerouslySetInnerHTML={{ __html: post.Visit }} className={styles.Visit} ></div>
         </div> 
-        <div className={styles.TryProject} >
+        <div className={styles.TryProject} style={{ display: post.TryProjectdisplay }}>
           <div className={styles.ShowRules} ref={TryProject}>
             <div dangerouslySetInnerHTML={{ __html: post.iframetitle }} className={styles.TryProjectTitle}></div>
             <div className={styles.Buttons}>
@@ -189,7 +193,7 @@ export default function BlogPost() {
               <a href={post.iframelink} target='blank'><button className={styles.Visti}>Visit Website</button></a>
             </div>
           </div>
-          <div className={styles.IframeShow} ref={IframeShow}>
+          <div className={styles.IframeShow} ref={IframeShow} >
             <div className={styles.HandleScreenSize} ref={HandleScreenSize}>
               <h1>Screen Size</h1>
               <div className={styles.fullScreenImg}
