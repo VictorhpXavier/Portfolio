@@ -59,7 +59,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    //window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 
@@ -115,11 +115,26 @@ export default function BlogPost() {
 
   //Get USer location
   const location = useLocation();  
+  const IframeShow = useRef(null)
+  const TryProject = useRef(null)
 
+  const Experiment = () => {
+      TryProject.current.style.display = 'none';
+      IframeShow.current.style.display = 'flex'
+  }
   useEffect(() => {
+    TryProject.current.style.display = 'flex';
+    IframeShow.current.style.display = 'none'
     updateReadMore();
   }, [location.pathname]);  
+  
+  const HandleScreenSize = useRef(null) 
+  const IncreaseImg = useRef(null)
+  const [hidden, setHidden] = useState(true);
 
+  const resizeWindow = () => {
+    alert('test')
+  }
   const { slug } = useParams();
   const post = blogPosts[slug];
 
@@ -145,15 +160,27 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: post.Improvements }} className={styles.Improvements}></div>
         <div dangerouslySetInnerHTML={{ __html: post.FinalStatment }} className={styles.FinalStatment} ></div>
         <div dangerouslySetInnerHTML={{ __html: post.Visit }} className={styles.Visit} ></div>
-        <div className={styles.TryProject}>
-          <div className={styles.ShowRules}>
+        <div className={styles.TryProject} >
+          <div className={styles.ShowRules} ref={TryProject}>
             <div dangerouslySetInnerHTML={{ __html: post.iframetitle }} className={styles.TryProjectTitle}></div>
             <div className={styles.Buttons}>
-              <a ><button className={styles.Experiment}>Experiment it now</button></a>
+              <a ><button className={styles.Experiment} onClick={Experiment}>Experiment it now</button></a>
               <a href={post.iframelink} target='blank'><button className={styles.Visti}>Visit Website</button></a>
             </div>
           </div>
-          <iframe src={`${post.iframelink}`} ></iframe>
+          <div className={styles.IframeShow} ref={IframeShow}>
+            <div className={styles.HandleScreenSize} ref={HandleScreenSize}>
+              <h1>Screen Size</h1>
+              <div className={styles.fullScreenImg}
+                onMouseEnter={() => setHidden(false)}
+                onMouseLeave={() => setHidden(true)}
+              >
+                <img src="../BlogImages/fullscreen (1).png" alt="Increase" ref={IncreaseImg} onClick={resizeWindow} />
+                {!hidden && <p className={styles.handleScreenSizeText}>Increase Screen Size</p>}
+              </div>
+            </div>
+            <iframe src={`${post.iframelink}`}></iframe>
+          </div>
         </div>
       </div>
     </div>
