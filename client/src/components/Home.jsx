@@ -331,7 +331,7 @@ function Home() {
                                 <h3>Github</h3>
                                 <span>VictorhpXavier</span>
                             </div>
-                            </a>
+                           </a>
                         </div>
                         <div className={styles.LeetCodeButton}>
                             <a href="https://leetcode.com/u/VictorhpXavier/" target="_blank" rel="noopener noreferrer">

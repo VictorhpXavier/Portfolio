@@ -57,6 +57,15 @@ tr:hover {
     font-size: 0.85em;
     font-weight: bold;
 }
+.table span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #007aff;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
 .ReadMore a {
     display: inline-block;
     padding: 5px 10px;
@@ -76,7 +85,6 @@ a:hover {
     text-decoration: underline;
 }
 footer {
-    margin-top: 10%;
     padding: 20px 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex; /* Use flexbox layout for the footer */
@@ -86,6 +94,7 @@ footer {
   
 
 .footercontent {
+    margin-top: 14% !important;
     width: 100%; /* Ensure the content takes full width */
     display: flex;
     align-items: flex-start; /* Align items to the start (left) */
@@ -146,6 +155,9 @@ footer {
 }
 
 @media (max-width: 600px) {
+    body {
+        overflow: hidden;
+    }
     .Projects {
         display: none;
     }
@@ -231,6 +243,7 @@ footer {
     }
 
     .footercontent {
+        margin-top: 40% !important;
         width: 100%; /* Ensure the content takes full width */
         display: flex;
         align-items: flex-start; /* Align items to the start (left) */

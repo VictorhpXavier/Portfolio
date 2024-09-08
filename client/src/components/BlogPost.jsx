@@ -63,7 +63,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    //window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 

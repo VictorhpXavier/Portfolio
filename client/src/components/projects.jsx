@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from '../styles/Projects.module.css';
 function About() {
     const aboutBoxesRef = useRef([]);
-
+    
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -38,7 +38,39 @@ function About() {
         const toggleMenu = () => {
             setIsMenuOpen(!isMenuOpen);
         };
- return (
+    const projects = [
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> AI chatbot',
+            buildWith: '<span className={styles.badge}>HTML</span> <span className={styles.badge}>CSS</span> <span className={styles.badge}>JavaScript</span> <span className={styles.badge}>Node.js</span> <span className={styles.badge}>Python</span> <span className={styles.badge}>MySQL</span>',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `AiChatBot`,
+        },
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> Automate Life',
+            buildWith: `<span className={styles.badge}>Python</span>
+                                <span className={styles.badge}>PyQt5</span>`,
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `AutomateLife`,
+        }
+    ]
+    const projectsPhone = [
+        {
+            title: '<strong>VHX</strong> AI chatbot',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `AiChatBot`,
+        },
+        {
+            title: '<strong>VHX</strong> Automate Life',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: 'AutomateLife'
+        },
+    ]
+    const { slug } = useParams();
+    const post = projects[slug];
+    const postPhone = projectsPhone[slug]
+    return (
         <div>
            <div className={styles.Projects} ref={(el) => (aboutBoxesRef.current[0] = el)}>
                 <h1>VHX Projects</h1>
@@ -52,104 +84,33 @@ function About() {
                            <th>Read More</th>
                        </tr>
                    </thead>
-                   <tbody>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                           <td>
-                                <span className={styles.badge}>HTML</span>
-                                <span className={styles.badge}>CSS</span>
-                                <span className={styles.badge}>JavaScript</span>
-                                <span className={styles.badge}>Node.js</span>
-                                <span className={styles.badge}>Python</span>
-                                <span className={styles.badge}>MySQL</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                   <tbody className={styles.table}>
+                    {projects.map((project) =>
+                        <tr>
+                            {/* year */}
                             <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/AiChatBot'}><a>Read More</a></Link>
+                                <div>{project.year}</div>
+                            </td>
+                            {/* Project name */}
+                            <td>
+                                <div dangerouslySetInnerHTML={{ __html: project.title}}/>
+                            </td>
+                            {/* Build with */}
+                            <td>
+                                <div dangerouslySetInnerHTML={{ __html: project.buildWith}}/>
+                            </td>
+                            {/* Project link */}
+                            <td>
+                                <div dangerouslySetInnerHTML={{ __html: project.projectLink}}/>
+                            </td>
+                            {/* Project readMore link */}
+                            <td>
+                                <div className={styles.ReadMore}  >
+                                    <Link to={`/blog/${project.readMorelink}`}><a>Read More</a></Link>
                                 </div>
                             </td>
-                       </tr>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td>
-                                <span className={styles.badge}>HTML</span>
-                                <span className={styles.badge}>CSS</span>
-                                <span className={styles.badge}>Flask</span>
-                                <span className={styles.badge}>Python</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/sentimentAnalysis'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td>
-                                <span className={styles.badge}>Python</span>
-                                <span className={styles.badge}>PyQt5</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/AutomateLife'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                           <td>
-                                <span className={styles.badge}>HTML</span>
-                                <span className={styles.badge}>CSS</span>
-                                <span className={styles.badge}>JavaScript</span>
-                                <span className={styles.badge}>Node.js</span>
-                                <span className={styles.badge}>Python</span>
-                                <span className={styles.badge}>MySQL</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td>
-                                <span className={styles.badge}>HTML</span>
-                                <span className={styles.badge}>CSS</span>
-                                <span className={styles.badge}>Flask</span>
-                                <span className={styles.badge}>Python</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td>2024</td>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td>
-                                <span className={styles.badge}>Python</span>
-                                <span className={styles.badge}>PyQt5</span>
-                           </td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/VHX-AiChatBot'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                      
+                        </tr>
+                    )}
                    </tbody>
                </table>
            </div>
@@ -163,45 +124,27 @@ function About() {
                            <th>Read More</th>
                        </tr>
                    </thead>
-                   <tbody>
-                       <tr>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                         
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
+                   <tbody className={styles.table}>
+                   {projectsPhone.map((projectPhone) =>
+                        <tr>
+                            {/* Project name */}
                             <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={`/blog/AiChatBot`}><a>Read More</a></Link>
+                                <div dangerouslySetInnerHTML={{ __html: projectPhone.title}}/>
+                            </td>
+
+                            {/* Project link */}
+                            <td>
+                                <div dangerouslySetInnerHTML={{ __html: projectPhone.projectLink}}/>
+                            </td>
+                            {/* Project readMore link */}
+                            <td>
+                                <div className={styles.ReadMore}  >
+                                    <Link to={`/blog/${projectPhone.readMorelink}`}><a>Read More</a></Link>
                                 </div>
                             </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Sentiment Analysis</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/sentimentAnalysis'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> Automate Life</td>
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/Portfolio'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
-                       <tr>
-                           <td><strong>VHX</strong> AI chatbot</td>
-                         
-                           <td><a href="http://localhost:3002" target="_blank">localhost:3002 </a></td>
-                            <td>
-                                <div className={styles.ReadMore}>
-                                    <Link to={'/blog/AutomateLife'}><a>Read More</a></Link>
-                                </div>
-                            </td>
-                       </tr>
+                        </tr>
+                    )}
+                       
                    </tbody>
                </table>
            </div>
@@ -216,14 +159,11 @@ function About() {
                             <a href="/">Home</a>
                             <Link to="/home#About">About</Link>
                             <Link to="/home#Contact">Contact</Link>
-
-
                         </div>
                         <div className={styles.linkscolumn}>
                             <Link to={'/Projects'}><a>Projects</a></Link>
                             <Link to={'/blog'}><a>Blog</a></Link>
                         </div>
-
                     </div>
                 </div>
             </footer>
