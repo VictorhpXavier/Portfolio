@@ -19,22 +19,25 @@ const blogPosts = {
     iframetitle: "<h1>You are about to experiment the <strong>V<span>H</span>X</strong> Ai Chatbot</h1>",
     TryProjectdisplay: "flex"
   },
-  sentimentAnalysis: {
-    title: "My First Machine Learning Project",
-    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/Sentiment.jpg`,
-    content: "<p>This is the content for the Sentiment Analysis project.</p>",
-    TryProjectdisplay: "none"
-  },
   Portfolio: {
     title: "How Was this Site Made?",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/pfp.jpg`,
-    content: "<p>This is the content for the Sentiment Analysis project.</p>",
+    WhatIs: '<h2>Why I Created This Portfolio?</h2>',
+    Paragraph: '<p>I created this website with two main goals in mind. First, to showcase my projects and provide commentary on them through the blog page, allowing me to track my progress over time. Second, to learn React and enhance my front-end development skills.</p>',
+    Languages: "<h2>How the Portfolio Was Built</h2> <p>This portfolio was developed using a range of technologies:</p> <ul>   <li><strong>React:</strong> Played a key role in managing both HTML and JavaScript efficiently, accelerating the development process.</li>   <li><strong>CSS:</strong> Applied for designing the user interface and overall visual styling.</li>   <li><strong>Node.js:</strong> Used to handle the functionality of the contact form.</li>   <li><strong>MySQL:</strong> Implemented to store user messages securely.</li> </ul>",
+    Improvements: "<h2>Future Improvements</h2> <p>Here are a few areas that could be improved:</p> <ul>   <li><strong>Enhancing Website Responsiveness:</strong> While the site works on most devices, such as PCs and phones, certain screen sizes may cause layout issues that need adjustment.</li>   <li><strong>Adding More Projects:</strong> Including more projects will contribute to my growth as a full-stack developer. Though it’s not a direct improvement to the site, it will be an important personal development step.</li> </ul>",
+    FinalStatment: "<h2>Conclusion</h2> <p>The primary goal of this website was to learn React, and I feel I’ve learned the essentials. Moving forward, I’ll focus on building more projects to further master React.js and other technologies.</p>",
     TryProjectdisplay: "none"
   },
   AutomateLife: {
-    title: "Automate opening Process",
+    title: "Automate life python app",
+    WhatIs: '<h2>What is this python app?</h2>',
+    Paragraph: '<p>This python app was build with the main of automating, for example when user runs the operating systems it will open apps, run web server, or if user wants to edit to use light mode or dark mode depending on the hour it would change automatically.</p>',
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/AutomateLife.png`,
-    content: "<p>Content for another blog post.</p>",
+    Why: "<h2>Why i build this app?</h2>",
+    Reason: "<p>To be honest I think i was just bored during summer break and decided to code it, it was a pretty simple app took me less than 3 days to put it running and working, and I've been using it since then.</p>",
+    Languages: "<h2>Technologies User</h2> <p>This app was build used 100% python</p> <ul>   <li><strong>Python:</strong> The only programming language involved on this app</li>   <li><strong>PyQt5:</strong> PyQt5 is a python library used to design modern layouts</li> <li><strong>JSON: </strong>It was used to save user settings locally so it doesn't need the use of a database and user account creation</li>   </ul>",
+    Visit: `<h2>Try it by yourself</h2> <p>Download it from my github. <a href="https://github.com/VictorhpXavier/AutomateOpening" target='_blank'>https://github.com/VictorhpXavier/AutomateOpening</a></p>`,
     TryProjectdisplay: "none"
   },
 };
@@ -63,7 +66,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    window.scrollTo(0, 0)
+    //window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 

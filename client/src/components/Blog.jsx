@@ -12,12 +12,6 @@ function Blog() {
             date: '17 August 2024',
         },
         {
-            link: 'sentimentAnalysis',
-            title: `My First Machine Learning Project`,
-            image: 'Sentiment.jpg',
-            date: 'July 2024',
-        },
-        {
             link: 'Portfolio',
             title: `How Was this Site Made?`,
             image: 'pfp.jpg',
@@ -25,7 +19,7 @@ function Blog() {
         },
         {
             link: 'AutomateLife',
-            title: `Automate opening Process`,
+            title: `Automate Life`,
             image: 'AutomateLife.png',
             date: '19 august 2024',
         },
