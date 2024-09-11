@@ -40,6 +40,22 @@ const blogPosts = {
     Visit: `<h2>Try it by yourself</h2> <p>Download it from my github. <a href="https://github.com/VictorhpXavier/AutomateOpening" target='_blank'>https://github.com/VictorhpXavier/AutomateOpening</a></p>`,
     TryProjectdisplay: "none"
   },
+  Suspicious: {
+    title: "Delete history extension",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/Suspicious.png`,
+    TryProjectdisplay: "none"
+  },
+  Resumes: {
+    title: "Improve Resume Ai",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/evaluator.webp`,
+    TryProjectdisplay: "none"
+  },
+  LearningPlatform: {
+    title: "Full stack Ai learning platform",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/learning.webp`,
+    TryProjectdisplay: "none"
+
+  }
 };
 
 export default function BlogPost() {
@@ -66,7 +82,7 @@ export default function BlogPost() {
   const [ReadMoreArr, setReadMoreArr] = useState([]);
  
   const updateReadMore = () => {  
-    //window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     const updatedReadMoreArr = [];
     const updatedReadMoreBlogs = {};
 
@@ -80,14 +96,8 @@ export default function BlogPost() {
     // Add to readmore post that user isnt reading right now
     // Loop based on numImage
     
-    if(numImage > 4) {
+    if(numImage >= 4) {
       for (let i = 0; i < numImage; i++) {
-        if (BlogKeys[i] !== lastSegment) {
-          updatedReadMoreArr.push(BlogKeys[i]);
-        }
-      }
-    } else {
-      for (let i = 0; i < 4; i++) {
         if (BlogKeys[i] !== lastSegment) {
           updatedReadMoreArr.push(BlogKeys[i]);
         }

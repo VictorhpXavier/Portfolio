@@ -23,6 +23,24 @@ function Blog() {
             image: 'AutomateLife.png',
             date: '19 august 2024',
         },
+        {
+            link: 'Suspicious',
+            title: `My google extension`,
+            image: 'Suspicious.png',
+            date: '11 september 2024',
+        },
+        {
+            link: 'resumes',
+            title: `Improve resume`,
+            image: 'evaluator.webp',
+            date: '11 september 2024',
+        },
+        {
+            link: 'Learning Platform',
+            title: `Full stack AI learning Platform`,
+            image: 'learning.webp',
+            date: '11 september 2024',
+        },
     ];
 
     const aboutBoxesRef = useRef([]);
