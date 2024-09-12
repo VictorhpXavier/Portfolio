@@ -54,8 +54,23 @@ const blogPosts = {
     title: "Full stack Ai learning platform",
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/learning.webp`,
     TryProjectdisplay: "none"
-
+  },
+  SocialMediaBot: {
+    title: "Content creator Bot",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
+    TryProjectdisplay: "none"
+  },
+  SocialMediaBot2: {
+    title: "Content creator Bot",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
+    TryProjectdisplay: "none"
+  },
+  S2ocialMediaBot2: {
+    title: "Content creator Bot",
+    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
+    TryProjectdisplay: "none"
   }
+
 };
 
 export default function BlogPost() {
@@ -98,6 +113,16 @@ export default function BlogPost() {
     
     if(numImage >= 4) {
       for (let i = 0; i < numImage; i++) {
+        if (BlogKeys[i] !== lastSegment) {
+          updatedReadMoreArr.push(BlogKeys[i]);
+        }
+      }
+    } 
+    //Do NOT Delete the else statment.
+    //May look like its not doing anything it is, trust me.
+    //I don't know what but its working with the else don't touch it!
+    else {
+      for (let i = 0; i < 4; i++) {
         if (BlogKeys[i] !== lastSegment) {
           updatedReadMoreArr.push(BlogKeys[i]);
         }

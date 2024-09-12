@@ -30,17 +30,23 @@ function Blog() {
             date: '11 september 2024',
         },
         {
-            link: 'resumes',
+            link: 'Resumes',
             title: `Improve resume`,
             image: 'evaluator.webp',
             date: '11 september 2024',
         },
         {
-            link: 'Learning Platform',
+            link: 'LearningPlatform',
             title: `Full stack AI learning Platform`,
             image: 'learning.webp',
             date: '11 september 2024',
         },
+        {
+            link: "SocialMediaBot",
+            title: "Social media content creator Bot",
+            image: "what-are-bots.jpg",
+            date: '12 september 2024'
+        }
     ];
 
     const aboutBoxesRef = useRef([]);
