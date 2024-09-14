@@ -92,17 +92,35 @@ function Header() {
             span: '17 August 2024',
         },
         {
-            link: 'sentimentAnalysis',
-            title: `Sentiment Analysis`,
-            image: 'Sentiment.jpg',
-            span: 'July 2024',
-        },
-        {
             link: 'AutomateLife',
             title: `Automate opening`,
             image: 'AutomateLife.png',
             span: '19 august 2024',
         },
+        {
+            link: 'Suspicious',
+            title: `My google extension`,
+            image: 'Suspicious.png',
+            span: '11 september 2024',
+        },
+        {
+            link: 'Resumes',
+            title: `Improve resume`,
+            image: 'evaluator.webp',
+            span: '11 september 2024',
+        },
+        {
+            link: 'LearningPlatform',
+            title: `Full stack AI learning Platform`,
+            image: 'learning.webp',
+            span: '11 september 2024',
+        },
+        {
+            link: "SocialMediaBot",
+            title: "Social media content creator Bot",
+            image: "what-are-bots.jpg",
+            span: '12 september 2024'
+        }
     ];
     return (
         <div>
@@ -156,7 +174,6 @@ function Header() {
                         </li>
                     </ul>
                 </div>
-                
                 <div className="Search" ref={searchRef} onClick={SearchMenu}>
                     <input
                         type="text"
@@ -173,7 +190,6 @@ function Header() {
                 </div>
                 <div className="SearchMenu" ref={searchMenuRef}>
                 {myProjects.map((project, index) => ( 
-
                   <Link to={`/blog/${project.link}`}>
                     <div className="ShowProjects">
                         <img src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}

@@ -49,10 +49,37 @@ function About() {
         {
             year: '2024',
             title: '<strong>VHX</strong> Automate Life',
-            buildWith: `<span className={styles.badge}>Python</span>
-                                <span className={styles.badge}>PyQt5</span>`,
+            buildWith: `<span className={styles.badge}>Python</span> <span className={styles.badge}>PyQt5</span>`,
             projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
             readMorelink: `AutomateLife`,
+        },
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> Suspicious',
+            buildWith: `<span className={styles.badge}>JavaScript</span> <span className={styles.badge}>Html</span>  <span className={styles.badge}>Css</span>`,
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `Suspicious`,
+        },
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> Improve resume AI',
+            buildWith: `<span className={styles.badge}>Python</span> <span className={styles.badge}>JavaScript</span>`,
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `Resumes`,
+        },
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> AI learning Platform',
+            buildWith: `<span className={styles.badge}>React</span> <span className={styles.badge}>Java</span><span className={styles.badge}>Python</span>`,
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `LearningPlatform`,
+        },
+        {
+            year: '2024',
+            title: '<strong>VHX</strong> Social media Bot',
+            buildWith: `<span className={styles.badge}>Python</span>`,
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `SocialMediaBot`,
         }
     ]
     const projectsPhone = [

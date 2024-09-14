@@ -224,12 +224,14 @@ input[type=text]:focus {
   border-radius: 22px;
   margin-right: 20px;
   width: 100%;
+  height: 80px !important;
+  max-height: 150px;
   max-width: 150px;
 }
+
 .ShowProjects ul {
   text-decoration: none;
   list-style: none;
-
 }
 
 .TextContainer {

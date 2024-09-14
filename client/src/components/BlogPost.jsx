@@ -60,36 +60,31 @@ const blogPosts = {
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
     TryProjectdisplay: "none"
   },
-  SocialMediaBot2: {
-    title: "Content creator Bot",
-    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
-    TryProjectdisplay: "none"
-  },
-  S2ocialMediaBot2: {
-    title: "Content creator Bot",
-    HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
-    TryProjectdisplay: "none"
-  }
-
 };
 
 export default function BlogPost() {
 
   //Get height of divs
   const readMoreRef = useRef(null);
-  const [numImage, setNumImage] = useState(0);  // Use state for numImage
+  let [numImage, setNumImage] = useState(0);
+
+  const updateHeight = () => {
+    if (readMoreRef.current) {
+      const ColumnsHeight = readMoreRef.current.offsetHeight;
+      let newNumImage = Math.floor(ColumnsHeight / 244 - 1);
+      numImage = newNumImage
+      // Only update state if the calculated value is different
+      if (newNumImage !== numImage) {
+        setNumImage(newNumImage);
+      }
+    }
+  };
 
   useEffect(() => {
-    const updateHeight = () => {
-      if (readMoreRef.current) {
-        const ColumnsHeight = readMoreRef.current.offsetHeight;
-        setNumImage(Math.floor((ColumnsHeight / 244) - 1));
-      }
-    };
-  
     window.addEventListener('resize', updateHeight);
-    updateHeight(); 
-  
+    updateHeight();
+    updateReadMore(); 
+
     return () => window.removeEventListener('resize', updateHeight);
   }, [readMoreRef]);
 
@@ -122,7 +117,7 @@ export default function BlogPost() {
     //May look like its not doing anything it is, trust me.
     //I don't know what but its working with the else don't touch it!
     else {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 2; i++) {
         if (BlogKeys[i] !== lastSegment) {
           updatedReadMoreArr.push(BlogKeys[i]);
         }
@@ -203,7 +198,7 @@ export default function BlogPost() {
 
   return (
     <div ref={body}>
-    <div className={styles.Columns}>
+    <div className={styles.Columns} ref={updateHeight}>
     <div className={styles.Blogcontainer} ref={readMoreRef} >
       <div className={styles.BlogInfo}>
         <div className={styles.Tohide} ref={Hide}>
@@ -255,14 +250,14 @@ export default function BlogPost() {
             ReadMoreArr.map(key => {
               if (readmore[key]) { // Check if readmore[key] exists
                 return (
-                  <Link onClick={updateReadMore} key={key} to={`/blog/${key}`} >
+                  <a onClick={updateReadMore} key={key} href={`/blog/${key}`} >
                     <div className={styles.ProjectImage}>
                       <img src={readmore[key].readMoreImage} alt={readmore[key].title}/>
                       <span>
                         <div className={styles.title} dangerouslySetInnerHTML={{ __html: readmore[key].title }}></div>
                       </span>
                     </div>
-                  </Link>
+                  </a>
                 );
               } 
             })
