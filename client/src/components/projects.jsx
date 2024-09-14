@@ -93,6 +93,26 @@ function About() {
             projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
             readMorelink: 'AutomateLife'
         },
+        {
+            title: '<strong>VHX</strong> Suspicious',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `Suspicious`,
+        },
+        {
+            title: '<strong>VHX</strong> Improve resume AI',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `Resumes`,
+        },
+        {
+            title: '<strong>VHX</strong> AI learning Platform',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `LearningPlatform`,
+        },
+        {
+            title: '<strong>VHX</strong> Social media Bot',
+            projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
+            readMorelink: `SocialMediaBot`,
+        }
     ]
     const { slug } = useParams();
     const post = projects[slug];

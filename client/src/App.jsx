@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation, Navigate, useParams} from 'react-router-dom';
+import Fuse from 'fuse.js';
+import debounce from 'lodash.debounce';
 import Home from './components/Home'; // gets the html structure and sends it to here
 import Projects from './components/projects';
 import Blog from './components/Blog';
@@ -7,6 +9,38 @@ import BlogPost from './components/BlogPost';
 import styles from './App.css';
 
 function Header() {
+    const myProjects = [
+        {
+            link: 'AiChatBot',
+            title: '<strong>VHX</strong> AI ChatBot',
+            image: 'tile.jpg',
+        },
+        {
+            link: 'AutomateLife',
+            title: `Automate opening`,
+            image: 'AutomateLife.png',
+        },
+        {
+            link: 'Suspicious',
+            title: `My google extension`,
+            image: 'Suspicious.png',
+        },
+        {
+            link: 'Resumes',
+            title: `Improve resume`,
+            image: 'evaluator.webp',
+        },
+        {
+            link: 'LearningPlatform',
+            title: `Full stack AI learning Platform`,
+            image: 'learning.webp',
+        },
+        {
+            link: "SocialMediaBot",
+            title: "Social media content creator Bot",
+            image: "what-are-bots.jpg",
+        }
+    ];
     const location = useLocation();
     const pathname = location.pathname;
 
@@ -63,20 +97,7 @@ function Header() {
 
     const inputRef = useRef(null);
     const searchMenuRef = useRef(null); 
-    const [search, setSearch] = useState('');
-    
-    const handleInputChange = (event) => {
-        setSearch(event.target.value);
-    };
 
-    function SearchMenu() {
-      if (inputRef.current) {
-        inputRef.current.classList.add('focused-input');
-        inputRef.current.focus(); // Focus the input field
-        searchMenuRef.current.classList.add('visible');
-
-      } 
-    }
     
     function handleClickOutside(event) {
         if (inputRef.current && !inputRef.current.contains(event.target)) {
@@ -84,44 +105,34 @@ function Header() {
           searchMenuRef.current.classList.remove('visible'); 
           }
     }
-    const myProjects = [
-        {
-            link: 'AiChatBot',
-            title: 'VHX AI ChatBot',
-            image: 'tile.jpg',
-            span: '17 August 2024',
-        },
-        {
-            link: 'AutomateLife',
-            title: `Automate opening`,
-            image: 'AutomateLife.png',
-            span: '19 august 2024',
-        },
-        {
-            link: 'Suspicious',
-            title: `My google extension`,
-            image: 'Suspicious.png',
-            span: '11 september 2024',
-        },
-        {
-            link: 'Resumes',
-            title: `Improve resume`,
-            image: 'evaluator.webp',
-            span: '11 september 2024',
-        },
-        {
-            link: 'LearningPlatform',
-            title: `Full stack AI learning Platform`,
-            image: 'learning.webp',
-            span: '11 september 2024',
-        },
-        {
-            link: "SocialMediaBot",
-            title: "Social media content creator Bot",
-            image: "what-are-bots.jpg",
-            span: '12 september 2024'
+
+    function SearchMenu() {
+        if (inputRef.current) {
+          inputRef.current.classList.add('focused-input');
+          inputRef.current.focus(); // Focus the input field
+          searchMenuRef.current.classList.add('visible');
+  
+        } 
+      }
+    const [query, setQuery] = useState("");
+    const [results, setResults] = useState([]);
+    const fuse = new Fuse(myProjects, {
+        keys: ['link', 'title'], // Specify searchable fields
+        threshold: 0.4,  // Adjust to control fuzziness of matching
+      });
+      const handleSearch = debounce((event) => {
+        const searchQuery = inputRef.current.value;
+        setQuery(searchQuery);
+        
+        if (searchQuery) {
+          const fuzzyResults = fuse.search(searchQuery);
+          setResults(fuzzyResults.map(result => result.item)); // Update results with fuzzy matches
+        } else {
+          setResults([]); // Clear results when query is empty
         }
-    ];
+      }, 300);
+
+    
     return (
         <div>
         <div className="header " ref={headerRef}>
@@ -174,34 +185,53 @@ function Header() {
                         </li>
                     </ul>
                 </div>
-                <div className="Search" ref={searchRef} onClick={SearchMenu}>
+                <div className="Search" ref={searchRef} onClick={SearchMenu} onChange={handleSearch}>
                     <input
                         type="text"
                         placeholder="Search Projects"
                         ref={inputRef}
-                        onChange={handleInputChange}
                         />
                     <Link to="#">
                         <img
                             src={`${process.env.PUBLIC_URL}/images/search.png`}
                             alt="Search"
-                            ref={searchRef} onClick={SearchMenu}/>
+                            ref={searchRef} />
                     </Link>
                 </div>
                 <div className="SearchMenu" ref={searchMenuRef}>
-                {myProjects.map((project, index) => ( 
-                  <Link to={`/blog/${project.link}`}>
-                    <div className="ShowProjects">
-                        <img src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                             alt={project.title}
-                         />
-                        <div className="TextContainer">
+                    { // If no search query, display all projects 
+                    }
+                  {query === "" ? (
+                    myProjects.map((project, index) => (
+                      <Link to={`/blog/${project.link}`} key={index}>
+                        <div className="ShowProjects">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                            alt={project.title}
+                          />
+                          <div className="TextContainer">
                             <h1 dangerouslySetInnerHTML={{ __html: project.title }} />
                             <span dangerouslySetInnerHTML={{ __html: project.span }} />
+                          </div>
                         </div>
-                    </div>
-                    </Link>
-                    )) }
+                      </Link>
+                    ))
+                  ) : (
+                    results.map((project, index) => (
+                      <Link to={`/blog/${project.link}`} key={index}>
+                        <div className="ShowProjects">
+                          <img
+                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                            alt={project.title}
+                          />
+                          <div className="TextContainer">
+                            <h1 dangerouslySetInnerHTML={{ __html: project.title }} />
+                            <span dangerouslySetInnerHTML={{ __html: project.span }} />
+                          </div>
+                        </div>
+                      </Link>
+                    ))
+                  )}
                 </div>
             </div>
         </div>
