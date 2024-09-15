@@ -19,7 +19,7 @@ function Home() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://192.168.0.100:3001/contact', {  // Ensure this URL is correct
+            const response = await fetch('http://192.168.0.8:3001/contact', {  // Ensure this URL is correct
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ function Home() {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+
 
             const result = await response.json();
             if (result.success) {
@@ -363,7 +364,7 @@ function Home() {
                     placeholder='Your email address' 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                required />
+                    required />
                 <label htmlFor="message">Write Your Message</label>
                 <textarea 
                     id="message" 

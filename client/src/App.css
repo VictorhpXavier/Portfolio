@@ -252,6 +252,13 @@ input[type=text]:focus {
   margin-top: 10px;
   color: #adadad;
 }
+.noProject h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  color: red;
+}
 @media (max-width: 767px) {
   .Search input {
     display: none;

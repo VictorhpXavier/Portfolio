@@ -103,7 +103,8 @@ function Header() {
         if (inputRef.current && !inputRef.current.contains(event.target)) {
           inputRef.current.value = ''; 
           searchMenuRef.current.classList.remove('visible'); 
-          }
+          setQuery("");       
+        }
     }
 
     function SearchMenu() {
@@ -111,13 +112,17 @@ function Header() {
           inputRef.current.classList.add('focused-input');
           inputRef.current.focus(); // Focus the input field
           searchMenuRef.current.classList.add('visible');
-  
+
         } 
-      }
-    const [query, setQuery] = useState("");
+    }
+    function searchRef2(event) {
+
+    }
+
+    let [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const fuse = new Fuse(myProjects, {
-        keys: ['link', 'title'], // Specify searchable fields
+        keys: ['title'], // Specify searchable fields
         threshold: 0.4,  // Adjust to control fuzziness of matching
       });
       const handleSearch = debounce((event) => {
@@ -128,7 +133,7 @@ function Header() {
           const fuzzyResults = fuse.search(searchQuery);
           setResults(fuzzyResults.map(result => result.item)); // Update results with fuzzy matches
         } else {
-          setResults([]); // Clear results when query is empty
+          setResults([]); 
         }
       }, 300);
 
@@ -190,12 +195,12 @@ function Header() {
                         type="text"
                         placeholder="Search Projects"
                         ref={inputRef}
-                        />
-                    <Link to="#">
+                    />
+                    <Link to="#"  >
                         <img
                             src={`${process.env.PUBLIC_URL}/images/search.png`}
                             alt="Search"
-                            ref={searchRef} />
+                        />
                     </Link>
                 </div>
                 <div className="SearchMenu" ref={searchMenuRef}>
@@ -216,7 +221,7 @@ function Header() {
                         </div>
                       </Link>
                     ))
-                  ) : (
+                  ) : results.length > 0 ? (
                     results.map((project, index) => (
                       <Link to={`/blog/${project.link}`} key={index}>
                         <div className="ShowProjects">
@@ -231,6 +236,10 @@ function Header() {
                         </div>
                       </Link>
                     ))
+                ) : (
+                    <div className="noProject">
+                        <h1>No matching projects found.</h1>
+                    </div>
                   )}
                 </div>
             </div>

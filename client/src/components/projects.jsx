@@ -80,7 +80,8 @@ function About() {
             buildWith: `<span className={styles.badge}>Python</span>`,
             projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
             readMorelink: `SocialMediaBot`,
-        }
+        },
+       
     ]
     const projectsPhone = [
         {
@@ -112,7 +113,8 @@ function About() {
             title: '<strong>VHX</strong> Social media Bot',
             projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
             readMorelink: `SocialMediaBot`,
-        }
+        },
+        
     ]
     const { slug } = useParams();
     const post = projects[slug];
@@ -121,6 +123,7 @@ function About() {
         <div>
            <div className={styles.Projects} ref={(el) => (aboutBoxesRef.current[0] = el)}>
                 <h1>VHX Projects</h1>
+                <div className={styles.ScrollableTable}>
                 <table className={styles.ProjectTable}>
                    <thead>
                        <tr>
@@ -160,6 +163,7 @@ function About() {
                     )}
                    </tbody>
                </table>
+                </div>
            </div>
            <div className={styles.ProjectsPhone} ref={(el) => (aboutBoxesRef.current[1] = el)}>
                 <h1>VHX Projects</h1>
