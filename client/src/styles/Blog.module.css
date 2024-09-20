@@ -103,6 +103,8 @@ footer {
     display: flex;
     align-items: flex-start; /* Align items to the start (left) */
 }
+
+
 footer .footercontent h1 {
     color: #007aff;
 }
@@ -125,6 +127,7 @@ footer .footercontent span {
 }
 
 .footerlinks {
+    transform: translateX(-5%);
     display: flex;
     justify-content: center; /* Center the columns horizontally */
     gap: 30px; /* Adjust the gap as needed */

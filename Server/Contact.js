@@ -1,9 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Import cors
-const con = require('./Dbconnection.js')
-
+const mysql = require('mysql');
 const router = express.Router();
+require('dotenv').config();
+
+//const con = require('./Dbconnection.js')
+const con = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+});
+con.connect((err) => {
+    if (err) {
+        console.error('Error connecting to MySQL:', err);
+        return;
+    }
+    console.log('Connected to MySQL database');
+});
+
 router.use(bodyParser.json());
 router.use(cors()); // Enable CORS for all routes
 

@@ -412,7 +412,6 @@ button:hover {
 footer {
   margin-top: 10%;
   padding: 20px 50px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex; /* Use flexbox layout for the footer */
   flex-direction: column; /* Stack items vertically */
   align-items: flex-start; /* Align items to the start (left) */
@@ -445,6 +444,7 @@ footer .footercontent span {
 }
 
 .footerlinks {
+  transform: translateX(-5%);
   display: flex;
   justify-content: center; /* Center the columns horizontally */
   gap: 30px; /* Adjust the gap as needed */
@@ -473,6 +473,95 @@ footer .footercontent span {
 }
 .ContactContainerMin {
   display: none;
+}
+/* Small Screen */
+@media (min-width: 767px) and (max-width: 1300px) {
+  .Text {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 0px;
+    margin-top: 90px;
+    max-width: 100%;
+  }
+
+  .Text h1 {
+    display: inline;
+  }
+  .Text p {
+    text-wrap: wrap;
+    font-size: 23px;
+  }
+
+  .Image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    margin-top: -350px;
+    margin-left: 940px !important;
+    width: 300px !important;
+  }
+  .AboutContainer {
+    margin-top: 13%;
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  
+  .AboutContainer .AboutBox {
+    width: 80%;
+    height: 299px;
+    background-color: transparent; /* Or specify a color if needed */
+    border: 2px solid #464646;
+    border-radius: 26px;
+    padding: 20px; /* Add padding for better content spacing */
+  }
+
+
+
+  
+  .AboutBoxMyskills {
+    width: 80%;
+    padding: 20px; /* Add padding for better content spacing */
+    height: 299px;
+    background-color: transparent;
+    border: 2px solid #464646;
+    border-radius: 26px;
+    display: flex;
+    flex-direction: row; /* Arrange children in a row */
+    justify-content: space-between; 
+  }
+
+  .ContactContainer {
+
+    margin-top: 18%;
+    color: #fff;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .ContactBox {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid #464646;
+    border-radius: 10px;
+  }
+ 
+  
 }
 /* Phone */
 @media (max-width: 479px) {

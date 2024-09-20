@@ -115,10 +115,6 @@ function Header() {
 
         } 
     }
-    function searchRef2(event) {
-
-    }
-
     let [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const fuse = new Fuse(myProjects, {

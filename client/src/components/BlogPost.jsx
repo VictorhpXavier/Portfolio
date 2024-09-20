@@ -182,7 +182,6 @@ export default function BlogPost() {
   
 
   const resizeWindow = () => {
-    document.body.style.overflow = "hidden";
     iframeSize.current.style.width = '100vw'
     IframeShow.current.style.height = '100vh'
     IframeShow.current.style.marginLeft = '-110px'

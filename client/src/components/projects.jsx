@@ -10,9 +10,7 @@ function About() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add(styles.visible);
-                    } else {
-                        entry.target.classList.remove(styles.visible);
-                    }
+                    } 
                 });
             },
             { threshold: 0.5 }
@@ -81,6 +79,7 @@ function About() {
             projectLink: '<a href="http://localhost:3002" target="_blank">localhost:3002 </a>',
             readMorelink: `SocialMediaBot`,
         },
+        
        
     ]
     const projectsPhone = [
@@ -199,7 +198,8 @@ function About() {
                    </tbody>
                </table>
            </div>
-            <footer>
+           <div className={styles.footer}>
+           <footer>
                 <div className={styles.footercontent}>
                     <div className={styles.footerlogo}>
                         <h1><strong>V<span>H</span>X</strong></h1>
@@ -218,6 +218,8 @@ function About() {
                     </div>
                 </div>
             </footer>
+           </div>
+           
         </div>
     );
 }

@@ -259,6 +259,7 @@ input[type=text]:focus {
   justify-items: center;
   color: red;
 }
+
 @media (max-width: 767px) {
   .Search input {
     display: none;

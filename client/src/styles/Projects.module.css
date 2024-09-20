@@ -119,58 +119,68 @@
 .ScrollableTable a:hover {
     text-decoration: underline;
 }
-
-.footercontent {
-    margin-top: -8% !important;
+.footer {
+    margin-top: -100px;
+}
+footer {
+    padding: 20px 50px;
+    display: flex; /* Use flexbox layout for the footer */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  
+  .footercontent {
+    
     width: 100%; /* Ensure the content takes full width */
     display: flex;
     align-items: flex-start; /* Align items to the start (left) */
-}
-footer .footercontent h1 {
-    color: #007aff;
-}
-footer .footercontent span {
+  }
+  footer .footercontent h1 {
+    color: #007AFF;
+  }
+  footer .footercontent span {
     color: #128fdc;
-}
-
-.footerlogo {
+  }
+  
+  .footerlogo {
     margin-bottom: 20px; /* Space between logo and links */
-}
-
-.footerlogo h1 {
+  }
+  
+  .footerlogo h1 {
     font-size: 24px;
     color: #3164f4;
-}
-
-.footerlogo p {
+  }
+  
+  .footerlogo p {
     font-size: 14px;
     color: #666;
-}
-
-.footerlinks {
+  }
+  
+  .footerlinks {
+    transform: translateX(-5%);
     display: flex;
     justify-content: center; /* Center the columns horizontally */
     gap: 30px; /* Adjust the gap as needed */
     flex-wrap: wrap; /* Allow wrapping if needed */
     width: 100%; /* Ensure the links take full width for centering */
-}
-
-.linkscolumn {
+  }
+  
+  .linkscolumn {
     transform: translateY(50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.linkscolumn a {
+  }
+  
+  .linkscolumn a {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
-}
-.linkscolumn a:hover {
+  }
+  .linkscolumn a:hover {
     color: #007aff;
     font-weight: bold;
-}
+  }
 
 @media (max-width: 900px) {
     .AboutContainer .ProjectContainer {
@@ -180,7 +190,23 @@ footer .footercontent span {
         ); /* 2 columns on smaller screens */
     }
 }
-
+@media (min-width: 767px) and (max-width: 1300px) {
+    .ScrollableTable table {
+        width: 90%;
+    }
+    footer {
+        padding: 20px 50px;
+        display: flex; /* Use flexbox layout for the footer */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+      }
+      
+      .footercontent {
+        width: 100%; /* Ensure the content takes full width */
+        display: flex;
+        align-items: flex-start; /* Align items to the start (left) */
+      }
+}
 @media (max-width: 600px) {
     body {
         overflow: auto;
