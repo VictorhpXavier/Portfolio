@@ -1,5 +1,5 @@
 // src/components/Home.js
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Blog.module.css'; // Import the CSS module
 
@@ -48,7 +48,32 @@ function Blog() {
             date: '12 september 2024'
         }
     ];
+    const [isOpen, setIsOpen] = useState(false);
+    const openFilterMenu = useRef(null);
+    const toggleButtonRef = useRef(null); // Ref for the toggle button
+    
+    // Function to toggle the menu state
 
+    const toggleMenu = (event) => {
+        event.stopPropagation();
+        setIsOpen((prevState) => !prevState); // Toggle the state
+    };
+
+    
+    // Close the menu if clicking outside of it
+    const handleClickOutside = (event) => {
+        // Check if the click was outside the menu and outside the toggle button
+        if (
+            openFilterMenu.current && 
+            !openFilterMenu.current.contains(event.target) && 
+            toggleButtonRef.current && 
+            !toggleButtonRef.current.contains(event.target)
+        ) {
+            setIsOpen(false); // Close the menu
+        }
+        setIsOpen(false); // Close the menu
+
+    };
     const aboutBoxesRef = useRef([]);
 
     useEffect(() => {
@@ -65,11 +90,15 @@ function Blog() {
             { threshold: 0.5 }
         );
 
+        
+        document.addEventListener("mousedown", handleClickOutside);
+
         aboutBoxesRef.current.forEach((box) => {
             if (box) {
                 observer.observe(box);
             }
         });
+
 
         return () => {
             aboutBoxesRef.current.forEach((box) => {
@@ -77,6 +106,7 @@ function Blog() {
                     observer.unobserve(box);
                 }
             });
+
         };
     }, []);
 
@@ -86,23 +116,29 @@ function Blog() {
                 <div className={styles.title}>
                     <h1>VHX Blog</h1>
                 </div>
-                <div className={styles.ProjectsContainer}>
-            {myProjects.map((project, index) => (
-                <div key={index} className={styles.ProjectItem} ref={(el) => (aboutBoxesRef.current[index] = el)}>
-                    <Link to={`/blog/${project.link}`}>
-                        <div className={styles.Header}>
-                            <img
-                                src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                alt={project.title}
-                            />
-                        </div>
-                        <h1 dangerouslySetInnerHTML={{ __html: project.title }} />
-                        <span>Created on {project.date}</span>
-                    </Link>
+                <div className={styles.SearchMenu} onClick={toggleMenu} >
+                    <div className={styles.FilterMenuClosed}>
+                        <span className={styles.ToggleIcon}><strong>Filters</strong> {isOpen ? "▼" : "▲"}</span>
+                    </div>
+                    <div className={`${styles.FilterMenu} ${isOpen ? styles.Open : styles.Closed}`} ref={openFilterMenu}></div>
                 </div>
-            ))}
+            <div className={styles.ProjectsContainer}>
+                {myProjects.map((project, index) => (
+                    <div key={index} className={styles.ProjectItem} ref={(el) => (aboutBoxesRef.current[index] = el)}>
+                        <Link to={`/blog/${project.link}`}>
+                            <div className={styles.Header}>
+                                <img
+                                    src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                    alt={project.title}
+                                />
+                            </div>
+                            <h1 dangerouslySetInnerHTML={{ __html: project.title }} />
+                            <span>Created on {project.date}</span>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
-    </div>
             <footer>
                 <div className={styles.footercontent}>
                     <div className={styles.footerlogo}>

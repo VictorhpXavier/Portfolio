@@ -33,7 +33,59 @@
     margin-bottom: 50px;
     margin-top: 50px;
 }
+.BlogContainer .SearchMenu {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.SearchMenu .FilterMenuClosed  {
+    z-index: 999999999999;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    width: 120px;
+    height: 40px;
+    border: solid white;
+    border-width:  0.5px;
+}
 
+.SearchMenu .FilterMenuClosed:hover {
+    background-color: #96959557;
+    cursor: pointer;
+}
+.FilterMenu {
+    display: none;
+}
+.Open {
+    display: block;
+}
+
+.Closed {
+    display: none;
+}
+.SearchMenu .FilterMenu {
+    z-index: 9999999999999;
+    top: 0px;
+    position: absolute;
+    border-radius: 26px;
+    top: 50px;
+    width: 330px;
+    height: 400px;
+    background-color: #4d4d4d;
+    overflow-y: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ToggleIcon {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.ToggleIcon strong {
+    font-size: 24px;
+    color: white;
+}
 .BlogContainer .ProjectsContainer {
     margin-top: 50px;
     display: grid;
@@ -151,7 +203,64 @@ footer .footercontent span {
     color: #007aff;
     font-weight: bold;
 }
-
+@media (min-width: 767px) and (max-width: 1300px) {
+    .BlogContainer .ProjectsContainer {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Three equal-width columns */
+        gap: 30px; /* Gap between grid items */
+        padding-bottom: 10px;
+        justify-items: center; /* Center items horizontally in their grid cells */
+        width: 90%;
+    }
+   
+    .SearchMenu .FilterMenuClosed  {
+        background: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        width: 120px;
+        height: 40px;
+        border: solid white;
+        border-width:  0.5px;
+    }
+    
+    .SearchMenu .FilterMenuClosed:hover {
+        background-color: #96959557;
+        cursor: pointer;
+    }
+    .FilterMenu.Open {
+        display: block;
+    }
+    
+    .FilterMenu.Closed {
+        display: none;
+    }
+    .SearchMenu .FilterMenu {
+        z-index: 9999999999999;
+        top: 0px;
+        position: absolute;
+        border-radius: 26px;
+        right: -85px;
+        top: 50px;
+        width: 300px;
+        height: 400px;
+        background-color: #4d4d4d;
+        overflow-y: auto;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .ToggleIcon {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .ToggleIcon strong {
+        font-size: 24px;
+        color: white;
+    }
+}
 @media (max-width: 600px) {
     .title h1 {
         font-size: 45px;
@@ -177,6 +286,19 @@ footer .footercontent span {
         font-style: normal;
         margin-bottom: 50px;
         margin-top: 50px;
+    }
+   
+    .SearchMenu .FilterMenuClosed  {
+        background: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        width: 220px;
+        height: 40px;
+        border: solid white;
+        border-width:  0.5px;
     }
     
     .BlogContainer .ProjectsContainer {

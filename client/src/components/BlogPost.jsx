@@ -261,7 +261,7 @@ export default function BlogPost() {
               } 
             })
           ) : (
-            <p>No other blog posts available</p>
+            <p></p>
           )}
         </div>
       </div>

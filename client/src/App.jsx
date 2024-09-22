@@ -97,7 +97,6 @@ function Header() {
 
     const inputRef = useRef(null);
     const searchMenuRef = useRef(null); 
-
     
     function handleClickOutside(event) {
         if (inputRef.current && !inputRef.current.contains(event.target)) {
