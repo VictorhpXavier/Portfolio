@@ -59,7 +59,7 @@
     display: none;
 }
 .Open {
-    display: block;
+    display: flex;
 }
 
 .Closed {
@@ -77,7 +77,11 @@
     overflow-y: auto;
     transition: opacity 0.3s ease-in-out;
 }
-
+.SearchMenu .FilterMenu .CloseMenu button {
+    position: absolute;
+    right: 10px;
+    border-radius: 9px;
+}    
 .ToggleIcon {
     font-size: 20px;
     margin-left: 10px;
