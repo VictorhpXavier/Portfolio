@@ -1,5 +1,7 @@
 import React, { useEffect, useRef,useState } from 'react';
 import { Link } from 'react-router-dom';
+import Fuse from 'fuse.js';
+import debounce from 'lodash.debounce';
 import styles from '../styles/Blog.module.css'; // Import the CSS module
 
 function Blog() {
@@ -49,7 +51,6 @@ function Blog() {
     ];
     const [isOpen, setIsOpen] = useState(false);
     const openFilterMenu = useRef(null);
-    const toggleButtonRef = useRef(null); // Ref for the toggle button
     
     // Function to toggle the menu state
     const toggleMenu = (event) => {
@@ -62,8 +63,26 @@ function Blog() {
         setIsOpen(false)
     }
 
+    let [query, setQuery] = useState("");
+    const [results, setResults] = useState([]);
+    const fuse = new Fuse(myProjects, {
+        keys: ['title'], // Specify searchable fields
+        threshold: 0.4,  // Adjust to control fuzziness of matching
+      });
+      const handleSearch = debounce((event) => {
+        const searchQuery = openFilterMenu.current.value;
+        setQuery(searchQuery);
+        
+        if (searchQuery) {
+          const fuzzyResults = fuse.search(searchQuery);
+          setResults(fuzzyResults.map(result => result.item)); // Update results with fuzzy matches
+        } else {
+          setResults([]); 
+        }
+      }, 300);
+    
     const aboutBoxesRef = useRef([]);
-
+    const FilterMenu = useRef(false)
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -84,6 +103,9 @@ function Blog() {
                 observer.observe(box);
             }
         });
+        if (FilterMenu.current && document.addEventListener('click', test)) {
+            setIsOpen(false)
+        }
 
 
         return () => {
@@ -103,14 +125,35 @@ function Blog() {
                     <h1>VHX Blog</h1>
                 </div>
                 <div className={styles.SearchMenu}  >
-                    <div className={styles.FilterMenuClosed} onClick={toggleMenu}>
+                    <div className={styles.FilterMenuClosed} onClick={toggleMenu} ref={FilterMenu}>
                         <span className={styles.ToggleIcon}><strong>Filters</strong> {isOpen ? "▼" : "▲"}</span>
                     </div>
-                    <div className={`${styles.FilterMenu} ${isOpen ? styles.Open : styles.Closed}`} ref={openFilterMenu} >
-                        <div className={styles.CloseMenu}>
-                            <button onClick={test}>X</button>
+                    <div className={`${styles.FilterMenu} ${isOpen ? styles.Open : styles.Closed}`}>
+                        <div className={styles.filterContent}>
+                            <div className={styles.CloseMenu}>
+                                <button onClick={test}>X</button>
+                            </div>
+                            <h3>Filter By</h3>
+                            <label>
+                                <input type="checkbox" />
+                                <span>Machine Learning</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" />
+                                <span>Capture the flag</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" />
+                                <span>Most recent</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" />
+                                <span>Oldest</span>
+                            </label>
+                            <div className={styles.Search2}>
+                                <input type="text" placeholder="Search by name / language" />
+                            </div>
                         </div>
-
                     </div>
                 </div>
             <div className={styles.ProjectsContainer}>

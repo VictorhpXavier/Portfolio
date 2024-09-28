@@ -4,7 +4,7 @@ import Fuse from 'fuse.js';
 import debounce from 'lodash.debounce';
 import Home from './components/Home'; // gets the html structure and sends it to here
 import Projects from './components/projects';
-import Blog from './components/Blog';
+import Blog from './components/Blog.jsx';
 import BlogPost from './components/BlogPost';
 import styles from './App.css';
 
@@ -114,6 +114,7 @@ function Header() {
 
         } 
     }
+    
     let [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const fuse = new Fuse(myProjects, {
@@ -131,7 +132,6 @@ function Header() {
           setResults([]); 
         }
       }, 300);
-
     
     return (
         <div>
