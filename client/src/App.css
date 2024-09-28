@@ -30,7 +30,7 @@ a:hover {
   margin-top: 30px;
   width: 90%;
   height: 38px;
-  background-color: #434141; /* Adjust if you want a different background for the header */
+  background-color: #434141;
   padding: 10px 20px;
   border: 2px solid #464646;
   border-radius: 36px;
@@ -121,7 +121,7 @@ a:hover {
   border-radius: 26px;
   background: none;
   border: 1px solid #fff;
-  outline: none; /* Remove the default outline */
+  outline: none; 
 
 }
 input[type=text]:focus {
@@ -130,7 +130,7 @@ input[type=text]:focus {
 .Search input::placeholder {
   text-align: center;
   color: #fff;
-  opacity: 1; /* Firefox */
+  opacity: 1; 
 }
 
 .Search input::-ms-input-placeholder { /* Edge 12 -18 */
@@ -140,7 +140,6 @@ input[type=text]:focus {
 .containerMenu {
   display: none;
   cursor: pointer;
-  position: absolute;
   top: 50px;
   right: 35px;
 }
@@ -171,6 +170,8 @@ input[type=text]:focus {
   right: 75px;
   width: 500px;
   height: 400px;
+  z-index: 999999999999999;
+
   background-color: #4d4d4d;
   margin-top: 100px;
   overflow-y: auto;
@@ -308,23 +309,31 @@ input[type=text]:focus {
     display: none;
   }
   .containerMenu {
-    display: none;
     cursor: pointer;
-    position: absolute;
     top: 25px;
     right: 35px;
+    position: absolute;
   }
   /* Header */
+  .header {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 90%;
+    height: 38px;
+    background-color: #434141; 
+    padding: 10px 20px;
+    border: 2px solid #464646;
+    border-radius: 36px;
+    z-index: 100000;
+  }
   .MainRoutes {
     display: none;
   }
   .Search { 
     display: none;
   } 
-
-  .containerMenu {
-    display: inline-block;
-  }
 
   .container {
     flex-direction: column;

@@ -102,7 +102,7 @@ function Header() {
         if (inputRef.current && !inputRef.current.contains(event.target)) {
           inputRef.current.value = ''; 
           searchMenuRef.current.classList.remove('visible'); 
-          setQuery("");       
+          setQuery(""); 
         }
     }
 
@@ -137,7 +137,7 @@ function Header() {
         <div>
         <div className="header " ref={headerRef}>
             <div className="container">
-                <div className="Logo">
+                <div className="Logo" onClick={CloseMenu}>
                     <Link to="/home">
                         <h1>
                             V<span>H</span>X

@@ -62,7 +62,7 @@ function Blog() {
     const test = () => {
         setIsOpen(false)
     }
-
+   
     let [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const fuse = new Fuse(myProjects, {
@@ -83,6 +83,48 @@ function Blog() {
     
     const aboutBoxesRef = useRef([]);
     const FilterMenu = useRef(false)
+    const searchMenu = useRef(false)
+    const [coords, setCoords] = useState({ x: 0, y: 0 });
+    const [width, setWidth] = useState(window.innerWidth);
+
+    const handleClick = (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // Update the state with the new coordinates
+      setCoords({ x, y });
+      //left top corner (790, 260)
+      //right top corner (789, 260)
+      //left bottom corner (1118, 252)
+      //right bottom corner (1113, 656)
+      if (width >= 1920) {
+        // Define the bounding box corners
+        const left = 789;   // Minimum x (left edge)
+        const right = 1113; // Maximum x (right edge)
+        const top = 260;    // Minimum y (top edge)
+        const bottom = 656; // Maximum y (bottom edge)
+        const isInsideBox = x >= left && x <= right && y >= top && y <= bottom;
+        if (!isInsideBox) { 
+            test()
+        }
+      } else if (width < 500 && width > 300) {
+        //left top corner (40, 254)
+        //right top corner(366, 260)
+        //left bottom corner (24, 655)
+        //right bottom corner (365, 660)
+        const left = 40;    // Minimum x (left edge)
+        const right = 365;  // Maximum x (right edge)
+        const top = 254;    // Minimum y (top edge)
+        const bottom = 660; // Maximum y (bottom edge)
+    
+        const isInsideBox = x >= left && x <= right && y >= top && y <= bottom;
+    
+        if (!isInsideBox) {
+          test(); 
+        }
+      }
+      
+    };
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -97,17 +139,12 @@ function Blog() {
             { threshold: 0.5 }
         );
 
-
         aboutBoxesRef.current.forEach((box) => {
             if (box) {
                 observer.observe(box);
             }
         });
-        if (FilterMenu.current && document.addEventListener('click', test)) {
-            setIsOpen(false)
-        }
-
-
+        
         return () => {
             aboutBoxesRef.current.forEach((box) => {
                 if (box) {
@@ -119,12 +156,12 @@ function Blog() {
     }, []);
 
     return (
-        <div>
+        <div  onClick={handleClick}>
             <div className={styles.BlogContainer}>
                 <div className={styles.title}>
                     <h1>VHX Blog</h1>
                 </div>
-                <div className={styles.SearchMenu}  >
+                <div className={styles.SearchMenu} ref={searchMenu} >
                     <div className={styles.FilterMenuClosed} onClick={toggleMenu} ref={FilterMenu}>
                         <span className={styles.ToggleIcon}><strong>Filters</strong> {isOpen ? "▼" : "▲"}</span>
                     </div>
