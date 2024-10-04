@@ -11,42 +11,57 @@ function Blog() {
             title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
             image: 'tile.jpg',
             date: '17 August 2024',
+            Languages: ["HTML", "CSS", "JS", "PYTHON", "SQL"],
+            categories: "Machine-Learning",
         },
         {
             link: 'Portfolio',
             title: `How Was this Site Made?`,
             image: 'pfp.jpg',
             date: '23 august 2024',
+            Languages: ["REACTJS", "NODEJS", "SQL"],
+            categories: "",
         },
         {
             link: 'AutomateLife',
             title: `Automate Life`,
             image: 'AutomateLife.png',
             date: '19 august 2024',
+            Languages: ["PYTHON"],
+            categories: "Automation",
         },
         {
             link: 'Suspicious',
             title: `My google extension`,
             image: 'Suspicious.png',
             date: '11 september 2024',
+            Languages: ["HTML", "CSS", "JS"],
+            categories: "Google-Extension",
         },
         {
             link: 'Resumes',
             title: `Improve resume`,
             image: 'evaluator.webp',
             date: '11 september 2024',
+            Languages: ["REACT", "PYTHON"],
+            categories: "Machine-Learning",
+
         },
         {
             link: 'LearningPlatform',
             title: `Full stack AI learning Platform`,
             image: 'learning.webp',
             date: '11 september 2024',
+            Languages: ["REACT", "JAVA", "SQL"],
+            categories: "Machine-Learning",
         },
         {
             link: "SocialMediaBot",
             title: "Social media content creator Bot",
             image: "what-are-bots.jpg",
-            date: '12 september 2024'
+            date: '12 september 2024',
+            Languages: ["HTML", "CSS", "JS", "PYTHON"],
+            categories: "Machine-Learning",
         }
     ];
     const [isOpen, setIsOpen] = useState(false);

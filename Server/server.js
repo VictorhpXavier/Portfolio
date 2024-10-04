@@ -11,7 +11,6 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 
-
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
