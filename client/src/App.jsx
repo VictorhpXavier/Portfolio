@@ -131,7 +131,7 @@ function Header() {
         } else {
           setResults([]); 
         }
-      }, 300);
+    }, 300);
     
     return (
         <div>
