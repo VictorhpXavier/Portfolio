@@ -13,7 +13,7 @@ function Blog() {
             date: '17 August 2024',
             pcDate: '2024-08-17',
             Languages: ['HTML', 'CSS', 'JS', 'PYTHON', 'SQL'],
-            categories: 'Machine-Learning',
+            categories: ['Machine-Learning'],
         },
         {
             link: 'Portfolio',
@@ -31,7 +31,7 @@ function Blog() {
             date: '19 august 2024',
             pcDate: '2024-08-19',
             Languages: ['PYTHON'],
-            categories: 'Automation',
+            categories: ['Automation'],
         },
         {
             link: 'Suspicious',
@@ -40,7 +40,7 @@ function Blog() {
             date: '11 september 2024',
             pcDate: '2024-09-11',
             Languages: ['HTML', 'CSS', 'JS'],
-            categories: 'Google-Extension',
+            categories: ['Google-Extension'],
         },
         {
             link: 'Resumes',
@@ -49,7 +49,7 @@ function Blog() {
             date: '11 september 2024',
             pcDate: '2024-09-11',
             Languages: ['REACT', 'PYTHON'],
-            categories: 'Machine-Learning',
+            categories: ['Machine-Learning'],
         },
         {
             link: 'LearningPlatform',
@@ -58,7 +58,7 @@ function Blog() {
             date: '11 september 2024',
             pcDate: '2024-09-11',
             Languages: ['REACT', 'JAVA', 'SQL'],
-            categories: 'Machine-Learning',
+            categories: ['Machine-Learning'],
         },
         {
             link: 'SocialMediaBot',
@@ -67,7 +67,7 @@ function Blog() {
             date: '12 september 2024',
             pcDate: '2024-09-12',
             Languages: ['HTML', 'CSS', 'JS', 'PYTHON'],
-            categories: 'Machine-Learning',
+            categories: ['Machine-Learning'],
         },
     ];
     const [isOpen, setIsOpen] = useState(false);
@@ -96,12 +96,11 @@ function Blog() {
 
         let updatedArray = [...IdArray];
         let updatedCheckedStates = { ...checkedStates };
-
+        console.log(checkboxId)
         // Update checked states and IdArray based on selection
         if (isChecked) {
             updatedArray.push(checkboxId);
             updatedCheckedStates[checkboxId] = true;
-
             // If "Recent" is checked, uncheck "Oldest" and vice versa
             if (checkboxId === 'Recent') {
                 updatedArray = updatedArray.filter((id) => id !== 'Oldest');
@@ -118,19 +117,26 @@ function Blog() {
         setIdArray(updatedArray);
         setCheckedStates(updatedCheckedStates);
     };
-
     const searchRef = useRef();
-    const searchQuery = searchRef.current;
-
-    const handleSearchQuery = () => {
-        console.log(searchQuery.value);
-    };
-
+    const [results, setResults] = useState([])
+    let [query, setQuery] = useState("")
+    
     //Handle Fuse
-    const fuse = new Fuse(myProjects, {
-        keys: [''],
+    const fuseSearchQuery = new Fuse(myProjects, {
+        keys: ['title'],
         threshold: 0.4,
     });
+    const handleSearchQuery = debounce((event) => {
+        const searchQuery = searchRef.current.value;
+        setQuery(searchQuery);
+        if (searchQuery) {
+            const fuzzyResults = fuseSearchQuery.search(searchQuery);
+            setResults(fuzzyResults.map(result => result.item)); // Update results with fuzzy matches
+        } else {
+            setResults(myProjects); 
+            console.log('is in the else')
+        }
+    }, 300);
 
     const aboutBoxesRef = useRef([]);
     const FilterMenu = useRef(false);
@@ -278,28 +284,56 @@ function Blog() {
                     </div>
                 </div>
                 <div className={styles.ProjectsContainer}>
-                    {myProjects.map((project, index) => (
-                        <div
-                            key={index}
-                            className={styles.ProjectItem}
-                            ref={(el) => (aboutBoxesRef.current[index] = el)}
-                        >
-                            <Link to={`/blog/${project.link}`}>
-                                <div className={styles.Header}>
-                                    <img
-                                        src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                        alt={project.title}
+                    {query === "" || query.length === 0 ? (
+                        myProjects.map((project, index) => (
+                            <div
+                                key={index}
+                                className={styles.ProjectItem}
+                                ref={(el) => (aboutBoxesRef.current[index] = el)}
+                            >
+                                <Link to={`/blog/${project.link}`}>
+                                    <div className={styles.Header}>
+                                        <img
+                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                            alt={project.title}
+                                        />
+                                    </div>
+                                    <h1
+                                        dangerouslySetInnerHTML={{
+                                            __html: project.title,
+                                        }}
                                     />
-                                </div>
-                                <h1
-                                    dangerouslySetInnerHTML={{
-                                        __html: project.title,
-                                    }}
-                                />
-                                <span>Created on {project.date}</span>
-                            </Link>
+                                    <span>Created on {project.date}</span>
+                                </Link>
+                            </div>
+                        ))
+                    ) : results.length > 0 ? (
+                        results.map((project, index) => (
+                            <div
+                                key={index}
+                                className={styles.ProjectItem}
+                                ref={(el) => (aboutBoxesRef.current[index] = el)}
+                            >
+                                <Link to={`/blog/${project.link}`}>
+                                    <div className={styles.Header}>
+                                        <img
+                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                            alt={project.title}
+                                        />
+                                    </div>
+                                    <h1
+                                        dangerouslySetInnerHTML={{
+                                            __html: project.title,
+                                        }}
+                                    />
+                                    <span>Created on {project.date}</span>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <div className={styles.AreyouLost}> 
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
             <footer>
@@ -334,3 +368,4 @@ function Blog() {
 }
 
 export default Blog;
+

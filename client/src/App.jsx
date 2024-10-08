@@ -121,7 +121,8 @@ function Header() {
         keys: ['title'], // Specify searchable fields
         threshold: 0.4,  // Adjust to control fuzziness of matching
       });
-      const handleSearch = debounce((event) => {
+      
+    const handleSearch = debounce((event) => {
         const searchQuery = inputRef.current.value;
         setQuery(searchQuery);
         
