@@ -15,8 +15,15 @@
     justify-content: center;
 }
 
-
-
+/*
+.ProjectItem {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.visible {
+    opacity: 1;
+    transition-delay: 0.2s;
+}*/
 .BlogContainer .Title {
     color: #007aff;
     font-size: 45px;
