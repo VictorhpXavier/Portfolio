@@ -89,6 +89,7 @@ function Blog() {
         Recent: false,
         Oldest: false,
     });
+    const [filteredProjects, setFilteredProjects] = useState([]);
 
     const handleCheckboxChange = (event) => {
         const checkboxId = event.target.id;
@@ -96,7 +97,7 @@ function Blog() {
 
         let updatedArray = [...IdArray];
         let updatedCheckedStates = { ...checkedStates };
-        console.log(checkboxId)
+
         // Update checked states and IdArray based on selection
         if (isChecked) {
             updatedArray.push(checkboxId);
@@ -116,7 +117,12 @@ function Blog() {
 
         setIdArray(updatedArray);
         setCheckedStates(updatedCheckedStates);
+
+        // Trigger search/filtering
+        handlecheckBoxFuseSearchQuery();
     };
+
+
     const searchRef = useRef();
     const [results, setResults] = useState([])
     let [query, setQuery] = useState("")
@@ -134,9 +140,24 @@ function Blog() {
             setResults(fuzzyResults.map(result => result.item)); // Update results with fuzzy matches
         } else {
             setResults(myProjects); 
-            console.log('is in the else')
         }
     }, 300);
+
+    
+    const handlecheckBoxFuseSearchQuery = () => {
+        let filtered = [...myProjects];
+        const filter = filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
+        console.log(filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate)))
+        if (IdArray.includes('Oldest')) {
+            filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
+        } else if (IdArray.includes('Recent')) {
+            filtered.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate));
+        } else {
+            setFilteredProjects(filtered);
+        }
+        setFilteredProjects(filtered);
+
+    };
 
     const aboutBoxesRef = useRef([]);
     const FilterMenu = useRef(false);
@@ -284,30 +305,8 @@ function Blog() {
                     </div>
                 </div>
                 <div className={styles.ProjectsContainer}>
-                    {query === "" || query.length === 0 ? (
-                        myProjects.map((project, index) => (
-                            <div
-                                key={index}
-                                className={styles.ProjectItem}
-                                ref={(el) => (aboutBoxesRef.current[index] = el)}
-                            >
-                                <Link to={`/blog/${project.link}`}>
-                                    <div className={styles.Header}>
-                                        <img
-                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                            alt={project.title}
-                                        />
-                                    </div>
-                                    <h1
-                                        dangerouslySetInnerHTML={{
-                                            __html: project.title,
-                                        }}
-                                    />
-                                    <span>Created on {project.date}</span>
-                                </Link>
-                            </div>
-                        ))
-                    ) : results.length > 0 ? (
+                {query.length > 0 ? (
+                    results.length > 0 ? (
                         results.map((project, index) => (
                             <div
                                 key={index}
@@ -331,9 +330,59 @@ function Blog() {
                             </div>
                         ))
                     ) : (
-                        <div className={styles.AreyouLost}> 
-                        </div>
-                    )}
+                        <h1>No projects found</h1>
+                    )
+                ) : (
+                    // Display filtered projects if no query but checkboxes are selected
+                    filteredProjects.length > 0 ? (
+                        filteredProjects.map((project, index) => (
+                            <div
+                                key={index}
+                                className={styles.ProjectItem}
+                                ref={(el) => (aboutBoxesRef.current[index] = el)}
+                            >
+                                <Link to={`/blog/${project.link}`}>
+                                    <div className={styles.Header}>
+                                        <img
+                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                            alt={project.title}
+                                        />
+                                    </div>
+                                    <h1
+                                        dangerouslySetInnerHTML={{
+                                            __html: project.title,
+                                        }}
+                                    />
+                                    <span>Created on {project.date}</span>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        // If no query or filters, display all projects
+                        myProjects.map((project, index) => (
+                            <div
+                                key={index}
+                                className={styles.ProjectItem}
+                                ref={(el) => (aboutBoxesRef.current[index] = el)}
+                            >
+                                <Link to={`/blog/${project.link}`}>
+                                    <div className={styles.Header}>
+                                        <img
+                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                            alt={project.title}
+                                        />
+                                    </div>
+                                    <h1
+                                        dangerouslySetInnerHTML={{
+                                            __html: project.title,
+                                        }}
+                                    />
+                                    <span>Created on {project.date}</span>
+                                </Link>
+                            </div>
+                        ))
+                    )
+                )}
                 </div>
             </div>
             <footer>
