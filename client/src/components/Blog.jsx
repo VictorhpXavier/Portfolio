@@ -11,7 +11,7 @@ function Blog() {
             title: 'How Was <strong>VHX</strong> AI ChatBot Made?',
             image: 'tile.jpg',
             date: '17 August 2024',
-            pcDate: '2024-08-17',
+            pcDate: new Date('2024-08-17'),
             Languages: ['HTML', 'CSS', 'JS', 'PYTHON', 'SQL'],
             categories: ['Machine-Learning'],
         },
@@ -20,7 +20,7 @@ function Blog() {
             title: `How Was this Site Made?`,
             image: 'pfp.jpg',
             date: '23 august 2024',
-            pcDate: '2024-08-23',
+            pcDate: new Date('2024-08-23'),
             Languages: ['REACTJS', 'NODEJS', 'SQL'],
             categories: '',
         },
@@ -29,7 +29,7 @@ function Blog() {
             title: `Automate Life`,
             image: 'AutomateLife.png',
             date: '19 august 2024',
-            pcDate: '2024-08-19',
+            pcDate: new Date('2024-08-19'),
             Languages: ['PYTHON'],
             categories: ['Automation'],
         },
@@ -38,7 +38,7 @@ function Blog() {
             title: `My google extension`,
             image: 'Suspicious.png',
             date: '11 september 2024',
-            pcDate: '2024-09-11',
+            pcDate: new Date('2024-09-11'),
             Languages: ['HTML', 'CSS', 'JS'],
             categories: ['Google-Extension'],
         },
@@ -47,7 +47,7 @@ function Blog() {
             title: `Improve resume`,
             image: 'evaluator.webp',
             date: '11 september 2024',
-            pcDate: '2024-09-11',
+            pcDate: new Date('2024-09-11'),
             Languages: ['REACT', 'PYTHON'],
             categories: ['Machine-Learning'],
         },
@@ -56,7 +56,7 @@ function Blog() {
             title: `Full stack AI learning Platform`,
             image: 'learning.webp',
             date: '11 september 2024',
-            pcDate: '2024-09-11',
+            pcDate: new Date('2024-09-11'),
             Languages: ['REACT', 'JAVA', 'SQL'],
             categories: ['Machine-Learning'],
         },
@@ -65,13 +65,12 @@ function Blog() {
             title: 'Social media content creator Bot',
             image: 'what-are-bots.jpg',
             date: '12 september 2024',
-            pcDate: '2024-09-12',
+            pcDate: new Date('2024-09-12'),
             Languages: ['HTML', 'CSS', 'JS', 'PYTHON'],
             categories: ['Machine-Learning'],
         },
     ];
     const [isOpen, setIsOpen] = useState(false);
-    const openFilterMenu = useRef(null);
 
     // Function to toggle the menu state
     const toggleMenu = (event) => {
@@ -90,12 +89,12 @@ function Blog() {
         Oldest: false,
     });
     const [filteredProjects, setFilteredProjects] = useState([]);
+    let updatedArray = [...IdArray];
 
     const handleCheckboxChange = (event) => {
         const checkboxId = event.target.id;
         const isChecked = event.target.checked;
 
-        let updatedArray = [...IdArray];
         let updatedCheckedStates = { ...checkedStates };
 
         // Update checked states and IdArray based on selection
@@ -118,7 +117,6 @@ function Blog() {
         setIdArray(updatedArray);
         setCheckedStates(updatedCheckedStates);
 
-        // Trigger search/filtering
         handlecheckBoxFuseSearchQuery();
     };
 
@@ -132,6 +130,7 @@ function Blog() {
         keys: ['title'],
         threshold: 0.4,
     });
+
     const handleSearchQuery = debounce((event) => {
         const searchQuery = searchRef.current.value;
         setQuery(searchQuery);
@@ -143,19 +142,19 @@ function Blog() {
         }
     }, 300);
 
-    
+
     const handlecheckBoxFuseSearchQuery = () => {
-        let filtered = [...myProjects];
-        const filter = filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
-        console.log(filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate)))
-        if (IdArray.includes('Oldest')) {
-            filtered.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
-        } else if (IdArray.includes('Recent')) {
-            filtered.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate));
+        let sortedProjects = [...myProjects] 
+        
+        if (updatedArray.includes('Oldest')) {
+            sortedProjects.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate))
+            setFilteredProjects(sortedProjects)
+        } else if (updatedArray.includes('Recent')) {
+            sortedProjects.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate))
+            setFilteredProjects(sortedProjects)
         } else {
-            setFilteredProjects(filtered);
+            setFilteredProjects(myProjects)
         }
-        setFilteredProjects(filtered);
 
     };
 
