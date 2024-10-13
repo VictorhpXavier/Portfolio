@@ -12,7 +12,7 @@ function Blog() {
             image: 'tile.jpg',
             date: '17 August 2024',
             pcDate: new Date('2024-08-17'),
-            Languages: ['HTML', 'CSS', 'JS', 'PYTHON', 'SQL'],
+            Languages: ['HTML', 'CSS', 'JS', 'JavaScript', 'PYTHON', 'SQL'],
             categories: ['Machine-Learning'],
         },
         {
@@ -21,7 +21,7 @@ function Blog() {
             image: 'pfp.jpg',
             date: '23 august 2024',
             pcDate: new Date('2024-08-23'),
-            Languages: ['REACTJS', 'NODEJS', 'SQL'],
+            Languages: ['REACT','JavaScript', 'NODEJS', 'SQL'],
             categories: '',
         },
         {
@@ -48,7 +48,7 @@ function Blog() {
             image: 'evaluator.webp',
             date: '11 september 2024',
             pcDate: new Date('2024-09-11'),
-            Languages: ['REACT', 'PYTHON'],
+            Languages: ['REACT','JavaScript', 'PYTHON'],
             categories: ['Machine-Learning'],
         },
         {
@@ -57,7 +57,7 @@ function Blog() {
             image: 'learning.webp',
             date: '11 september 2024',
             pcDate: new Date('2024-09-11'),
-            Languages: ['REACT', 'JAVA', 'SQL'],
+            Languages: ['REACT','JavaScript', 'JAVA', 'SQL'],
             categories: ['Machine-Learning'],
         },
         {
@@ -70,6 +70,7 @@ function Blog() {
             categories: ['Machine-Learning'],
         },
     ];
+
     const [isOpen, setIsOpen] = useState(false);
 
     // Function to toggle the menu state
@@ -127,7 +128,7 @@ function Blog() {
     
     //Handle Fuse
     const fuseSearchQuery = new Fuse(myProjects, {
-        keys: ['title'],
+        keys: ['Languages'],
         threshold: 0.4,
     });
 
@@ -296,7 +297,7 @@ function Blog() {
                             >
                                 <input
                                     type="text"
-                                    placeholder="Search by name / language"
+                                    placeholder="Programming language"
                                     ref={searchRef}
                                 />
                             </div>
@@ -304,84 +305,38 @@ function Blog() {
                     </div>
                 </div>
                 <div className={styles.ProjectsContainer}>
-                {query.length > 0 ? (
-                    results.length > 0 ? (
-                        results.map((project, index) => (
-                            <div
-                                key={index}
-                                className={styles.ProjectItem}
-                                ref={(el) => (aboutBoxesRef.current[index] = el)}
-                            >
-                                <Link to={`/blog/${project.link}`}>
-                                    <div className={styles.Header}>
-                                        <img
-                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                            alt={project.title}
-                                        />
-                                    </div>
-                                    <h1
-                                        dangerouslySetInnerHTML={{
-                                            __html: project.title,
-                                        }}
-                                    />
-                                    <span>Created on {project.date}</span>
-                                </Link>
+                {(
+                    results.length > 0 && filteredProjects.length === 0 ? results
+                    : filteredProjects.length > 0 && results.length === 0 ? filteredProjects
+                    : results.length > 0 && filteredProjects.length > 0 ? 
+                        // Merge results and filteredProjects, then filter out duplicates
+                        [...results, ...filteredProjects].filter(
+                            (project, index, self) =>
+                                index === self.findIndex((p) => p.link === project.link)
+                        )
+                    : myProjects
+                ).map((project, index) => (
+                    <div
+                        key={index}
+                        className={styles.ProjectItem}
+                        ref={(el) => (aboutBoxesRef.current[index] = el)}
+                    >
+                        <Link to={`/blog/${project.link}`}>
+                            <div className={styles.Header}>
+                                <img
+                                    src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                    alt={project.title}
+                                />
                             </div>
-                        ))
-                    ) : (
-                        <h1>No projects found</h1>
-                    )
-                ) : (
-                    // Display filtered projects if no query but checkboxes are selected
-                    filteredProjects.length > 0 ? (
-                        filteredProjects.map((project, index) => (
-                            <div
-                                key={index}
-                                className={styles.ProjectItem}
-                                ref={(el) => (aboutBoxesRef.current[index] = el)}
-                            >
-                                <Link to={`/blog/${project.link}`}>
-                                    <div className={styles.Header}>
-                                        <img
-                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                            alt={project.title}
-                                        />
-                                    </div>
-                                    <h1
-                                        dangerouslySetInnerHTML={{
-                                            __html: project.title,
-                                        }}
-                                    />
-                                    <span>Created on {project.date}</span>
-                                </Link>
-                            </div>
-                        ))
-                    ) : (
-                        // If no query or filters, display all projects
-                        myProjects.map((project, index) => (
-                            <div
-                                key={index}
-                                className={styles.ProjectItem}
-                                ref={(el) => (aboutBoxesRef.current[index] = el)}
-                            >
-                                <Link to={`/blog/${project.link}`}>
-                                    <div className={styles.Header}>
-                                        <img
-                                            src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
-                                            alt={project.title}
-                                        />
-                                    </div>
-                                    <h1
-                                        dangerouslySetInnerHTML={{
-                                            __html: project.title,
-                                        }}
-                                    />
-                                    <span>Created on {project.date}</span>
-                                </Link>
-                            </div>
-                        ))
-                    )
-                )}
+                            <h1
+                                dangerouslySetInnerHTML={{
+                                    __html: project.title,
+                                }}
+                            />
+                            <span>Created on {project.date}</span>
+                        </Link>
+                    </div>
+                ))}
                 </div>
             </div>
             <footer>

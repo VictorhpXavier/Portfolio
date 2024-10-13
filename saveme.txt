@@ -1,0 +1,43 @@
+ results.map((project, index) => (
+                        <div
+                            key={index}
+                            className={styles.ProjectItem}
+                            ref={(el) => (aboutBoxesRef.current[index] = el)}
+                        >
+                            <Link to={`/blog/${project.link}`}>
+                                <div className={styles.Header}>
+                                    <img
+                                        src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                        alt={project.title}
+                                    />
+                                </div>
+                                <h1
+                                    dangerouslySetInnerHTML={{
+                                        __html: project.title,
+                                    }}
+                                />
+                                <span>Created on {project.date}</span>
+                            </Link>
+                        </div>
+
+                        filteredProjects.map((project, index) => (
+                        <div
+                            key={index}
+                            className={styles.ProjectItem}
+                            ref={(el) => (aboutBoxesRef.current[index] = el)}
+                        >
+                            <Link to={`/blog/${project.link}`}>
+                                <div className={styles.Header}>
+                                    <img
+                                        src={`${process.env.PUBLIC_URL}/BlogImages/${project.image}`}
+                                        alt={project.title}
+                                    />
+                                </div>
+                                <h1
+                                    dangerouslySetInnerHTML={{
+                                        __html: project.title,
+                                    }}
+                                />
+                                <span>Created on {project.date}</span>
+                            </Link>
+                        </div>
