@@ -112,7 +112,7 @@ function Home() {
         },
         {
           title: 'Server Development',
-          content: ['NodeJs', 'Express', 'Python', 'SQL']
+          content: ['SpringBoot', 'NodeJs', 'Express', 'Python', 'SQL']
         },
         {
           title: 'Other Technologies',
@@ -204,7 +204,7 @@ function Home() {
                     <div className={styles.ServerDev}>
                         <p>
                             <strong>Server Development</strong>
-                            <br></br>NodeJs<br></br>Express<br></br>Python<br></br>
+                            <br></br>SpringBoot<br></br>NodeJs<br></br>Express<br></br>Python<br></br>
                             Sql{' '}
                         </p>
                     </div>

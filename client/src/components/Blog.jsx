@@ -69,6 +69,24 @@ function Blog() {
             Languages: ['HTML', 'CSS', 'JS', 'PYTHON'],
             categories: ['Machine-Learning'],
         },
+        {
+            link: 'bandit',
+            title: `Bandit CTF`,
+            image: 'evaluator.webp',
+            date: '11 september 2024',
+            pcDate: new Date('2024-09-11'),
+            Languages: ['REACT','JavaScript', 'PYTHON'],
+            categories: ['CTF'],
+        },
+        {
+            link: 'bandi2t',
+            title: `Bandit CTF`,
+            image: 'evaluator.webp',
+            date: '11 september 2024',
+            pcDate: new Date('2024-09-11'),
+            Languages: ['REACT','JavaScript', 'PYTHON'],
+            categories: ['CTF'],
+        },
     ];
 
     const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +113,7 @@ function Blog() {
     const handleCheckboxChange = (event) => {
         const checkboxId = event.target.id;
         const isChecked = event.target.checked;
-
+        console.log('checkbox id = ', checkboxId)
         let updatedCheckedStates = { ...checkedStates };
 
         // Update checked states and IdArray based on selection
@@ -116,6 +134,7 @@ function Blog() {
         }
 
         setIdArray(updatedArray);
+        console.log("updated arr", updatedArray)
         setCheckedStates(updatedCheckedStates);
 
         handlecheckBoxFuseSearchQuery();
@@ -132,8 +151,8 @@ function Blog() {
         threshold: 0.4,
     });
 
-    const handleSearchQuery = debounce((event) => {
-        const searchQuery = searchRef.current.value;
+    const handleSearchQuery = () => {
+    const searchQuery = searchRef.current.value;
         setQuery(searchQuery);
         if (searchQuery) {
             const fuzzyResults = fuseSearchQuery.search(searchQuery);
@@ -141,21 +160,31 @@ function Blog() {
         } else {
             setResults(myProjects); 
         }
-    }, 300);
-
-
+    };
+    
     const handlecheckBoxFuseSearchQuery = () => {
-        let sortedProjects = [...myProjects] 
-        
+        /* problem with this lines i think Machine learning working but not CTF*/
+        let sortedProjects = [...myProjects];
+        let matchingCategory = updatedArray.find(value => myProjects[0].categories.includes(value)); 
+        const projectsWithSpecificCategory = myProjects.filter(project =>
+            project.categories.includes(matchingCategory)
+        );
+        /**/ 
+        console.log("sorted projects", sortedProjects)
+        console.log("specific categories", projectsWithSpecificCategory)
+        console.log("matching category", matchingCategory)
         if (updatedArray.includes('Oldest')) {
-            sortedProjects.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate))
-            setFilteredProjects(sortedProjects)
+            sortedProjects.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate));
         } else if (updatedArray.includes('Recent')) {
-            sortedProjects.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate))
-            setFilteredProjects(sortedProjects)
-        } else {
-            setFilteredProjects(myProjects)
+            sortedProjects.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
         }
+
+        if (sortedProjects.length === 0) {
+            setFilteredProjects(myProjects);
+        } else {
+            setFilteredProjects(sortedProjects);
+        }
+    
 
     };
 
@@ -260,7 +289,7 @@ function Blog() {
                             <label>
                                 <input
                                     type="checkbox"
-                                    id="ML"
+                                    id="Machine-Learning"
                                     onChange={handleCheckboxChange}
                                 />
                                 <span>Machine Learning</span>
