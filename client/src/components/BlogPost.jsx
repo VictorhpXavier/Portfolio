@@ -60,6 +60,11 @@ const blogPosts = {
     HeaderImage: `${process.env.PUBLIC_URL}/BlogImages/what-are-bots.jpg`,
     TryProjectdisplay: "none"
   },
+  BanditCtf: {
+    title: "will this work?",
+    TryProjectdisplay: "none"
+  },
+
 };
 
 export default function BlogPost() {

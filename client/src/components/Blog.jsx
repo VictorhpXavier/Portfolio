@@ -22,7 +22,7 @@ function Blog() {
             date: '23 august 2024',
             pcDate: new Date('2024-08-23'),
             Languages: ['REACT','JavaScript', 'NODEJS', 'SQL'],
-            categories: '',
+            categories: [''],
         },
         {
             link: 'AutomateLife',
@@ -70,22 +70,13 @@ function Blog() {
             categories: ['Machine-Learning'],
         },
         {
-            link: 'bandit',
+            link: 'BanditCtf',
             title: `Bandit CTF`,
             image: 'evaluator.webp',
             date: '11 september 2024',
             pcDate: new Date('2024-09-11'),
             Languages: ['REACT','JavaScript', 'PYTHON'],
-            categories: ['CTF'],
-        },
-        {
-            link: 'bandi2t',
-            title: `Bandit CTF`,
-            image: 'evaluator.webp',
-            date: '11 september 2024',
-            pcDate: new Date('2024-09-11'),
-            Languages: ['REACT','JavaScript', 'PYTHON'],
-            categories: ['CTF'],
+            categories: ['Capture-The-Flag'],
         },
     ];
 
@@ -163,29 +154,31 @@ function Blog() {
     };
     
     const handlecheckBoxFuseSearchQuery = () => {
-        /* problem with this lines i think Machine learning working but not CTF*/
         let sortedProjects = [...myProjects];
-        let matchingCategory = updatedArray.find(value => myProjects[0].categories.includes(value)); 
+    
+        // Filter projects based on matching categories in updatedArray
         const projectsWithSpecificCategory = myProjects.filter(project =>
-            project.categories.includes(matchingCategory)
+            project.categories.some(category => updatedArray.includes(category))
         );
-        /**/ 
-        console.log("sorted projects", sortedProjects)
-        console.log("specific categories", projectsWithSpecificCategory)
-        console.log("matching category", matchingCategory)
+    
+        if (projectsWithSpecificCategory.length > 0) {
+            sortedProjects = projectsWithSpecificCategory;
+        }
+    
+        // Sorting logic based on 'Oldest' or 'Recent' in updatedArray
         if (updatedArray.includes('Oldest')) {
             sortedProjects.sort((a, b) => new Date(a.pcDate) - new Date(b.pcDate));
         } else if (updatedArray.includes('Recent')) {
             sortedProjects.sort((a, b) => new Date(b.pcDate) - new Date(a.pcDate));
         }
-
+    
+        // Update the state based on whether there are any sorted projects or not
         if (sortedProjects.length === 0) {
             setFilteredProjects(myProjects);
         } else {
             setFilteredProjects(sortedProjects);
         }
     
-
     };
 
     const aboutBoxesRef = useRef([]);
@@ -297,7 +290,7 @@ function Blog() {
                             <label>
                                 <input
                                     type="checkbox"
-                                    id="CTF"
+                                    id="Capture-The-Flag"
                                     onChange={handleCheckboxChange}
                                 />
                                 <span>Capture the flag</span>
